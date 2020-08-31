@@ -623,14 +623,15 @@ function createOrderCardContent(responseObj) {
 	
 	//SLAHighlight(id);
 	
+	
 	//loop through each item in a order
 	for(var y = 0; y < orderData.length; y++) {
 		if((orderData[y].name).substring(0, 5) != "Table") {
 			if(orderData[y].variantName == null || orderData[y].variantName == "") {
-				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong> <br> Qty: <i>" + orderData[y].quantity + ' </i> <br>'
+				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong> <br> Qty: <a id='qty'>" + orderData[y].quantity + ' </a> <br>'
 			} else {
 				variantName = "<br>" + orderData[y].variantName + "<br>"
-				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong><i>" + variantName + "</i> Qty: <i><strong>" + orderData[y].quantity + '</strong> </i> <br>'
+				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong><i>" + variantName + "</i> Qty: <i> <a id='qty'>" + orderData[y].quantity + '</a> </i> <br>'
 			}
 			if(orderData[y].comment != undefined) {
 				html2 = "<p>" + html2 + "Comments:<i> " + orderData[y].comment + "</i><br> </p>";

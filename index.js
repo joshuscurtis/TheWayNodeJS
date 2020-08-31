@@ -29,6 +29,7 @@ io.on('connection', function(client) {
 });
 
 
+
 //pg
 var data
 const { Pool, Client } = require('pg')
@@ -45,6 +46,7 @@ function getData() {
 			data = res.rows
 		})
 }
+
 
 
 getData();
@@ -67,6 +69,36 @@ app.use(function(req, res, next) {
 
 var auth;
 var auth1;
+
+
+var weatherAPI = {
+            'url': "https://api.openweathermap.org/data/2.5/weather?q=Luton,uk&appid=ccda9d309ff5322478451b54ef0cfa38&units=metric",
+            'method': "GET",
+            'timeout': 0,
+            'headers': {
+                "content-type": "application/json"
+            }
+		}
+setInterval(function () {
+	request(weatherAPI, function(error, response) {
+	console.log(response.body);
+	body = JSON.parse(response.body)
+	temp = body.main.temp;
+	dateObj = new Date()
+	date = dateObj.getFullYear() +"-0"+(dateObj.getMonth()+1)+"-"+dateObj.getDate();
+	var thisQuery = "UPDATE public.stats SET temp = "+temp+" WHERE date = '"+date+"';"
+	
+	console.log(thisQuery);
+	pool.query(thisQuery, (err, result) => {
+		console.log(result);
+		console.log(err)
+	})
+})	
+}, 10000)
+
+
+
+
 
 
 function doesOrderContainTable(orderData) {
@@ -225,6 +257,8 @@ basicAuth({
 	
 	
 	
+	
+	
 //update db
 	app.post('/update', (req,res) => {
 		const id = req.body.id;
@@ -254,6 +288,8 @@ basicAuth({
 		res.send('Date:' +date+" has been updated");
 	})
 
+	
+	
 app.post('/updateAvg', (req,res) => {
 		const val = req.body.val;
 		const col = "avgtime"
@@ -293,14 +329,5 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 
-	
-
-	
-
-	
-	
-	
-	
-	
 //START SERVER
-	server.listen(PORT);
+server.listen(PORT);
