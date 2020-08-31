@@ -621,6 +621,8 @@ function createOrderCardContent(responseObj) {
 	
 	//SLAHighlight(id);
 	
+	
+	
 	//loop through each item in a order
 	for(var y = 0; y < orderData.length; y++) {
 		if((orderData[y].name).substring(0, 5) != "Table") {
