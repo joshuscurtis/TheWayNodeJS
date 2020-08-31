@@ -329,6 +329,5 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 
-	
 //START SERVER
 server.listen(PORT);
