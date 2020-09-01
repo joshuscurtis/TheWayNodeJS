@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-"
+		<div class="col-md-6">
 			
 			<div class="card">
 				<h5 class="card-header">										Last 5 Days
@@ -122,22 +122,33 @@ net.train([{
 
 console.log(output)
 	
-var data = <%- JSON.stringify(eventData) %>;
-
-var timeToClose = []
-var date = []
-var key = []
-var ids = []
-
-for (var i = 0; i < data.length; i++) {
-	timeToClose.push((parseInt(data[i].timetoclose)/1000)/60)
-	thisDate = (data[i].date).substring(0, 16)
-	date.push(thisDate)
-	key.push(i)
-	ids.push(data[i].order_id)
-}
+	
+	var data = <%- JSON.stringify(eventData) %>;
+	var timeToClose = []
+	var date = []
+	var key = []
+	var ids = []
+	for (var i = 0; i < data.length; i++) {
+		timeToClose.push((parseInt(data[i].timetoclose)/1000)/60)
+		thisDate = (data[i].date).substring(0, 16)
+		date.push(thisDate)
+		key.push(i)
+		ids.push(data[i].order_id)
+	}
+	
 	
 var obj = {};
+function createDateTimeObj() {
+
+	for(var i=0;i<key.length;i++) {
+	    obj[key[i]] = {
+	        date: date[i].substring(0, 10),
+	        time: timeToClose[i],
+			id: ids[i]
+	    }
+	}
+	return obj
+}
 
 function createArray() {
 	array = []
