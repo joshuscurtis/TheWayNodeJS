@@ -80,7 +80,17 @@ var weatherAPI = {
             }
 		}
 setInterval(function () {
-	request(weatherAPI, function(error, response) {
+	
+}, 28800000)
+
+
+
+
+window.setInterval(function(){ // Set interval for checking
+    var date = new Date(); // Create a Date object to find out what time it is
+    if(date.getHours() === 11 && date.getMinutes() === 30){ // Check the time
+        // Do stuff
+			request(weatherAPI, function(error, response) {
 	console.log(response.body);
 	body = JSON.parse(response.body)
 	temp = body.main.temp;
@@ -94,12 +104,8 @@ setInterval(function () {
 		console.log(err)
 	})
 })	
-}, 28800000)
-
-
-
-
-
+    }
+}, 20000); // Repeat every 20000 milliseconds (20s)
 
 function doesOrderContainTable(orderData) {
 	if (orderData != null) {
