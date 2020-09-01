@@ -56,7 +56,7 @@
 				<h5 class="card-header">										Last 5 Days
 				</h5>
 				<div class="card-body">
-					<div id="sla"></div>
+					<table id="daytable" class="display" width="90%"></table>
 				</div>
 				<div class="card-footer">
 				</div>
@@ -253,7 +253,17 @@ var day
 		}
 		console.log("dates: " + dates)
 		l5D = createL5Data();
-		
+		$(document).ready(function() {
+		    $('#daytable').DataTable( {
+		        data: l5D,
+				columns: [
+		            { title: "Date" },
+		            { title: "Avg Time" },
+					{ title: "Difficulty" },
+		            { title: "Temp" }
+		        ]
+		    });
+		});
 		
 		var thisone = document.getElementById('myChart');		
 	var day = new Chart(thisone, {
@@ -443,7 +453,7 @@ $(document).ready(function() {
     } );
 } );
 
-	
+
 	
 </script>
 <style>
