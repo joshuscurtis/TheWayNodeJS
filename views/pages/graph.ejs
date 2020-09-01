@@ -198,10 +198,10 @@ return total/count;
 
 createDateTimeObj()
 today = new Date();
-todayDate = today.getFullYear() +"-0"+ (today.getMonth()+1)+"-"+today.getDate()
+todayDate = today.getFullYear() +"-0"+ (today.getMonth()+1)+"-0"+today.getDate()
 last5Days = []
 for (var i = 0; i < 5; i++) {
-	last5Days[i] = today.getFullYear() +"-0"+ (today.getMonth()+1)+"-"+(today.getDate() -i)
+	last5Days[i] = today.getFullYear() +"-0"+ (today.getMonth()+1)+"-0"+(today.getDate() -i)
 	}
 
 
