@@ -85,32 +85,32 @@
 
 <script>
 var net = new brain.NeuralNetwork();
-
+//train r=rain, t=temp
 net.train([{
     input: {
-      t: 11,
-      r: 0.7
+      t: 17,
+      r: 0.0
     },
     output: {
-      ten: 1
+      sixty: 1
     }
   },
   {
     input: {
-      t: 16,
-      r: 0.5
-    },
-    output: {
-      twenty: 1
-    }
-  },
-  {
-    input: {
-      t: 20,
+      t: 13,
       r: 0.1
     },
     output: {
-      thirty: 1
+      forty: 1
+    }
+  },
+  {
+    input: {
+      t: 13,
+      r: 0.1
+    },
+    output: {
+      sixty: 1
     }
   }
   ]);
