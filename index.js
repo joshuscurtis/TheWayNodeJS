@@ -86,7 +86,7 @@ setInterval(function () {
 
 
 
-window.setInterval(function(){ // Set interval for checking
+setInterval(function(){ // Set interval for checking
     var date = new Date(); // Create a Date object to find out what time it is
     if(date.getHours() === 11 && date.getMinutes() === 30){ // Check the time
         // Do stuff
