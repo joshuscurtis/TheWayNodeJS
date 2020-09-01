@@ -94,7 +94,7 @@ setInterval(function () {
 		console.log(err)
 	})
 })	
-}, 10000)
+}, 28800000)
 
 
 
