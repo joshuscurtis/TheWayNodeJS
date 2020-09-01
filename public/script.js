@@ -403,6 +403,7 @@ function closeOrder(id) {
 	document.getElementById(id).remove()
 	updatePG(id, 'isclosed', true)
 	updatePG(id, 'closetime', Date.now())
+	
 }
 
 function updatePG(id, column, value) {
