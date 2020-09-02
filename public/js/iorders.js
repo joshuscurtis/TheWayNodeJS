@@ -212,7 +212,7 @@ function drawNth(x, table) {
 	if(option == "split" && isTable == false) document.getElementById(divID).remove();
 	// setOld(newestOrder()-x);
 	//check if order is closed and is a table order
-	dbOrCacheClosed = (isClosed(divId) || checkCacheForOrder(id).isclosed);
+	dbOrCacheClosed = (isClosed(divId));
 	if(document.getElementById(divId) == null && (dbOrCacheClosed == false) && isTable(divId) == table) {
 		//create div
 		g = document.createElement('div');
