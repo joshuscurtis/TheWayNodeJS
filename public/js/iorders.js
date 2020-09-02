@@ -117,9 +117,28 @@ function searchOrders(id) {
 			return orders[y]
 		}
 	}
-	
 	return dummy;
 }
+
+function setCacheOrder(id, attr, value) {
+	order = searchOrders(id); //find the order
+	order[attr] = value //make the change 
+	console.log('changed to...')
+	console.log(order)
+	localStorage.setItem('cache', JSON.stringify(order)); //store in ls
+}
+
+function checkCacheForOrder(id) {
+	cache = localStorage.getItem('cache');
+	order = JSON.parse(cache)
+	console.log(order)
+	if (order.order_id == id){
+		return order;
+	}
+	return null
+}
+
+
 
 function newestOrder() {
 	orders = allOrders;
@@ -232,7 +251,8 @@ function drawNth(x, table) {
 		barButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
-			//change class to green
+			//store cached item
+			setCacheOrder(aId, assignee2, false)
 			console.log('Order id: '+aId+ " Bar");
 		});
 		
@@ -241,6 +261,7 @@ function drawNth(x, table) {
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
 			//change class to green
+			setCacheOrder(aId, assignee, false)
 			console.log('Order id: '+aId+ " Kitchen");	
 		});
 		
@@ -505,6 +526,11 @@ function refresh2() {
 setTimeout(refresh, 1000);
 setTimeout(refresh2, 5000);
 
+//clear cache after 20s
+setInterval(function () {
+	localStorage.setItem('cache', 'empty')
+}, 20000)
+
 function getAllOrders() {
 	socket.on('db', function(data) {
 		allOrders = data.db;
@@ -641,9 +667,17 @@ function createOrderCardContent(responseObj) {
 		}
 	}
 	if(orderDetails.assignee == null) var assignee = "danger";
-	else assignee = orderDetails.assignee;
-	assignee2 = orderDetails.assignee2;
 	if(assignee2 == null) assignee2 = 'danger';
+	
+	assignee = orderDetails.assignee;
+	assignee2 = orderDetails.assignee2;
+	
+	//check cache for this order
+	if (checkCacheForOrder(id) != null) {
+		assignee = checkCacheForOrder(id).assignee;
+		assignee2 = checkCacheForOrder(id).assignee2;
+	}
+
 	if(assignee == 'true') {
 		assignee = "danger"
 	};
