@@ -666,11 +666,13 @@ function createOrderCardContent(responseObj) {
 			}
 		}
 	}
+	assignee = orderDetails.assignee;
+	assignee2 = orderDetails.assignee2;
+	
 	if(orderDetails.assignee == null) var assignee = "danger";
 	if(assignee2 == null) assignee2 = 'danger';
 	
-	assignee = orderDetails.assignee;
-	assignee2 = orderDetails.assignee2;
+	
 	
 	//check cache for this order
 	if (checkCacheForOrder(id) != null) {
