@@ -37,7 +37,6 @@ net.train([{
 console.log(output)
 	
 	
-	var data = <%- JSON.stringify(eventData) %>;
 	var timeToClose = []
 	var date = []
 	var key = []
