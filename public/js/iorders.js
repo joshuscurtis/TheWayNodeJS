@@ -130,6 +130,7 @@ function setCacheOrder(id, attr, value) {
 
 function checkCacheForOrder(id) {
 	cache = localStorage.getItem('cache');
+	if (cache == 'empty') return null
 	order = JSON.parse(cache)
 	console.log(order)
 	if (order.order_id == id){
@@ -252,7 +253,7 @@ function drawNth(x, table) {
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
 			//store cached item
-			setCacheOrder(aId, assignee2, false)
+			setCacheOrder(aId, 'assignee2', false)
 			console.log('Order id: '+aId+ " Bar");
 		});
 		
@@ -261,7 +262,7 @@ function drawNth(x, table) {
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
 			//change class to green
-			setCacheOrder(aId, assignee, false)
+			setCacheOrder(aId, 'assignee', false)
 			console.log('Order id: '+aId+ " Kitchen");	
 		});
 		
