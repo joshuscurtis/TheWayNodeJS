@@ -232,6 +232,7 @@ function drawNth(x, table) {
 		barButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
+			//change class to green
 			console.log('Order id: '+aId+ " Bar");
 		});
 		
@@ -239,6 +240,7 @@ function drawNth(x, table) {
 			kitButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
+			//change class to green
 			console.log('Order id: '+aId+ " Kitchen");	
 		});
 		
@@ -498,7 +500,7 @@ function refresh2() {
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
 	
-	setTimeout(refresh2, 1000);
+	setTimeout(refresh2, 500);
 }
 setTimeout(refresh, 1000);
 setTimeout(refresh2, 5000);
