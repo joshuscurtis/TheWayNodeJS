@@ -232,6 +232,8 @@ function drawNth(x, table) {
 		barButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
+			thisbutton = document.getElementById('b'+aId)
+			thisbutton.setAttribute("class", "btn btn-sucess")
 			console.log('Order id: '+aId+ " Bar");
 		});
 		
@@ -239,7 +241,9 @@ function drawNth(x, table) {
 			kitButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
-			console.log('Order id: '+aId+ " Kitchen");	
+			console.log('Order id: '+aId+ " Kitchen");
+			thisbutton = document.getElementById('k'+aId)
+			thisbutton.setAttribute("class", "btn btn-sucess")
 		});
 		
 		SLAHighlight(divId);
