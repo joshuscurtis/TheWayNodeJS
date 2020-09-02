@@ -212,7 +212,7 @@ function drawNth(x, table) {
 	if(option == "split" && isTable == false) document.getElementById(divID).remove();
 	// setOld(newestOrder()-x);
 	//check if order is closed and is a table order
-	dbOrCacheClosed = (isClosed(divId) || getCacheClosedOrder(divId));
+	dbOrCacheClosed = (isClosed(divId) || checkCacheForOrder(id).isclosed);
 	if(document.getElementById(divId) == null && (dbOrCacheClosed == false) && isTable(divId) == table) {
 		//create div
 		g = document.createElement('div');
@@ -427,7 +427,7 @@ function closeOrder(id) {
 	document.getElementById(id).remove()
 	updatePG(id, 'isclosed', true)
 	updatePG(id, 'closetime', Date.now())
-	
+	setCacheOrder(id, 'isclosed', true);
 }
 
 function updatePG(id, column, value) {
