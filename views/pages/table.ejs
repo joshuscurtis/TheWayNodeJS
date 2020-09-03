@@ -3,7 +3,7 @@
 <head>
   <% include ../partials/header.ejs %>
 <!-- WayOMA -->
-<script src="script.js"></script>
+<script src="js/iorders.js"></script>
 </head>
 
 <meta name="viewport" content="width=device-width,
@@ -20,7 +20,7 @@ initial-scale=1">
 			<div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h5 class="text-white h4">Settings</h5>
+      <h5 class="text-white h4">space</h5>
 	 <button style="margin-top:20px;" onclick="window.open('/stats','_self')" type="button" class="btn btn-secondary">
 			    		Dashboard
 					</button>
@@ -79,10 +79,8 @@ initial-scale=1">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-	<a class="navbar-brand" href="https://till.ccd.church">THE WAY</a>
- <a class="navbar-brand" href="#">
-    <img src="/logo.png" width="30" height="30" alt="logo">
-</a>
+	<a class="navbar-brand" href="/">iOrders</a>
+ <a class="navbar-brand" href="/"><img src="/logo.png" width="30" height="30" alt="logo"></a>
   </nav>
   			<h5 class="text-center" id="count">Open Orders:</h5>
 </div>	
@@ -111,9 +109,9 @@ initial-scale=1">
         	<div id="right"></div>
     </div>
 	
-	<div style="display: none;"class="row Footer">
+	<div style=""class="row Footer">
 	        <div class="col-xs-12">
-				<footer class="fixed-bottom"><p class="text-center">iOrders for iZettle - Josh Curtis</p></footer>
+  				<% include ../partials/footer.ejs %>
 	        </div>
 	    </div>
 	</div>
@@ -147,12 +145,13 @@ h5 {
 }
 
 footer {
-	background: grey;
-	height: 20px;
+/*	background: grey;*/
+	height: 25px;
+	opacity: 50%;
 }
 
 
-/* Flash class and keyframe animation */
+/* Flash class and keyframe animation */ 
 .flashit{
   color:#f2f;
 	-webkit-animation: flash linear 1s infinite;
