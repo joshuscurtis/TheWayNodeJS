@@ -107,7 +107,7 @@ function isClosed(id) {
 }
 //is order processing in either cache or db
 function isProcessing(id) {
-	if(searchOrders(id).isprocessing || getCachedOrder(id).isprocessing) return true;
+	if(searchOrders(id).isprocessing) return true;
 	return false;
 }
 
@@ -443,7 +443,7 @@ function refresh2() {
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
 	
-	setTimeout(refresh2, 1000);
+	setTimeout(refresh2, 1500);
 }
 
 
