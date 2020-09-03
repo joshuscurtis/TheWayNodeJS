@@ -12,8 +12,7 @@ socket.on('broadcast', function(data) {
 	if(data.description == true) audio.play();
 });
 
-socket.on('db', function(data) {
-	//console.log(data.db);
+socket.on('cache', function(data) {
 	for(var i = 0; i < (data.db).length; i++) {
 		sessionStorage.setItem(data.db[i].order_id, JSON.stringify(data.db[i]))
 	}
@@ -59,8 +58,33 @@ function searchOrders(id) {
 			return orders[y]
 		}
 	}
-	
 	return dummy;
+}
+
+//return the cached order as a object
+function getCachedOrder(id) {
+	try {
+		order = sessionStorage.getItem(id);
+		order = JSON.parse(order);
+		return order;
+	}
+	catch (error) {
+		console.log(error);
+		return dummy;
+	}
+}
+
+//make changes to a cached order
+function setCachedOrder(id, param, val) {
+	try {
+		order = sessionStorage.getItem(id);
+		order = JSON.parse(order);
+		order[param] = val;
+		sessionStorage.setItem(JSON.stringify(order));
+	}
+	catch (error) {
+		console.log(error);
+	}
 }
 
 //returns newest order id
@@ -83,10 +107,10 @@ function isClosed(id) {
 }
 //is order processing in either cache or db
 function isProcessing(id) {
-	processing = getCacheProcessingOrder(id);
-	if(searchOrders(id).isprocessing) return true;
+	if(searchOrders(id).isprocessing || getCachedOrder(id)) return true;
 	return false;
 }
+
 //is order bar status in either cache or db
 function isBarDone(id) {
 	
@@ -158,6 +182,8 @@ function drawNth(x, table) {
 		barButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
+			setCachedOrder(aId, 'assignee2', false);
+			
 			thisbutton = document.getElementById('b'+aId)
 			thisbutton.setAttribute("class", "btn btn-success")
 			console.log('Order id: '+aId+ " Bar");
@@ -167,6 +193,8 @@ function drawNth(x, table) {
 			kitButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
+			setCachedOrder(aId, 'assignee1', false);
+			
 			console.log('Order id: '+aId+ " Kitchen");
 			thisbutton = document.getElementById('k'+aId)
 			thisbutton.setAttribute("class", "btn btn-success")
@@ -465,6 +493,8 @@ function createOrderCardContent(responseObj) {
 	tableNum = 99; //TODO
 	orderTime = orderDetails.time; 
 	
+	cachedOrder = getCachedOrder(id);
+	
 	SLAHighlight(id);
 	
 	//setup take/table order
@@ -499,10 +529,17 @@ function createOrderCardContent(responseObj) {
 	}
 	
 	//set assignee buttons
+	
+	
 	if(orderDetails.assignee == null) var assignee = "danger";
 	else assignee = orderDetails.assignee;
 	assignee2 = orderDetails.assignee2;
 	if(assignee2 == null) assignee2 = 'danger';
+	
+	
+	assignee = (orderDetails.assignee || cachedOrder.assignee)
+	assignee2 = (orderDetails.assignee2 || cachedOrder.assignee2)
+	
 	if(assignee == 'true') {
 		assignee = "danger"
 	};

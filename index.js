@@ -137,6 +137,13 @@ setInterval(function(){
 	theTime = Date.now();
 }, 500)
 
+//update cache every 10seconds
+setInterval(function(){
+	//send data over socket	
+    pool.query('SELECT * FROM public.devorders', (err, res) => {
+		io.sockets.emit('cache',{ db: res.rows});
+	})
+}, 10000)
 
 //every 5seconds
 setInterval(function() {
