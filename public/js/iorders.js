@@ -88,12 +88,14 @@ function isProcessing(id) {
 	return false;
 }
 //is order bar status in either cache or db
-function barDone(id) {
+function isBarDone(id) {
+	
 	status = searchOrders(id).assignee2
 	return status
 }
 //is order kitchen status in either cache or db
-function kitDone(id) {
+function isKitDone(id) {
+	
 	status = searchOrders(id).assignee
 	return status
 }
@@ -117,7 +119,7 @@ function drawNth(x, table) {
 	
 	if(document.getElementById(divId) != null && view != "split") document.getElementById(divId).remove();
 	if(option == "split" && isTable == false) document.getElementById(divID).remove();
-	// setOld(newestOrder()-x);
+
 	//check if order is closed and is a table order
 	dbOrCacheClosed = (isClosed(divId) || getCacheClosedOrder(divId));
 	if(document.getElementById(divId) == null && (dbOrCacheClosed == false) && isTable(divId) == table) {
@@ -129,6 +131,7 @@ function drawNth(x, table) {
 		g.setAttribute("id", divId);
 		g.setAttribute("style", "margin: 10px");
 		g.setAttribute("class", "card text-white bg-success mb-3")
+		g.setAttribute("onclick", 'highlight(this);')
 		
 		//set card content
 		isSplit = document.getElementById("content").getAttribute("style")
@@ -145,7 +148,7 @@ function drawNth(x, table) {
 		//get card 
 		document.getElementById(divId).innerHTML = createOrderCardContent(searchOrders(divId));
 	
-		g.setAttribute("onclick", 'highlight(this);')
+
 		
 		//highlight for processing 
 		if(isProcessing(divId)) highlight2(g);
@@ -167,7 +170,7 @@ function drawNth(x, table) {
 			console.log('Order id: '+aId+ " Kitchen");
 			thisbutton = document.getElementById('k'+aId)
 			thisbutton.setAttribute("class", "btn btn-success")
-		});	
+		});
 		SLAHighlight(divId);
 	}
 }

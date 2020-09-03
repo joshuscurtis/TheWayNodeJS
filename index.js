@@ -1,25 +1,29 @@
-  
-const express = require('express')
-const path = require('path')	
+//env vars from heroku
 const PORT = process.env.PORT || 5000	
 const APIKEY = process.env.API
 const DBKEY = process.env.DB
-var app = express()
-var http = require('http')
+const connectionString = process.env.DATABASE_URL;
+
+//nodejs packages
+const express = require('express')
+const path = require('path')	
+const app = express()
+const http = require('http')
 const basicAuth = require('express-basic-auth')
+const server = require('http').createServer(app);
+const request = require('request');
+const bodyParser = require('body-parser');
+const io = require('socket.io')(server, options3);
+const options3 = { /* ... */ };
+
+//error page for auth
 var basicAuthError = '<html lang="id" dir="ltr">  <head>      <meta charset="utf-8" />      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />      <meta name="description" content="" />      <meta name="author" content="" />       <!-- Title -->      <title>Sorry, This Page Can&#39;t Be Accessed</title>      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" /> </head>  <body class="bg-dark text-white py-5">      <div class="container py-5">           <div class="row">                <div class="col-md-2 text-center">                     <p><i class="fa fa-exclamation-triangle fa-5x"></i><br/>Status Code: 403</p>                </div>                <div class="col-md-10">                     <h3>Incorrect Credentials</h3>                     <p>Your username and or password is incorrect. Please contact Rob, Steve or Jeremy for help.<br/>If you think you have made a mistake, please try again.</p>                     <a class="btn btn-danger" href="javascript:location.reload();">Try Again</a>                </div>           </div>      </div>       </body>  </html>'
 
-
-const server = require('http').createServer(app);
-const options3 = { /* ... */ };
-const io = require('socket.io')(server, options3);
-var request = require('request');
-
-const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+//socket io
 io.on('connection', function(client) {
     console.log('Client connected...');
     
@@ -29,49 +33,29 @@ io.on('connection', function(client) {
 });
 
 
-
-//pg
+//pg connection
 var data
 const { Pool, Client } = require('pg');
-const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({
   connectionString: connectionString,
 })
 
 pool.connect()
-function getData() {
-		 pool.query('SELECT * FROM public.orders', (err, res) => {
-			console.log(err);
-			console.log(res);
-			data = res.rows
-		})
-}
 
-
-
-getData();
 
 // Add headers
 app.use(function(req, res, next) {
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    // Pass to next layer of middleware
-    next();
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+	res.setHeader('Access-Control-Allow-Credentials', true);
+	next();
 });
 
 
 var auth;
 var auth1;
-
-
 var weatherAPI = {
             'url': "https://api.openweathermap.org/data/2.5/weather?q=Luton,uk&appid=ccda9d309ff5322478451b54ef0cfa38&units=metric",
             'method': "GET",
@@ -80,13 +64,7 @@ var weatherAPI = {
                 "content-type": "application/json"
             }
 		}
-setInterval(function () {
-	
-}, 28800000)
-
-
-
-
+		
 setInterval(function(){ // Set interval for checking
     var date = new Date(); // Create a Date object to find out what time it is
     if(date.getHours() === 11 && date.getMinutes() === 30){ // Check the time
