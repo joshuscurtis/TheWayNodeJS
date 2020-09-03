@@ -32,14 +32,13 @@ io.on('connection', function(client) {
 
 //pg
 var data
-const { Pool, Client } = require('pg')
+const { Pool, Client } = require('pg');
+const connectionString = process.env.DATABASE_URL;
+
 const pool = new Pool({
-  user: 'josh',
-  host: 'theway.c15j82hx0pnm.us-east-2.rds.amazonaws.com',
-  database: 'postgres',
-  password: DBKEY,
-  port: 5432,
+  connectionString: connectionString,
 })
+
 pool.connect()
 function getData() {
 		 pool.query('SELECT * FROM public.orders', (err, res) => {
