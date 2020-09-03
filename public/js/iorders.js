@@ -182,7 +182,7 @@ function drawNth(x, table) {
 		barButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
-			setCachedOrder(aId, 'assignee2', false);
+			//setCachedOrder(aId, 'assignee2', false);
 			
 			thisbutton = document.getElementById('b'+aId)
 			thisbutton.setAttribute("class", "btn btn-success")
@@ -193,7 +193,7 @@ function drawNth(x, table) {
 			kitButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
-			setCachedOrder(aId, 'assignee1', false);
+			//setCachedOrder(aId, 'assignee1', false);
 			
 			console.log('Order id: '+aId+ " Kitchen");
 			thisbutton = document.getElementById('k'+aId)
