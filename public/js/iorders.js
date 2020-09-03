@@ -537,8 +537,8 @@ function createOrderCardContent(responseObj) {
 	if(assignee2 == null) assignee2 = 'danger';
 	
 	
-	assignee = (orderDetails.assignee || cachedOrder.assignee)
-	assignee2 = (orderDetails.assignee2 || cachedOrder.assignee2)
+	// assignee = (orderDetails.assignee || cachedOrder.assignee)
+	// assignee2 = (orderDetails.assignee2 || cachedOrder.assignee2)
 	
 	if(assignee == 'true') {
 		assignee = "danger"
