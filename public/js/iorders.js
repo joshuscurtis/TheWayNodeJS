@@ -107,7 +107,7 @@ function isClosed(id) {
 }
 //is order processing in either cache or db
 function isProcessing(id) {
-	if(searchOrders(id).isprocessing || getCachedOrder(id)) return true;
+	if(searchOrders(id).isprocessing || getCachedOrder(id).isprocessing) return true;
 	return false;
 }
 
@@ -537,8 +537,8 @@ function createOrderCardContent(responseObj) {
 	if(assignee2 == null) assignee2 = 'danger';
 	
 	
-	// assignee = (orderDetails.assignee || cachedOrder.assignee)
-	// assignee2 = (orderDetails.assignee2 || cachedOrder.assignee2)
+	assignee = (orderDetails.assignee || cachedOrder.assignee)
+	assignee2 = (orderDetails.assignee2 || cachedOrder.assignee2)
 	
 	if(assignee == 'true') {
 		assignee = "danger"
