@@ -446,11 +446,11 @@ function refresh2() {
 	setTimeout(refresh2, 5000);
 }
 
-
+//init loop
 setTimeout(refresh, 1000);
 setTimeout(refresh2, 5000);
 
-
+//use io to get data from db
 function getAllOrders() {
 	socket.on('db', function(data) {
 		allOrders = data.db;
@@ -484,16 +484,14 @@ function SLAHighlight(id){
 //create order card
 function createOrderCardContent(responseObj) {
 	//order details
-	id = responseObj.order_id
-	orderDetails = responseObj;
-	orderData = orderDetails.products
-	istable = orderDetails.istable;
-	isclosed = orderDetails.isclosed;
-	isnew = orderDetails.isnew;
-	tableNum = 99; //TODO
-	orderTime = orderDetails.time; 
-	
-	cachedOrder = getCachedOrder(id);
+	var orderDetails = responseObj;
+	var	id = orderDetails.order_id
+	var orderData = orderDetails.products
+	var istable = orderDetails.istable;
+	var isclosed = orderDetails.isclosed;
+	var isnew = orderDetails.isnew;
+	var orderTime = orderDetails.time; 
+	var tableNum = 0	
 	
 	SLAHighlight(id);
 	
@@ -503,25 +501,32 @@ function createOrderCardContent(responseObj) {
 			tableNum = (orderData[y].name).substring(6, 10)
 		}
 	}
+	//Set Title For Order Card
 	if(istable == true) var html1 = " <h5> Table " + tableNum + " (Order: " + (id % 99 + 1) + ")</h5>";
 	if(istable == false) var html1 = " <h5> Order: " + (id % 99 + 1) + "</h5>";
 	
 	//card html
 	var cardTop = '<div class="card text-center" style="background-color: inherit">' + html1 + '<div style="padding: 0;" class="card-body"><h5 class="card-title">'
 	var cardMid = '</h5>'
-	var cardEnd = '</div></div> ';
+	var cardEnd = '</div></div>';
+	
 	var variantName = ""
 	var html2 = "";
 	
+	//create card body
 	//loop through each item in a order
 	for(var y = 0; y < orderData.length; y++) {
+		//loop through all items in order except table products.
 		if((orderData[y].name).substring(0, 5) != "Table") {
+			//add porduct name and qty
 			if(orderData[y].variantName == null || orderData[y].variantName == "") {
 				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong> <br> Qty: <a id='qty'>" + orderData[y].quantity + ' </a> <br>'
 			} else {
+				//add varient name and qty, if exists
 				variantName = "<br>" + orderData[y].variantName + "<br>"
 				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong><i>" + variantName + "</i> Qty: <i> <a id='qty'>" + orderData[y].quantity + '</a> </i> <br>'
 			}
+			//if comment, add it
 			if(orderData[y].comment != undefined) {
 				html2 = "<p>" + html2 + "Comments:<i> " + orderData[y].comment + "</i><br> </p>";
 			}
@@ -529,16 +534,11 @@ function createOrderCardContent(responseObj) {
 	}
 	
 	//set assignee buttons
-	
-	
 	if(orderDetails.assignee == null) var assignee = "danger";
 	else assignee = orderDetails.assignee;
 	assignee2 = orderDetails.assignee2;
 	if(assignee2 == null) assignee2 = 'danger';
 	
-	
-	// assignee = (orderDetails.assignee || cachedOrder.assignee)
-	// assignee2 = (orderDetails.assignee2 || cachedOrder.assignee2)
 	
 	if(assignee == 'true') {
 		assignee = "danger"
@@ -553,7 +553,7 @@ function createOrderCardContent(responseObj) {
 		assignee2 = "success"
 	};
 	
-	result = ""
+	result = "";
 	if(assignee2 == 'success' && assignee == 'success') result = "Done"
 	
 	//add cog
