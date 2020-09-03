@@ -42,6 +42,8 @@ const pool = new Pool({
 pool.connect()
 function getData() {
 		 pool.query('SELECT * FROM public.orders', (err, res) => {
+			console.log(err);
+			console.log(res);
 			data = res.rows
 		})
 }
