@@ -481,37 +481,69 @@ function SLAHighlight(id){
 	}
 }
 
+
+function getTableNum(products) {
+	var tableNum;
+	
+	for(var y = 0; y < products.length; y++) {
+		if((products[y].name).substring(0, 5) == "Table") {
+			tableNum = (products[y].name).substring(6, 10)
+		}
+	}
+	
+	return tableNum
+}
+
+function createCardTitle(istable, products) {
+	var title;
+	var tableNum = getTableNum(products)
+	
+	if(istable == true) title = " <h5> Table " + tableNum + " (Order: " + (id % 99 + 1) + ")</h5>";
+	if(istable == false) title = " <h5> Order: " + (id % 99 + 1) + "</h5>";
+	
+	return title
+}
+
+function createAssigneeButtons(assignee, assignee2) {
+	if(assignee == null || assignee == 'true') assignee = "danger"; 
+	if(assignee2 == null || assignee2 == 'true') assignee2 = 'danger';
+	
+	if(assignee == 'false') assignee = "success";
+	if(assignee2 == 'false') assignee2 = "success";
+	
+	if(assignee2 == 'success' && assignee == 'success') done = "Done";
+	
+	var result = [assignee, assignee2, done]
+	return result
+}
+
 //create order card
 function createOrderCardContent(responseObj) {
+	
 	//order details
 	var orderDetails = responseObj;
+	//order attributes
 	var	id = orderDetails.order_id
 	var orderData = orderDetails.products
 	var istable = orderDetails.istable;
 	var isclosed = orderDetails.isclosed;
 	var isnew = orderDetails.isnew;
-	var orderTime = orderDetails.time; 
-	var tableNum = 0	
+	var orderTime = orderDetails.time;
+	//card vars
+	var tableNum = 0;
+	var variantName = "";
+	var cardContent = "";
+	var result = "";
 	
-	SLAHighlight(id);
-	
-	//setup take/table order
-	for(var y = 0; y < orderData.length; y++) {
-		if((orderData[y].name).substring(0, 5) == "Table") {
-			tableNum = (orderData[y].name).substring(6, 10)
-		}
-	}
 	//Set Title For Order Card
-	if(istable == true) var html1 = " <h5> Table " + tableNum + " (Order: " + (id % 99 + 1) + ")</h5>";
-	if(istable == false) var html1 = " <h5> Order: " + (id % 99 + 1) + "</h5>";
-	
+	var title = createCardTitle(istable, orderData);
 	//card html
-	var cardTop = '<div class="card text-center" style="background-color: inherit">' + html1 + '<div style="padding: 0;" class="card-body"><h5 class="card-title">'
+	var cardTop = '<div class="card text-center" style="background-color: inherit">' + title + '<div style="padding: 0;" class="card-body"><h5 class="card-title">'
 	var cardMid = '</h5>'
 	var cardEnd = '</div></div>';
-	
-	var variantName = ""
-	var html2 = "";
+
+	//flash	
+	SLAHighlight(id);
 	
 	//create card body
 	//loop through each item in a order
@@ -520,51 +552,35 @@ function createOrderCardContent(responseObj) {
 		if((orderData[y].name).substring(0, 5) != "Table") {
 			//add porduct name and qty
 			if(orderData[y].variantName == null || orderData[y].variantName == "") {
-				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong> <br> Qty: <a id='qty'>" + orderData[y].quantity + ' </a> <br>'
+				cardContent = "<p>" + cardContent + "<p>" + "<strong>" + orderData[y].name + "</strong> <br> Qty: <a id='qty'>" + orderData[y].quantity + ' </a> <br>'
 			} else {
 				//add varient name and qty, if exists
-				variantName = "<br>" + orderData[y].variantName + "<br>"
-				html2 = "<p>" + html2 + "<p>" + "<strong>" + orderData[y].name + "</strong><i>" + variantName + "</i> Qty: <i> <a id='qty'>" + orderData[y].quantity + '</a> </i> <br>'
+				variantName = "<br>" + orderData[y].variantName + "<br>";
+				cardContent = "<p>" + cardContent + "<p>" + "<strong>" + orderData[y].name + "</strong><i>" + variantName + "</i> Qty: <i> <a id='qty'>" + orderData[y].quantity + '</a> </i> <br>'
 			}
 			//if comment, add it
 			if(orderData[y].comment != undefined) {
-				html2 = "<p>" + html2 + "Comments:<i> " + orderData[y].comment + "</i><br> </p>";
+				cardContent = "<p>" + cardContent + "Comments:<i> " + orderData[y].comment + "</i><br> </p>";
 			}
 		}
 	}
 	
 	//set assignee buttons
-	if(orderDetails.assignee == null) var assignee = "danger";
-	else assignee = orderDetails.assignee;
-	assignee2 = orderDetails.assignee2;
-	if(assignee2 == null) assignee2 = 'danger';
+	assignData = createAssigneeButtons(orderDetails.assignee, orderDetails.assignee2);
 	
+	assignee = assignData[0];
+	assignee2 = assignData[1];
+	result = assignData[2];
 	
-	if(assignee == 'true') {
-		assignee = "danger"
-	};
-	if(assignee == 'false') {
-		assignee = "success"
-	};
-	if(assignee2 == 'true') {
-		assignee2 = "danger"
-	};
-	if(assignee2 == 'false') {
-		assignee2 = "success"
-	};
+	//add cog and result
+	cardContent = '<button onclick="event.stopPropagation();remove(this.parentNode.parentNode.parentNode)" style="position: absolute; top: 0px; right: 1px;" type="button" class="close" aria-label="Close"><span class="fa fa-cog" aria-hidden="true"></span></button>' + "<p>" + cardContent + "<b id='a" + id + "' style='color:black;'> " + (result) + "</b><br> </p>";
 	
-	result = "";
-	if(assignee2 == 'success' && assignee == 'success') result = "Done"
-	
-	//add cog
-	html2 = '<button onclick="event.stopPropagation();remove(this.parentNode.parentNode.parentNode)" style="position: absolute; top: 0px; right: 1px;" type="button" class="close" aria-label="Close"><span class="fa fa-cog" aria-hidden="true"></span></button>' + "<p>" + html2 + "<b id='a" + id + "' style='color:black;'> " + (result) + "</b><br> </p>";
-	
-	//add buttons
-	html2 = html2 + '<button id="b' + id + '" type="button" style="position: absolute;bottom: 0px;right: 1px;max-width: 80px;width: 25%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="btn btn-' + assignee2 + '"><i class="fa fa-coffee" style="margin-right: 5px;" ></i> Bar</button>' + '<button  onclick="updatePG('+id+', "assignee", false);" id="k' + id + '" type="button" style="position: absolute;bottom: 0px;left: 1px;max-width: 80px;width: 25%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="btn btn-' + assignee + '"><i style="margin-right: 5px;" class="fa fa-cutlery"></i> Kitchen</button>'
+	//add assignee buttons
+	cardContent = cardContent + '<button id="b' + id + '" type="button" style="position: absolute;bottom: 0px;right: 1px;max-width: 80px;width: 25%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="btn btn-' + assignee2 + '"><i class="fa fa-coffee" style="margin-right: 5px;" ></i> Bar</button>' + '<button  onclick="updatePG('+id+', "assignee", false);" id="k' + id + '" type="button" style="position: absolute;bottom: 0px;left: 1px;max-width: 80px;width: 25%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="btn btn-' + assignee + '"><i style="margin-right: 5px;" class="fa fa-cutlery"></i> Kitchen</button>'
 	
 	//generate final order card HTML
-	buildHTML = cardTop + cardMid + html2 + createTime(Date.now() - orderTime) + cardEnd;
-	html2 = "";
+	buildHTML = cardTop + cardMid + cardContent + createTime(Date.now() - orderTime) + cardEnd;
+	cardContent = "";
 	
 	return buildHTML;	
 }
