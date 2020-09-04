@@ -77,7 +77,7 @@ function getCachedOrder(id) {
 	try {
 		order = sessionStorage.getItem(id);
 		order = JSON.parse(order);
-		console.log(order);
+		//console.log(order);
 		return order;
 	}
 	catch (error) {
