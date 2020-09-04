@@ -201,7 +201,9 @@ function drawNth(x, table) {
 		barButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee2', false);
-			//setCachedOrder(aId, 'assignee2', false);
+			order = getCachedOrder(id);
+			order.assignee2 = false;
+			setCachedOrder(order);
 			
 			thisbutton = document.getElementById('b'+aId)
 			thisbutton.setAttribute("class", "btn btn-success")
@@ -212,7 +214,9 @@ function drawNth(x, table) {
 			kitButton.addEventListener('click', function(){
 			event.stopPropagation();
    			updatePG(aId, 'assignee', false);
-			//setCachedOrder(aId, 'assignee1', false);
+			order = getCachedOrder(id);
+			order.assignee = false;
+			setCachedOrder(order);
 			
 			console.log('Order id: '+aId+ " Kitchen");
 			thisbutton = document.getElementById('k'+aId)
@@ -598,9 +602,12 @@ function createOrderCardContent(responseObj) {
 	
 	//set assignee buttons
 	assignData = createAssigneeButtons(orderDetails.assignee, orderDetails.assignee2);
-	assignee = assignData[0];
-	assignee2 = assignData[1];
-	result = assignData[2];
+	cachedAssignData = createAssigneeButtons(getCachedOrder(id).assignee, getCachedOrder(id).assignee2);
+	
+	
+	assignee = (assignData[0] || cachedAssignData[0]);
+	assignee2 = (assignData[1] || cachedAssignData[1]);
+	result = cachedAssignData[2];
 	
 	//add cog and result
 	cardContent = '<button onclick="event.stopPropagation();remove(this.parentNode.parentNode.parentNode)" style="position: absolute; top: 0px; right: 1px;" type="button" class="close" aria-label="Close"><span class="fa fa-cog" aria-hidden="true"></span></button>' + "<p>" + cardContent + "<b id='a" + id + "' style='color:black;'> " + (result) + "</b><br> </p>";
