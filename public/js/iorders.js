@@ -25,12 +25,11 @@ var allOrders;
 //check for interaction
 var interaction = false; 
 function interacting() {
-	console.log(interaction);
 	interaction = true
 }
 
 function checkInteraction() {
-	$(document).bind("click mousemove", interacting);
+	$(document).bind("click mousemove touchstart", interacting);
 }
 
 //check if new user orders alert
