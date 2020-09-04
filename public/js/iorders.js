@@ -424,6 +424,7 @@ function refresh() {
 
 
 function refresh2() {
+	if(interaction == false) {
 	content = document.getElementById("content");
 	content.innerHTML = '';
 	
@@ -454,9 +455,10 @@ function refresh2() {
 	
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
-	
-	if(interaction == false) setTimeout(refresh2, 1000);
+	}
 	interaction == false;
+	setTimeout(refresh2, 1000);
+
 }
 
 //init loop
