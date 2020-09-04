@@ -494,7 +494,7 @@ function getTableNum(products) {
 	return tableNum
 }
 
-function createCardTitle(istable, products) {
+function createCardTitle(istable, products, id) {
 	var title;
 	var tableNum = getTableNum(products)
 	
@@ -506,15 +506,16 @@ function createCardTitle(istable, products) {
 
 function createAssigneeButtons(assignee, assignee2) {
 	var done = "";
+	
 	if(assignee == null || assignee == 'true') assignee = "danger"; 
 	if(assignee2 == null || assignee2 == 'true') assignee2 = 'danger';
-	
 	if(assignee == 'false') assignee = "success";
 	if(assignee2 == 'false') assignee2 = "success";
 	
 	if(assignee2 == 'success' && assignee == 'success') done = "Done";
 	
-	var result = [assignee, assignee2, done]
+	var result = [assignee, assignee2, done];
+	
 	return result
 }
 
@@ -535,9 +536,9 @@ function createOrderCardContent(responseObj) {
 	var variantName = "";
 	var cardContent = "";
 	var result = "";
-	
+	var title;
 	//Set Title For Order Card
-	var title = createCardTitle(istable, orderData);
+	title = createCardTitle(istable, orderData, id);
 	//card html
 	var cardTop = '<div class="card text-center" style="background-color: inherit">' + title + '<div style="padding: 0;" class="card-body"><h5 class="card-title">'
 	var cardMid = '</h5>'
@@ -568,7 +569,6 @@ function createOrderCardContent(responseObj) {
 	
 	//set assignee buttons
 	assignData = createAssigneeButtons(orderDetails.assignee, orderDetails.assignee2);
-	
 	assignee = assignData[0];
 	assignee2 = assignData[1];
 	result = assignData[2];
