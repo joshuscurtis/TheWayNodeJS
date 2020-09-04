@@ -30,7 +30,7 @@ function interacting() {
 }
 
 function checkInteraction() {
-	$(document).bind("click mousemove", interaction);
+	$(document).bind("click mousemove", interacting);
 }
 
 //check if new user orders alert
