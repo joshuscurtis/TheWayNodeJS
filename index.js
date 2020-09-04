@@ -128,14 +128,20 @@ var options = {
 thisVal = 0
 nextVal = 1
 var theTime = 0
-//v
-setInterval(function(){
-	//send data over socket	
+//
+
+
+
+
+function pingDb() {
     pool.query('SELECT * FROM public.devorders', (err, res) => {
 		io.sockets.emit('db',{ db: res.rows});
 	})
 	theTime = Date.now();
-}, 500)
+	setTimeout(pingDb, 500);
+}
+setTimeout(pingDb, 500)
+
 
 //update cache every 10seconds
 setInterval(function(){
