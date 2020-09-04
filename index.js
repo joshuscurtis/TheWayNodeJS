@@ -147,7 +147,7 @@ setInterval(function(){
     pool.query('SELECT * FROM public.devorders', (err, res) => {
 		io.sockets.emit('cache',{ db: res.rows});
 	})
-}, 10000)
+}, 15000)
 
 //every 5seconds
 setInterval(function() {
