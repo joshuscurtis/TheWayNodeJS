@@ -459,7 +459,6 @@ function refresh2() {
 }
 
 //init loop
-setTimeout(checkInteraction, 5000);
 setTimeout(refresh, 1000);
 setTimeout(refresh2, 5000);
 
