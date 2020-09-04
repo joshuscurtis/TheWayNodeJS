@@ -505,6 +505,7 @@ function createCardTitle(istable, products) {
 }
 
 function createAssigneeButtons(assignee, assignee2) {
+	var done;
 	if(assignee == null || assignee == 'true') assignee = "danger"; 
 	if(assignee2 == null || assignee2 == 'true') assignee2 = 'danger';
 	
