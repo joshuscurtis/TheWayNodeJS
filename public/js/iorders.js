@@ -26,7 +26,7 @@ var allOrders;
 var interaction = false; 
 function interacting() {
 	console.log(interaction);
-	return true
+	interaction = true
 }
 
 function checkInteraction() {
