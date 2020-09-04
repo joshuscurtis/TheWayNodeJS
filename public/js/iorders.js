@@ -416,6 +416,10 @@ setInterval(function() {
 	if(openOrders > 7) alertModal();
 }, 60000)
 
+setInterval(function(){
+	interaction == false;
+}, 500)
+
 //get orders from server every 0.5secs
 function refresh() {
 	getAllOrders();
@@ -456,7 +460,7 @@ function refresh2() {
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
 	}
-	interaction == false;
+
 	setTimeout(refresh2, 1000);
 
 }
