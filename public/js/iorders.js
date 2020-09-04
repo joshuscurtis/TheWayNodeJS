@@ -443,7 +443,7 @@ function refresh2() {
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
 	
-	setTimeout(refresh2, 5000);
+	setTimeout(refresh2, 1300);
 }
 
 //init loop
