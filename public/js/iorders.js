@@ -91,7 +91,7 @@ function setCachedOrder(order) {
 	try {
 		id = order.order_id;
 		order = JSON.stringify(order);
-		sessionStorage.setItem(id, JSON.stringify(order));
+		sessionStorage.setItem(id, order);
 		console.log('set to... '+order);
 	}
 	catch (error) {
