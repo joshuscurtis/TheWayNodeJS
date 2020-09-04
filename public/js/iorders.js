@@ -86,12 +86,11 @@ function getCachedOrder(id) {
 }
 
 //make changes to a cached order
-function setCachedOrder(id, param, val) {
+function setCachedOrder(order) {
 	try {
-		order = sessionStorage.getItem(id);
-		order = JSON.parse(order);
-		order[param] = val;
-		sessionStorage.setItem(JSON.stringify(order));
+		id = order.order_id;
+		order = JSON.stringify(order);
+		sessionStorage.setItem(id, JSON.stringify(order));
 	}
 	catch (error) {
 		console.log(error);
@@ -114,11 +113,16 @@ function newestOrder() {
 
 //is order closed in either cache or db
 function isClosed(id) {
-	return searchOrders(id).isclosed;
+	if(searchOrders(id).isclosed || getCachedOrder(id).isclosed) {
+		return true;
+	}
+	return false;
 }
 //is order processing in either cache or db
 function isProcessing(id) {
-	if(searchOrders(id).isprocessing) return true;
+	if(searchOrders(id).isprocessing || getCachedOrder(id).isprocessing) {
+		return true;
+	}
 	return false;
 }
 
@@ -156,7 +160,7 @@ function drawNth(x, table) {
 	if(option == "split" && isTable == false) document.getElementById(divID).remove();
 
 	//check if order is closed and is a table order
-	dbOrCacheClosed = (isClosed(divId) || getCacheClosedOrder(divId));
+	dbOrCacheClosed = (isClosed(divId));
 	if(document.getElementById(divId) == null && (dbOrCacheClosed == false) && isTable(divId) == table) {
 		
 		//create div
@@ -370,6 +374,9 @@ function closeOrder(id) {
 	document.getElementById(id).remove()
 	updatePG(id, 'isclosed', true)
 	updatePG(id, 'closetime', Date.now())
+	order = getCachedOrder(id);
+	order.isclosed = true;
+	setCachedOrder(order);
 	
 }
 
@@ -399,7 +406,11 @@ function assginOrder(id, assignee) {
 
 function processOrder(id) {
 	setCacheProcessingOrder(id);
-	updatePG(id, 'isprocessing', true)
+	updatePG(id, 'isprocessing', true);
+	order = getCachedOrder(id);
+	order.isprocessing = true;
+	setCachedOrder(order);
+	
 }
 
 //defaults
