@@ -131,8 +131,6 @@ var theTime = 0
 //
 
 
-
-
 function pingDb() {
     pool.query('SELECT * FROM public.devorders', (err, res) => {
 		io.sockets.emit('db',{ db: res.rows});

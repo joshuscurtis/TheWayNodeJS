@@ -22,15 +22,15 @@ socket.on('cache', function(data) {
 var allOrders;
 
 
-//check for interaction
-var interaction = false; 
-function interacting() {
-	interaction = true
-}
+// //check for interaction
+// var interaction = false; 
+// function interacting() {
+// 	interaction = true
+// }
 
-function checkInteraction() {
-	$(document).bind("click mousemove touchstart", interacting);
-}
+// function checkInteraction() {
+// 	$(document).bind("click mousemove touchstart", interacting);
+// }
 
 //check if new user orders alert
 function checkNew() {
@@ -415,10 +415,6 @@ setInterval(function() {
 	if(openOrders > 7) alertModal();
 }, 60000)
 
-setInterval(function(){
-	interaction = false;
-}, 2000)
-
 //get orders from server every 0.5secs
 function refresh() {
 	getAllOrders();
@@ -427,7 +423,6 @@ function refresh() {
 
 
 function refresh2() {
-	if(interaction == false) {
 	content = document.getElementById("content");
 	content.innerHTML = '';
 	
@@ -458,7 +453,6 @@ function refresh2() {
 	
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
-	}
 
 	setTimeout(refresh2, 1000);
 
