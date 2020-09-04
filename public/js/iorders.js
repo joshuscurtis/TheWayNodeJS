@@ -417,7 +417,7 @@ setInterval(function() {
 }, 60000)
 
 setInterval(function(){
-	interaction == false;
+	interaction = false;
 }, 500)
 
 //get orders from server every 0.5secs
