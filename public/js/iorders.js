@@ -21,6 +21,18 @@ socket.on('cache', function(data) {
 //global orders var
 var allOrders;
 
+
+//check for interaction
+var interaction = false; 
+function interacting() {
+	console.log(interaction);
+	return true
+}
+
+function checkInteraction() {
+	$(document).bind("click mousemove", interaction);
+}
+
 //check if new user orders alert
 function checkNew() {
 	if(localStorage.getItem("newUser") === null) {
@@ -443,10 +455,12 @@ function refresh2() {
 	loader = document.getElementById('loader');
 	if(loader != null) loader.remove();
 	
-	setTimeout(refresh2, 1300);
+	if(interaction == false) setTimeout(refresh2, 1000);
+	interaction == false;
 }
 
 //init loop
+setTimeout(checkInteraction, 5000);
 setTimeout(refresh, 1000);
 setTimeout(refresh2, 5000);
 
@@ -481,6 +495,8 @@ function SLAHighlight(id){
 	}
 }
 
+
+//------GENERATE ORDER CARD FUNCTIONS------
 
 function getTableNum(products) {
 	var tableNum;
