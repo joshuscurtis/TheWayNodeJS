@@ -118,15 +118,21 @@ function newestOrder() {
 
 //is order closed in either cache or db
 function isClosed(id) {
-	if(searchOrders(id).isclosed || getCachedOrder(id).isclosed) {
-		return true;
+	if(searchOrders(id).isclosed == getCachedOrder(id).isclosed) {
+		return searchOrders(id).isclosed;
+	}
+	if(searchOrders(id).isclosed != getCachedOrder(id).isclosed) {
+		return getCachedOrder(id).isclosed;
 	}
 	return false;
 }
 //is order processing in either cache or db
 function isProcessing(id) {
-	if(searchOrders(id).isprocessing || getCachedOrder(id).isprocessing) {
-		return true;
+	if(searchOrders(id).isprocessing == getCachedOrder(id).isprocessing) {
+		return searchOrders(id).isprocessing;
+	}
+	if(searchOrders(id).isprocessing != getCachedOrder(id).isprocessing) {
+		return getCachedOrder(id).isprocessing;
 	}
 	return false;
 }
