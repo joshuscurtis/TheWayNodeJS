@@ -22,7 +22,6 @@ function ButtonAppBar() {
     <div>
       <AppBar position="static">
         <Toolbar>
-			</MenuIcon>
 			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
@@ -50,8 +49,10 @@ function App() {
       <div style={{ marginTop: 24, }}>
 	  	<ButtonAppBar/>
         <Typography variant="h4" component="h1" gutterBottom>
-          CDN v4-beta example
+          iOrders
         </Typography>
+		<Container></Container>	
+		<Container></Container>
         <Copyright />
       </div>
     </Container>
