@@ -12,6 +12,7 @@ const {
   MenuIcon,
   IconButton,
   Button,
+  Box,
 } = MaterialUI;
 
 
@@ -51,8 +52,16 @@ function App() {
         <Typography variant="h4" component="h1" gutterBottom>
           iOrders
         </Typography>
-		<Container></Container>	
-		<Container></Container>
+		<Container>
+			<Box width="50%" bgcolor="grey.300" p={1} my={0.5}>
+        		Width 75%
+			</Box>
+		</Container>	
+		<Container>
+			<Box width="50%" bgcolor="grey.300" p={1} my={0.5}>
+        		Width 75%
+			</Box>
+		</Container>
         <Copyright />
       </div>
     </Container>
