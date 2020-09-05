@@ -41,9 +41,6 @@ function ButtonAppBar() {
 			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-	<Card variant="outlined">			
-		<Copyright />
-	</Card>
     </div>
   );
 }
@@ -62,15 +59,6 @@ function Copyright() {
   );
 }
 
-function Me() {
-	return (
-			<Card variant="outlined">
-	 		</Card>
-	);
-}
-
-
-
 
 function App() {
   return (
@@ -87,12 +75,9 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<Card variant="outlined">			
-						<Typography variant="h4" component="h1" gutterBottom>
-		          			Card
-			  			</Typography>
-						<Copyright />
-					</Card>
+					<CardApp/>
+					<CardApp/>				
+					<CardApp/>					
 		        </Grid>
 		        <Grid item xs={6}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
