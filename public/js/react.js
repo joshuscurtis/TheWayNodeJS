@@ -56,17 +56,26 @@ function ButtonAppBar() {
 
 
 function OrderItem(props) {
-
+	var name = {props.itemName}
+	var varient = {props.varientName}
+	var qty = {props.qty}
+	
+	if(name.sunstring(0,6) == "Table") {
+		name = ""
+		varient = ""
+		qty = ""
+	}
+	
   return (
    <div>
     <Typography variant="h5" align="center">
-		{props.itemName}
+		{name}
     </Typography>
 	<Typography variant="h6" align="center">
-		{props.varientName}
+		{varient}
     </Typography>
 	<Typography variant="h6" color="textSecondary" align="center">
-		Qty: {props.qty}
+		Qty: {qty}
 	</Typography>
 	</div>
   );
