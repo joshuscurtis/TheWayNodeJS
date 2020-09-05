@@ -24,7 +24,7 @@ function CardApp(props) {
   return (
       <div style={{ margin: 5, }}>
 		<Card variant="outlined">
-			<CardHeader title="Order: "+props.orderid subheader=props.time >
+			<CardHeader title="Order: "+props.orderid subheader=props.time>
 			</CardHeader>
 			<CardContent>
 				<OrderItem qty="2" itemName="Item 1"/>
@@ -93,7 +93,6 @@ function App() {
 			  		</Typography>
 					<CardApp orderid="100" time="5 mins 45 secs"/>
 					<CardApp orderid="99" time="5 mins 45 secs"/>
-					<CardApp/>					
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
