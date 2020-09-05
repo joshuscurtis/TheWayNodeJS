@@ -24,6 +24,11 @@ function CardApp(props) {
 	if (props.tablenum != null) {
 		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
 	}
+	var kitCol = "secondary"
+	var barCol = "secondary"
+	
+	if(props.assignee == false) kitCol = "primary"
+	if(props.assignee2 == false) barCol = "primary"
 	
   return (
       <div style={{margin: 5,}}>
@@ -34,8 +39,8 @@ function CardApp(props) {
 				<OrderItems itemNames={props.itemNames} order={props.order} />
 			</CardContent>
 			<CardActions>
-        		<Button  variant="contained" color="primary" size="small">Kitchen</Button>
-				<Button variant="contained" color="primary" size="small">Bar</Button>
+        		<Button  variant="contained" color={kitCol} size="small">Kitchen</Button>
+				<Button variant="contained" color={barCol} size="small">Bar</Button>
 			</CardActions>
 		</Card>
     </div>
@@ -131,6 +136,8 @@ var bOrder = {"order_id":6902,"isnew":true,"products":[{"quantity":"1","productU
 						isnew={bOrder.isnew}
 						isclosed={bOrder.isclosed}
 						tablenum={bOrder.tablenum}
+						assignee={bOrder.assignee}
+						assignee2={bOrder.assignee2}
 					/>
 		        </Grid>
 				<Grid item xs={12}>
