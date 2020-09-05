@@ -29,8 +29,9 @@ function ButtonAppBar() {
 			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-	  <Card variant="outlined">
-	  </Card>
+	<Card variant="outlined">			
+		<Copyright />
+	</Card>
     </div>
   );
 }
