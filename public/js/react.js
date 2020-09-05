@@ -30,7 +30,7 @@ function CardApp(props) {
   return (
       <div>
 		<Card style={{
-        backgroundColor: isclosed ? 'red' : 'green',
+        backgroundColor: props.isclosed ? 'red' : 'green',
 	}} variant="outlined">
 			<CardHeader	title={"Order: " + props.orderid} subheader={props.time}>
 			</CardHeader>
