@@ -91,21 +91,19 @@ function OrderItems(props) {
 
 
 function App() {
-	const ORDER = [
-    {
+var aOrder = {
         id: 99,
         product: [{
-        			itemName: "item1"
+        			itemName: "item1",
 					qty: 2
        			 },
 				{
-        			itemName: "item2"
+        			itemName: "item2",
 					qty: 2
 				}
 		],
         isclosed: false
-    }
-	];
+    };
 	console.log(ORDER);
   return (
       <div style={{ margin: 0, }}>
@@ -123,7 +121,7 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp orderid="99" items="2" order="{ORDER}" time="5 mins 45 secs"/>
+					<CardApp orderid="99" items="2" order="{aOrder}" time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
