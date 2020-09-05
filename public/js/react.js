@@ -20,7 +20,7 @@ const {
 } = MaterialUI;
 
 function CardApp(props) {
-		colour = '{backgroundColor: "red"}'
+		var colour = '{backgroundColor: "red"}'
 	if (props.isclosed == false){
 		colour = '{backgroundColor: "red"}'
 	} else {
