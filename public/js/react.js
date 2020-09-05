@@ -130,6 +130,7 @@ var bOrder = {"order_id":6902,"isnew":true,"products":[{"quantity":"1","productU
 						istable={bOrder.istable}
 						isnew={bOrder.isnew}
 						isclosed={bOrder.isclosed}
+						tablenum={bOrder.tablenum}
 					/>
 		        </Grid>
 				<Grid item xs={12}>
