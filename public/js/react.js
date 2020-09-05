@@ -91,7 +91,7 @@ function OrderItem(props) {
   return (
    
 <div>
-<Box m={4} borderBottom={1}>
+<Box m={1} borderBottom={1}>
     <Typography variant="h5" align="center">
 		{props.itemName}
     </Typography>
