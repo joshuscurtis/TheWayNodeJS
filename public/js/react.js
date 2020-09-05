@@ -22,7 +22,7 @@ const {
 function CardApp(props) {
 	
   return (
-      <div style="{{margin: 5,}}">
+      <div style={{margin: 5,}}>
 		<Card style={{backgroundColor: props.isprocessing ? '#d9534f' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={"Order: " + props.orderid} subheader={props.time}>
 			</CardHeader>
