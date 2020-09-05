@@ -76,7 +76,7 @@ function App() {
 		          		iOrders
 			  		</Typography>
 		        </Grid>
-		        <Grid item xs={6}>
+		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
@@ -84,7 +84,7 @@ function App() {
 					<CardApp/>				
 					<CardApp/>					
 		        </Grid>
-		        <Grid item xs={6}>
+		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
