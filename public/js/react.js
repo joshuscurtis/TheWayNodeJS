@@ -67,12 +67,14 @@ function Copyright() {
 
 function OrderItem(props) {
   return (
+   <div>
     <Typography variant="h5" color="textSecondary" align="center">
 		{props.itemName}
     </Typography>
 	<Typography variant="h5" color="textSecondary" align="center">
 		Qty: {props.qty}
 	</Typography>
+	</div>
   );
 }
 
