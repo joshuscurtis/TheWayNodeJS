@@ -136,7 +136,7 @@ var mOrders = [{"order_id":6663,"isnew":true,"products":[{"quantity":"1","produc
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<TableStream orders={mOrder}/>
+					<TableStream orders={mOrders}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
