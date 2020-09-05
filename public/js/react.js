@@ -16,7 +16,7 @@ const {
 
 
 
-export function ButtonAppBar() {
+function ButtonAppBar() {
 
   return (
     <div>
