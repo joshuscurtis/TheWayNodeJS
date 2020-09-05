@@ -24,10 +24,7 @@ function CardApp() {
   return (
     <div>
 		<Card variant="outlined">
-			<CardHeader>
-				<Typography variant="h4" component="h1" gutterBottom>
-		  			Order: 99
-				</Typography>
+			<CardHeader title="Order: 99" subheader="10 mins 23 secs" >
 			</CardHeader>
 			<CardContent>
 				<Copyright />
