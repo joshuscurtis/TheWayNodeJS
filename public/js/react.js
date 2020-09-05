@@ -56,10 +56,7 @@ function ButtonAppBar() {
 
 
 function OrderItem(props) {
-	var name = {props.itemName}
-	var varient = {props.varientName}
-	var qty = {props.qty}
-	
+
   return (
    <div>
     <Typography variant="h5" align="center">
