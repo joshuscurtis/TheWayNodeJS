@@ -60,13 +60,13 @@ function OrderItem(props) {
   return (
    <div>
     <Typography variant="h5" align="center">
-		{name}
+test
     </Typography>
 	<Typography variant="h6" align="center">
-		{varient}
+test
     </Typography>
 	<Typography variant="h6" color="textSecondary" align="center">
-		Qty: {qty}
+		Qty: 
 	</Typography>
 	</div>
   );
