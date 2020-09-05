@@ -93,7 +93,7 @@ function OrderItem(props) {
     <Typography variant="h5" align="center">
 		{props.itemName}
     </Typography>
-	<Typography variant="h6" align="center">
+	<Typography variant="subtitle1" align="center">
 		{props.variantName}
     </Typography>
 	<Typography variant="h6" color="textSecondary" align="center">
