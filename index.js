@@ -320,6 +320,7 @@ app.post('/updateAvg', (req,res) => {
 	app.get('/getStats', (req,res) => {
 		
 		var thisQuery = "SELECT * FROM public.stats order BY date;"
+		console.log(thisQuery)
 		pool.query(thisQuery, (err, result) => {
 			res.send(result.rows);
 		})
