@@ -22,6 +22,10 @@ function ButtonAppBar() {
     <div>
       <AppBar position="static">
         <Toolbar>
+			   <IconButton edge="start" color="inherit" aria-label="menu">
+     			 <MenuIcon />
+ 			   </IconButton>
+			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
