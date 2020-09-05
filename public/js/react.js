@@ -19,7 +19,7 @@ const {
   CardHeader,
 } = MaterialUI;
 
-function CardApp {
+function CardApp() {
 
   return (
       <div style={{ margin: 5, }}>
