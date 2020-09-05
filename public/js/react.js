@@ -27,8 +27,7 @@ function CardApp(props) {
 			<CardHeader title={"Order: " +props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
-				<OrderItem qty="1" itemName="Item 1"/>
-				<OrderItem qty="2" itemName="Item 2"/>
+				<OrderItems items="2" />
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -77,6 +76,18 @@ function OrderItem(props) {
   );
 }
 
+function OrderItems(props) {
+	var rows = [];
+	for (var i = 0; i < (props.items); i++) {
+    	rows.push(<OrderItem itemName="test" qty="2" />);
+	}
+  return (
+    <div>
+		{rows}
+	</div>
+  );
+}
+
 
 function App() {
   return (
@@ -96,7 +107,7 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp orderid="99" time="5 mins 45 secs"/>
+					<CardApp orderid="99" items="3" time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
