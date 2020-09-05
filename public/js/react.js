@@ -60,12 +60,6 @@ function OrderItem(props) {
 	var varient = {props.varientName}
 	var qty = {props.qty}
 	
-	if(name.substring(0,6) == "Table") {
-		name = ""
-		varient = ""
-		qty = ""
-	}
-	
   return (
    <div>
     <Typography variant="h5" align="center">
