@@ -80,7 +80,7 @@ function OrderItems(props) {
 	var order = props.order;
 	console.log(order);
 	var rows = [];
-	for (var i = 0; i < order.product.length; i++) {
+	for (var i = 0; i < order.products.length; i++) {
     	rows.push(<OrderItem itemName={order.products[i].name} qty={order.products[i].quantity} />);
 	}
   return (
