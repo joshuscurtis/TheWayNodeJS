@@ -26,7 +26,7 @@ function CardApp() {
 		<Card variant="outlined">
 			<CardHeader>
 				<Typography variant="h4" component="h1" gutterBottom>
-		  			Order: 9
+		  			Order: 99
 				</Typography>
 			</CardHeader>
 			<CardContent>
@@ -47,10 +47,10 @@ function ButtonAppBar() {
     <div>
       <AppBar position="static">
         <Toolbar>
+			<Button color="inherit">Login</Button>
 			<Typography variant="h4" component="h1" gutterBottom>
 		    	iOrders
 			</Typography>
-			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
