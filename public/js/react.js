@@ -36,7 +36,7 @@ function CardApp(props) {
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
-				<OrderItems itemNames={props.itemNames} order={props.order} />
+				<OrderItems order={props.order} />
 			</CardContent>
 			<CardActions>
         		<Button  variant="contained" color={kitCol} size="small">Kitchen</Button>
@@ -94,7 +94,7 @@ function OrderItem(props) {
 		{props.itemName}
     </Typography>
 	<Typography variant="h6" align="center">
-		{props.varientName}
+		{props.variantName}
     </Typography>
 	<Typography variant="h6" color="textSecondary" align="center">
 		Qty: {props.qty}
