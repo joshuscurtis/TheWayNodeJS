@@ -62,7 +62,7 @@ function Me() {
 function App() {
   return (
 	<Container maxWidth="lg">
-    	<div style={{ marginTop: 24, }}>
+    	<div style={{ marginTop: 2, }}>
 			<Grid container spacing={3}>
 		        <Grid item xs={12}>
 					<ButtonAppBar/>
