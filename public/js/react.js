@@ -88,7 +88,9 @@ function TableStream(props) {
 }
 
 function OrderItem(props) {
-  return (
+var comment = "";
+ if(props.comment != null) comment = "Comment: " +props.comment
+return (
    
 <div>
 <Box m={1} borderBottom={1}>
@@ -102,7 +104,7 @@ function OrderItem(props) {
 		Qty: {props.qty}
 	</Typography>
 		<Typography variant="subtitle1" color="textSecondary" align="center">
-		Comment: {props.comment}
+		{comment}
 	</Typography>
 </Box>
 </div>
