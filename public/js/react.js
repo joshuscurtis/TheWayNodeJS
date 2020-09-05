@@ -60,7 +60,7 @@ function OrderItem(props) {
 	var varient = {props.varientName}
 	var qty = {props.qty}
 	
-	if(name.sunstring(0,6) == "Table") {
+	if(name.substring(0,6) == "Table") {
 		name = ""
 		varient = ""
 		qty = ""
