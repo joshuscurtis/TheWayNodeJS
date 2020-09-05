@@ -67,8 +67,8 @@ function Copyright() {
 
 function App() {
   return (
-	<Container maxWidth="lg">
-    	<div style={{ margin: 0, }}>
+      <div style={{ margin: 0, }}>
+		<Container maxWidth="lg">
 			<Grid container spacing={3}>
 		        <Grid item xs={12}>
 					<ButtonAppBar/>
@@ -94,8 +94,8 @@ function App() {
 					<Copyright />
 			  	</Grid>
 			</Grid>
-   		</div>
   </Container>
+</div>
   );}
 
 ReactDOM.render(<App />, document.querySelector('#root'));
