@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "iOrders",
+  "version": "2.5",
+  "description": "A order managment app for iZettle",
   "engines": {
     "node": "12.x"
   },
@@ -20,9 +20,9 @@
  	"pg": "^8.3.2",
 	"body-parser": "^1.19.0",
 	"@material-ui/core":"^4.11.0",
+	"@material-ui/icons":"^4.9.1",
 	"react":"^16.13.1",
-	"react-dom":"^16.13.1"
-	
+	"react-dom":"^16.13.1"	
   },
   "devDependencies": {
     "got": "^11.3.0",
@@ -30,12 +30,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/joshuscurtis",
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
+  "keywords": ["izettle", "orders", "cafe"],
   "license": "MIT"
 }

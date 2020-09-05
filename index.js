@@ -326,6 +326,9 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 
+	app.get('/react', (req,res) => {
+		res.render('pages/react');
+	})
 	
 //START SERVER
 server.listen(PORT);
