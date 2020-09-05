@@ -27,8 +27,8 @@ function CardApp() {
 			<CardHeader title="Or100" subheader="5 mins 45 secs">
 			</CardHeader>
 			<CardContent>
-				<OrderItem itemName="Item 1"/>
-				<OrderItem itemName="Item 2"/>
+				<OrderItem qty="1" itemName="Item 1"/>
+				<OrderItem qty="2" itemName="Item 2"/>
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -67,9 +67,12 @@ function Copyright() {
 function OrderItem(props) {
   return (
    <div>
-    <Typography variant="h5" color="textSecondary" align="center">
+    <Typography variant="h5" align="center">
 		{props.itemName}
     </Typography>
+	    <Typography variant="h6" color="textSecondary" align="center">
+		{props.qty}
+		</Typography>
 	</div>
   );
 }
