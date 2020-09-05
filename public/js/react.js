@@ -46,29 +46,31 @@ function Copyright() {
 
 function App() {
   return (
-   <Container maxWidth="lg">
-     <div style={{ marginTop: 24, }}>
-	  <Grid container spacing={3}>
-        <Grid item xs={12}>
-			<ButtonAppBar/>
-        </Grid>
-        <Grid item xs={6}>
-        	<Typography variant="h4" component="h1" gutterBottom>
-          		Left
-	  		</Typography>
-        </Grid>
-        <Grid item xs={6}>
-        	<Typography variant="h4" component="h1" gutterBottom>
-          		Right
-	  		</Typography>
-        </Grid>
-		<Grid item xs={12}>
-			<Copyright />
-	  	</Grid>
-	</Grid>
-   </div>
+	<Container maxWidth="lg">
+    	<div style={{ marginTop: 24, }}>
+			<Grid container spacing={3}>
+		        <Grid item xs={12}>
+					<ButtonAppBar/>
+					<Typography variant="h4" component="h1" gutterBottom>
+		          		iOrders
+			  		</Typography>
+		        </Grid>
+		        <Grid item xs={6}>
+		        	<Typography variant="h4" component="h1" gutterBottom>
+		          		Left
+			  		</Typography>
+		        </Grid>
+		        <Grid item xs={6}>
+		        	<Typography variant="h4" component="h1" gutterBottom>
+		          		Right
+			  		</Typography>
+		        </Grid>
+				<Grid item xs={12}>
+					<Copyright />
+			  	</Grid>
+			</Grid>
+   		</div>
   </Container>
-  );
-}
+  );}
 
 ReactDOM.render(<App />, document.querySelector('#root'));
