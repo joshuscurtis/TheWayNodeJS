@@ -29,6 +29,8 @@ function ButtonAppBar() {
 			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
+	  <Card variant="outlined">
+	  </Card>
     </div>
   );
 }
@@ -72,7 +74,8 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					</Me>
+					<Card variant="outlined">
+					</Card>
 		        </Grid>
 		        <Grid item xs={6}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
