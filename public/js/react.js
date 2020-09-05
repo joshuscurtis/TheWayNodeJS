@@ -27,7 +27,7 @@ function CardApp(props) {
 			<CardHeader title={"Order: " +props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
-				<OrderItems itemNames={props.itemNames} items={props.items} />
+				<OrderItems itemNames={props.itemNames} order={props.order} />
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -77,9 +77,10 @@ function OrderItem(props) {
 }
 
 function OrderItems(props) {
+	var order = props.order;
 	var rows = [];
-	for (var i = 0; i < (props.items); i++) {
-    	rows.push(<OrderItem itemName={props.itemNames} qty={props.qty} />);
+	for (var i = 0; i < (order.product).length; i++) {
+    	rows.push(<OrderItem itemName={order.product[i].itemName} qty={order.product[i].qty} />);
 	}
   return (
     <div>
@@ -90,6 +91,22 @@ function OrderItems(props) {
 
 
 function App() {
+	var ORDER = [
+    {
+        id: 99,
+        product: [{
+        			itemName: "item1"
+					qty: 2
+       			 },
+				{
+        			itemName: "item2"
+					qty: 2
+				}
+		],
+        isclosed: false
+    }
+	];
+	
   return (
       <div style={{ margin: 0, }}>
 		<Container maxWidth="lg">
@@ -101,13 +118,12 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<CardApp orderid="99" time="5 mins 45 secs"/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp orderid="99" items="2" itemNames="item1" time="5 mins 45 secs"/>
+					<CardApp orderid="99" items="2" order="{ORDER}" time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
