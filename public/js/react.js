@@ -57,16 +57,17 @@ function ButtonAppBar() {
 
 function OrderItem(props) {
 
+	
   return (
    <div>
     <Typography variant="h5" align="center">
-test
+		{props.itemName}
     </Typography>
 	<Typography variant="h6" align="center">
-test
+		{props.varientName}
     </Typography>
 	<Typography variant="h6" color="textSecondary" align="center">
-		Qty: 
+		Qty: {props.qty}
 	</Typography>
 	</div>
   );
