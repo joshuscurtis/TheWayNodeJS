@@ -14,7 +14,7 @@ const {
   Button,
   Grid,
   Card,
-  CardContents,
+  CardContent,
   CardActions,
 } = MaterialUI;
 
