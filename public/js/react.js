@@ -8,7 +8,7 @@ const {
   SvgIcon,
   Link,
   AppBar,
-  ToolBar,
+  Toolbar,
   MenuIcon,
   IconButton,
   makeStyles,
