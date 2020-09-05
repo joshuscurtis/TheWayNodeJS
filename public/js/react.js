@@ -55,23 +55,21 @@ function ButtonAppBar() {
 }
 
 
-function Copyright() {
-  return (
-    <Typography variant="h6" color="textSecondary" align="center">
-		Item 1
-    </Typography>
-  );
-}
-
 function OrderItem(props) {
+  if((props.itemName).substring(0,6) == "Table") {
+  	return ();
+  }
   return (
    <div>
     <Typography variant="h5" align="center">
 		{props.itemName}
     </Typography>
-	    <Typography variant="h6" color="textSecondary" align="center">
+	<Typography variant="h6" align="center">
+		{props.varientName}
+    </Typography>
+	<Typography variant="h6" color="textSecondary" align="center">
 		Qty: {props.qty}
-		</Typography>
+	</Typography>
 	</div>
   );
 }
@@ -81,7 +79,7 @@ function OrderItems(props) {
 	console.log(order);
 	var rows = [];
 	for (var i = 0; i < order.products.length; i++) {
-    	rows.push(<OrderItem itemName={order.products[i].name} qty={order.products[i].quantity} />);
+    	rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} />);
 	}
   return (
     <div>
