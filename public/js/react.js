@@ -29,6 +29,7 @@ function CardApp() {
 			<CardContent>
 				<Copyright />
 				<Copyright />
+				<OrderItem itemName="Item 2">
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -60,6 +61,15 @@ function Copyright() {
   return (
     <Typography variant="h6" color="textSecondary" align="center">
 		Item 1
+    </Typography>
+	
+  );
+}
+
+function OrderItem(props) {
+  return (
+    <Typography variant="h6" color="textSecondary" align="center">
+		{props.itemName}
     </Typography>
 	
   );
