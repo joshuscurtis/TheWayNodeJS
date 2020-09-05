@@ -91,7 +91,7 @@ function OrderItems(props) {
 
 
 function App() {
-	var ORDER = [
+	const ORDER = [
     {
         id: 99,
         product: [{
@@ -106,7 +106,7 @@ function App() {
         isclosed: false
     }
 	];
-	
+	console.log(ORDER);
   return (
       <div style={{ margin: 0, }}>
 		<Container maxWidth="lg">
