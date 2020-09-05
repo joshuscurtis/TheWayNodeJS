@@ -56,9 +56,7 @@ function ButtonAppBar() {
 
 
 function OrderItem(props) {
-  if((props.itemName).substring(0,6) == "Table") {
-  	return ();
-  }
+
   return (
    <div>
     <Typography variant="h5" align="center">
