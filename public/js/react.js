@@ -22,8 +22,9 @@ const {
 function CardApp(props) {
 	var cardTitle = "Order: " + props.orderid;
 	if (props.tablenum != null) {
-		cardTitle = props.tablenum + "(Order: "+props.orderid+")";
+		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
 	}
+	
   return (
       <div style={{margin: 5,}}>
 		<Card style={{backgroundColor: props.isprocessing ? '#d9534f' : '#5cb85c',}} variant="outlined">
@@ -33,7 +34,7 @@ function CardApp(props) {
 				<OrderItems itemNames={props.itemNames} order={props.order} />
 			</CardContent>
 			<CardActions>
-        		<Button variant="contained" color="primary" size="small">Kitchen</Button>
+        		<Button  variant="contained" color="primary" size="small">Kitchen</Button>
 				<Button variant="contained" color="primary" size="small">Bar</Button>
 			</CardActions>
 		</Card>
@@ -47,8 +48,7 @@ function ButtonAppBar() {
     <div>
       <AppBar position="static">
         <Toolbar>
-			<Button color="inherit">Login</Button>
-			<Typography variant="h4" component="h1" gutterBottom>
+			<Typography align="center" variant="h4" component="h1" gutterBottom>
 		    	iOrders
 			</Typography>
         </Toolbar>
