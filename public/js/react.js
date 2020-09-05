@@ -61,9 +61,6 @@ function Copyright() {
     <Typography variant="h6" color="textSecondary" align="center">
 		Item 1
     </Typography>
-	<Typography variant="subtitle1" color="textSecondary" align="center">
-		Qty: 2
-    </Typography>
 	
   );
 }
