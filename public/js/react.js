@@ -24,7 +24,7 @@ function CardApp {
   return (
       <div style={{ margin: 5, }}>
 		<Card variant="outlined">
-			<CardHeader title="Order 100" subtitle="5 mins 45 secs">
+			<CardHeader title="Order 100" subheader="5 mins 45 secs">
 			</CardHeader>
 			<CardContent>
 				<OrderItem qty="2" itemName="Item 1"/>
