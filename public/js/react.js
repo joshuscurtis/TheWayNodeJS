@@ -95,11 +95,14 @@ function OrderItem(props) {
     <Typography variant="h5" align="center">
 		{props.itemName}
     </Typography>
-	<Typography variant="subtitle1" align="center">
+	<Typography variant="subtitle2" align="center">
 		{props.variantName}
     </Typography>
 	<Typography variant="h6" color="textSecondary" align="center">
 		Qty: {props.qty}
+	</Typography>
+		<Typography variant="subtitle1" color="textSecondary" align="center">
+		Comment: {props.comment}
 	</Typography>
 </Box>
 </div>
@@ -112,7 +115,7 @@ function OrderItems(props) {
 	var rows = [];
 	for (var i = 0; i < order.products.length; i++) {
 		if (order.products[i].name.substring(0,5) != "Table") {
-    		rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} />);
+    		rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} comment=order.product[i].comment/>);
 		}
 	}
   return (
