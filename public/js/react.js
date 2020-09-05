@@ -43,6 +43,9 @@ function ButtonAppBar() {
     <div>
       <AppBar position="static">
         <Toolbar>
+			<Typography variant="h4" |component="h1" gutterBottom>
+		    	iOrders
+			</Typography>
 			<Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
@@ -72,9 +75,6 @@ function App() {
 			<Grid container spacing={3}>
 		        <Grid item xs={12}>
 					<ButtonAppBar/>
-					<Typography variant="h4" component="h1" gutterBottom>
-		          		iOrders
-			  		</Typography>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
