@@ -104,7 +104,8 @@ var aOrder = {
 		],
         isclosed: false
     };
-	console.log(ORDER);
+
+	
   return (
       <div style={{ margin: 0, }}>
 		<Container maxWidth="lg">
