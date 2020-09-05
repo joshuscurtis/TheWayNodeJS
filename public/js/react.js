@@ -74,7 +74,8 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<Card variant="outlined">
+					<Card variant="outlined">			
+						<Card variant="outlined"></Card>
 					</Card>
 		        </Grid>
 		        <Grid item xs={6}>
