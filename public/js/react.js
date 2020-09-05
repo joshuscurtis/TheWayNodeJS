@@ -27,7 +27,8 @@ function CardApp() {
 			<CardHeader title="Order: 99" subheader="10 mins 23 secs" >
 			</CardHeader>
 			<CardContent>
-				<Copyright />
+				<Copyright/>
+				<Copyright/>
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -57,14 +58,13 @@ function ButtonAppBar() {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+    <Typography variant="h6" color="textSecondary" align="center">
+		Item 1
     </Typography>
+	<Typography variant="subtitle1" color="textSecondary" align="center">
+		Qty: 2
+    </Typography>
+	
   );
 }
 
