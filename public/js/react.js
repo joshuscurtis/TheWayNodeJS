@@ -121,8 +121,8 @@ var aOrder = {"order_id":6900,"isnew":true,"products":[{"quantity":"1","productU
 						isprocessing={aOrder.isprocessing}
 						istable={aOrder.istable}
 						isnew={aOrder.isnew}
+						isclosed={aOrder.isclosed}
 					/>
-					<CardApp orderid={aOrder.order_id} order={aOrder} time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
