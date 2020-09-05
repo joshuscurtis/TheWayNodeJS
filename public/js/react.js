@@ -19,12 +19,12 @@ const {
   CardHeader,
 } = MaterialUI;
 
-function CardApp() {
+function CardApp(props) {
 
   return (
       <div style={{ margin: 5, }}>
 		<Card variant="outlined">
-			<CardHeader title="Order 100" subheader="5 mins 45 secs">
+			<CardHeader title={props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
 				<OrderItem qty="1" itemName="Item 1"/>
@@ -90,14 +90,13 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<CardApp />
 					<CardApp orderid="99" time="5 mins 45 secs"/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp/>
+					<CardApp orderid="99" time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
