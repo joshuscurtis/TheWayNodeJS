@@ -32,7 +32,7 @@ function CardApp(props) {
 	
   return (
       <div style={{margin: 5,}}>
-		<Card style={{backgroundColor: props.isprocessing ? '#d9534f' : '#5cb85c',}} variant="outlined">
+		<Card style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
