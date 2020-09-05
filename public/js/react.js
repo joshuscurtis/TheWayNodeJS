@@ -49,6 +49,7 @@ function Copyright() {
 
 function MyCard() {
 	return (
+	<div>
 	<Card variant="outlined">
       <CardContent>
         <Typography  color="textSecondary" gutterBottom>
@@ -70,6 +71,7 @@ function MyCard() {
         <Button size="small">Learn More</Button>
       </CardActions>
   </Card>
+  </div>
 	);
 }
 
