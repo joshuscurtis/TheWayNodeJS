@@ -30,8 +30,8 @@ function CardApp(props) {
 				<OrderItems itemNames={props.itemNames} order={props.order} />
 			</CardContent>
 			<CardActions>
-        		<Button size="small">Kitchen</Button>
-				<Button size="small">Bar</Button>
+        		<Button variant="outlined" color="secondary" size="small">Kitchen</Button>
+				<Button variant="outlined" color="secondary" size="small">Bar</Button>
 			</CardActions>
 		</Card>
     </div>
