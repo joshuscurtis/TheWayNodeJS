@@ -72,7 +72,7 @@ function OrderItem(props) {
 		{props.itemName}
     </Typography>
 	<Typography variant="h5" color="textSecondary" align="center">
-		Qty: {props.qty}
+		{props.qty}
 	</Typography>
 	</div>
   );
