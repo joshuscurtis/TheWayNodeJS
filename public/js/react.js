@@ -29,7 +29,7 @@ function CardApp() {
 			<CardContent>
 				<Copyright />
 				<Copyright />
-				<OrderItem itemName="Item 2">
+				<OrderItem itemName="Item 2"/>
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
