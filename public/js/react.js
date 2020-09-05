@@ -22,13 +22,13 @@ const {
 function CardApp() {
 
   return (
-      <div style={{ margin: 5, }}>
+      <div style={{ margin: 5, background: grey}}>
 		<Card variant="outlined">
 			<CardHeader title="Order: 99" subheader="10 mins 23 secs" >
 			</CardHeader>
 			<CardContent>
-				<Copyright/>
-				<Copyright/>
+				<Copyright />
+				<Copyright />
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
