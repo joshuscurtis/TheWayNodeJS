@@ -22,11 +22,13 @@ function CardApp() {
 
   return (
     <div>
-		<Card variant="outlined">			
-			<Typography variant="h4" component="h1" gutterBottom>
-	  			Card
-			</Typography>
-			<Copyright />
+		<Card variant="outlined">		
+			<CardContent>
+				<Typography variant="h4" component="h1" gutterBottom>
+		  			Card
+				</Typography>
+				<Copyright />
+			</CardContent>
 		</Card>
     </div>
   );
