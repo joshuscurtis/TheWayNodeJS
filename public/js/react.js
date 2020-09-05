@@ -29,7 +29,7 @@ function CardApp(props) {
 	
   return (
       <div style={{colour}}>
-		<Card variant="outlined">
+		<Card  style={{colour} variant="outlined">
 			<CardHeader title={"Order: " +props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
