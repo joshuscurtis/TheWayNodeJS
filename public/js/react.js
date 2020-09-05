@@ -20,9 +20,14 @@ const {
 } = MaterialUI;
 
 function CardApp(props) {
-
+	if (props.isclosed == false){
+		colour = "backgroundColor: green"
+	} else {
+		colour = "backgroundColor: green"
+	}
+	
   return (
-      <div style={{ margin: 5, }}>
+      <div style={{colour}}>
 		<Card variant="outlined">
 			<CardHeader title={"Order: " +props.orderid} subheader={props.time}>
 			</CardHeader>
