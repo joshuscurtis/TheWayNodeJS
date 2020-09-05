@@ -89,7 +89,9 @@ function TableStream(props) {
 
 function OrderItem(props) {
   return (
-   <div>
+   
+<div>
+<Box borderBottom={1}>
     <Typography variant="h5" align="center">
 		{props.itemName}
     </Typography>
@@ -99,7 +101,8 @@ function OrderItem(props) {
 	<Typography variant="h6" color="textSecondary" align="center">
 		Qty: {props.qty}
 	</Typography>
-	</div>
+</Box>
+</div>
   );
 }
 
