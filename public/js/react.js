@@ -64,7 +64,7 @@ function ButtonAppBar() {
 
 
 function TableStream(props) {
-	var orders = props.orders;	
+	var orders = props.orders;
 	for (var i = 0; i < orders.length; i++) {
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
@@ -136,7 +136,7 @@ var mOrders = [{"order_id":6663,"isnew":true,"products":[{"quantity":"1","produc
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<TableStream/>
+					<TableStream orders={mOrder}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
