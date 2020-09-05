@@ -325,7 +325,18 @@ app.post('/updateAvg', (req,res) => {
 		})
 		
 	})
+	
+	app.get('/getOrder/:id', (req,res) => {
+		thisID = id;
+		var thisQuery = "SELECT * FROM devorders WHERE order_id = {thisId}"
+		pool.query(thisQuery, (err, result) => {
+			res.send(result.rows);
+		})
+		
+	})
+	
 
+	
 	app.get('/react', (req,res) => {
 		res.render('pages/react');
 	})

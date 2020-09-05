@@ -117,8 +117,8 @@ var aOrder = {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp orderid="99" order={aOrder} time="5 mins 45 secs"/>
-					<CardApp orderid="95" order={aOrder} time="5 mins 45 secs"/>
+					<CardApp orderid={aOrder.id} order={aOrder} time="5 mins 45 secs"/>
+					<CardApp orderid={aOrder.id} order={aOrder} time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
