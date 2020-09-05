@@ -12,6 +12,7 @@ const {
   MenuIcon,
   IconButton,
   Button,
+  Grid
 } = MaterialUI;
 
 
@@ -45,25 +46,28 @@ function Copyright() {
 
 function App() {
   return (
-    <Container maxWidth="lg">
-      <div style={{ marginTop: 24, }}>
-	  	<ButtonAppBar/>
-        <Typography variant="h4" component="h1" gutterBottom>
-          iOrders
-        </Typography>
-		<Container>
-			<Box width="50%" bgcolor="grey.300" p={1} my={0.5}>
-        		Width 75%
-			</Box>
-		</Container>	
-		<Container>
-			<Box width="50%" bgcolor="grey.300" p={1} my={0.5}>
-        		Width 75%
-			</Box>
-		</Container>
-        <Copyright />
-      </div>
-    </Container>
+   <Container maxWidth="lg">
+     <div style={{ marginTop: 24, }}>
+	  <Grid container spacing={3}>
+        <Grid item xs={12}>
+			<ButtonAppBar/>
+        </Grid>
+        <Grid item xs={6}>
+        	<Typography variant="h4" component="h1" gutterBottom>
+          		Left
+	  		</Typography>
+        </Grid>
+        <Grid item xs={6}>
+        	<Typography variant="h4" component="h1" gutterBottom>
+          		Right
+	  		</Typography>
+        </Grid>
+		<Grid item xs={12}>
+			<Copyright />
+	  	</Grid>
+	</Grid>
+   </div>
+  </Container>
   );
 }
 
