@@ -47,12 +47,10 @@ function Copyright() {
   );
 }
 
-function MyCard() {
+function Me() {
 	return (
-		<div>
 			<Card variant="outlined">
 	 		</Card>
-  		</div>
 	);
 }
 
@@ -74,8 +72,7 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Left
 			  		</Typography>
-					<Card variant="outlined">
-					</Card>
+					</Me>
 		        </Grid>
 		        <Grid item xs={6}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
