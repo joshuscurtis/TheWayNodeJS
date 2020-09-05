@@ -29,6 +29,9 @@ function CardApp() {
 				</Typography>
 				<Copyright />
 			</CardContent>
+			<CardActions>
+        		<Button size="small">Learn More</Button>
+			</CardActions>
 		</Card>
     </div>
   );
