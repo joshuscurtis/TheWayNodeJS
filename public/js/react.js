@@ -64,6 +64,7 @@ function ButtonAppBar() {
 
 
 function TableStream(props) {
+	var rows = [];
 	var orders = props.orders;
 	for (var i = 0; i < orders.length; i++) {
     		rows.push(<CardApp 
