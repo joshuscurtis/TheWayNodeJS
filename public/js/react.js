@@ -27,9 +27,8 @@ function CardApp() {
 			<CardHeader title="Order: 99" subheader="10 mins 23 secs" >
 			</CardHeader>
 			<CardContent>
-				<Copyright />
-				<Copyright />
-				<OrderItem itemName="Item 2"/>
+				<OrderItem qty="2" itemName="Item 1"/>
+				<OrderItem qty="5" itemName="Item 2"/>
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -68,10 +67,12 @@ function Copyright() {
 
 function OrderItem(props) {
   return (
-    <Typography variant="h6" color="textSecondary" align="center">
+    <Typography variant="h5" color="textSecondary" align="center">
 		{props.itemName}
     </Typography>
-	
+	<Typography variant="h5" color="textSecondary" align="center">
+		Qty: {props.qty}
+	</Typography>
   );
 }
 
