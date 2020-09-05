@@ -75,7 +75,7 @@ function App() {
 		          		Left
 			  		</Typography>
 					<Card variant="outlined">			
-						<Card variant="outlined"></Card>
+						<Copyright />
 					</Card>
 		        </Grid>
 		        <Grid item xs={6}>
