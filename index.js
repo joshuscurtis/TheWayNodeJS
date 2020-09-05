@@ -320,7 +320,7 @@ app.post('/updateAvg', (req,res) => {
 	app.get('/getStats', (req,res) => {
 		
 		var thisQuery = "SELECT * FROM public.stats order BY date;"
-		console.log(thisQuery)
+
 		pool.query(thisQuery, (err, result) => {
 			res.send(result.rows);
 		})
@@ -329,7 +329,9 @@ app.post('/updateAvg', (req,res) => {
 	
 	app.get('/getOrder/:id', (req,res) => {
 		thisID = req.params.id;
-		var thisQuery = "SELECT * FROM devorders WHERE order_id = {thisId}"
+		
+		var thisQuery = "SELECT * FROM devorders WHERE order_id = "+thisId+";";
+		console.log(thisQuery)
 		pool.query(thisQuery, (err, result) => {
 			res.send(result.rows);
 		})
