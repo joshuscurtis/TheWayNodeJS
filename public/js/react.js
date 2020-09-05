@@ -16,21 +16,25 @@ const {
   Card,
   CardContent,
   CardActions,
+  CardHeader,
 } = MaterialUI;
 
 function CardApp() {
 
   return (
     <div>
-		<Card variant="outlined">		
-			<CardContent>
+		<Card variant="outlined">
+			<CardHeader>
 				<Typography variant="h4" component="h1" gutterBottom>
 		  			Order: 9
 				</Typography>
+			</CardHeader>
+			<CardContent>
 				<Copyright />
 			</CardContent>
 			<CardActions>
-        		<Button size="small">Learn More</Button>
+        		<Button size="small">Kitchen</Button>
+				<Button size="small">Bar</Button>
 			</CardActions>
 		</Card>
     </div>
