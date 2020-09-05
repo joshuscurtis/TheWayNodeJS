@@ -78,7 +78,9 @@ function OrderItems(props) {
 	console.log(order);
 	var rows = [];
 	for (var i = 0; i < order.products.length; i++) {
-    	rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} />);
+		if (order.products[i].name.substring(0,5) != "Table") {
+    		rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} />);
+		}
 	}
   return (
     <div>
