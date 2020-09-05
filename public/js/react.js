@@ -18,7 +18,19 @@ const {
   CardActions,
 } = MaterialUI;
 
+function CardApp() {
 
+  return (
+    <div>
+		<Card variant="outlined">			
+			<Typography variant="h4" component="h1" gutterBottom>
+	  			Card
+			</Typography>
+			<Copyright />
+		</Card>
+    </div>
+  );
+}
 
 function ButtonAppBar() {
 
@@ -76,6 +88,9 @@ function App() {
 		          		Left
 			  		</Typography>
 					<Card variant="outlined">			
+						<Typography variant="h4" component="h1" gutterBottom>
+		          			Card
+			  			</Typography>
 						<Copyright />
 					</Card>
 		        </Grid>
@@ -83,6 +98,7 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
+					<CardApp/>
 		        </Grid>
 				<Grid item xs={12}>
 					<Copyright />
