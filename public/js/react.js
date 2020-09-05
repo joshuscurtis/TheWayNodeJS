@@ -22,7 +22,7 @@ const {
 function CardApp() {
 
   return (
-      <div style={{ margin: 5, background: grey}}>
+      <div style={{ margin: 5, }}>
 		<Card variant="outlined">
 			<CardHeader title="Order: 99" subheader="10 mins 23 secs" >
 			</CardHeader>
@@ -89,7 +89,6 @@ function App() {
 					<CardApp/>
 		        </Grid>
 				<Grid item xs={12}>
-					<Copyright />
 			  	</Grid>
 			</Grid>
   </Container>
