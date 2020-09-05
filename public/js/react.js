@@ -30,7 +30,7 @@ function CardApp(props) {
   return (
       <div style={{margin: 5,}}>
 		<Card  style={{colour}} variant="outlined">
-			<CardHeader title={"Order: " +props.orderid} subheader={props.time}>
+			<CardHeader title={"Order: " + props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
 				<OrderItems itemNames={props.itemNames} order={props.order} />
