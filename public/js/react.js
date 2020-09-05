@@ -24,7 +24,7 @@ function CardApp(props) {
   return (
       <div style={{ margin: 5, }}>
 		<Card variant="outlined">
-			<CardHeader title={props.orderid} subheader={props.time}>
+			<CardHeader title="Order: "+{props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
 				<OrderItem qty="1" itemName="Item 1"/>
