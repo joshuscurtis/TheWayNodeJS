@@ -128,7 +128,7 @@ var bOrder = {"order_id":6901,"isnew":true,"products":[{"quantity":"1","productU
 						istable={bOrder.istable}
 						isnew={bOrder.isnew}
 						isclosed={bOrder.isclosed}
-						/>
+					/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
