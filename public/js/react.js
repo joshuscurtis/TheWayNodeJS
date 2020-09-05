@@ -27,7 +27,7 @@ function CardApp(props) {
 			<CardHeader title={"Order: " +props.orderid} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
-				<OrderItems items="2" />
+				<OrderItems itemNames={props.itemNames} items={props.items} />
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -107,7 +107,7 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp orderid="99" items="3" time="5 mins 45 secs"/>
+					<CardApp orderid="99" items="3" itemNames="Item" time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
