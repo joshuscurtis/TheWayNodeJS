@@ -66,6 +66,7 @@ function ButtonAppBar() {
 function TableStream(props) {
 	var rows = [];
 	var orders = props.orders;
+	console.log(orders);
 	for (var i = 0; i < orders.length; i++) {
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
@@ -104,7 +105,7 @@ function OrderItem(props) {
 
 function OrderItems(props) {
 	var order = props.order;
-	console.log(order);
+	//console.log(order);
 	var rows = [];
 	for (var i = 0; i < order.products.length; i++) {
 		if (order.products[i].name.substring(0,5) != "Table") {
