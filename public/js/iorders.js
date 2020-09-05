@@ -120,8 +120,10 @@ function newestOrder() {
 function isClosed(id) {
 	if(searchOrders(id).isclosed == getCachedOrder(id).isclosed) {
 		return searchOrders(id).isclosed;
+				console.log("using db")
 	}
 	if(searchOrders(id).isclosed != getCachedOrder(id).isclosed) {
+				console.log("using cache")
 		return getCachedOrder(id).isclosed;
 	}
 	return false;
@@ -129,9 +131,11 @@ function isClosed(id) {
 //is order processing in either cache or db
 function isProcessing(id) {
 	if(searchOrders(id).isprocessing == getCachedOrder(id).isprocessing) {
+		console.log("using db")
 		return searchOrders(id).isprocessing;
 	}
 	if(searchOrders(id).isprocessing != getCachedOrder(id).isprocessing) {
+		console.log("using cache")
 		return getCachedOrder(id).isprocessing;
 	}
 	return false;
