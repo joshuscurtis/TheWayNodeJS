@@ -27,8 +27,8 @@ function CardApp {
 			<CardHeader title="Or100" subheader="5 mins 45 secs">
 			</CardHeader>
 			<CardContent>
-				<OrderItem qty="2" itemName="Item 1"/>
-				<OrderItem qty="5" itemName="Item 2"/>
+				<OrderItem itemName="Item 1"/>
+				<OrderItem itemName="Item 2"/>
 			</CardContent>
 			<CardActions>
         		<Button size="small">Kitchen</Button>
@@ -61,7 +61,6 @@ function Copyright() {
     <Typography variant="h6" color="textSecondary" align="center">
 		Item 1
     </Typography>
-	
   );
 }
 
