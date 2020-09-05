@@ -22,7 +22,7 @@ const {
 function CardApp() {
 
   return (
-    <div>
+      <div style={{ margin: 5, }}>
 		<Card variant="outlined">
 			<CardHeader title="Order: 99" subheader="10 mins 23 secs" >
 			</CardHeader>
