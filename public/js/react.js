@@ -79,7 +79,7 @@ function OrderItem(props) {
 function OrderItems(props) {
 	var rows = [];
 	for (var i = 0; i < (props.items); i++) {
-    	rows.push(<OrderItem itemName={itemNames} qty="2" />);
+    	rows.push(<OrderItem itemName={props.itemNames} qty={props.qty} />);
 	}
   return (
     <div>
@@ -107,7 +107,7 @@ function App() {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Right
 			  		</Typography>
-					<CardApp orderid="99" items="3" itemNames="Item" time="5 mins 45 secs"/>
+					<CardApp orderid="99" items="2" itemNames="item1" time="5 mins 45 secs"/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
