@@ -20,6 +20,9 @@ socket.on('cache', function(data) {
 	}
 });
 
+socket.on('load', function(data) {
+	allOrders = data.db;
+});
 
 //global orders var
 var allOrders;

@@ -188,6 +188,12 @@ function pingDb() {
 setTimeout(pingDb, 500)
 
 
+pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
+			io.sockets.emit('load',{ db: res.rows
+		});
+	})
+
+
 //update cache every 15seconds
 setInterval(function(){
 	//send data over socket	
