@@ -58,21 +58,6 @@ app.use(function(req, res, next) {
 	next();
 });
 var dbPrev;
-function somethingHappened() {
-	var dbNow;
-	var changed = false;
-	pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
-		dbNow = res.rows;
-		if(dbNow != dbPrev) changed = true;
-		dbPrev = dbNow;
-	})
-}
-
-
-
-
-
-
 
 var auth;
 var auth1;
@@ -247,6 +232,7 @@ setInterval(function() {
 		
 			if(newOrder == true) {
 				console.log('adding new order to db...')
+				io.sockets.emit('broadcast',{ description: true});
 				pool.query(thisQuery, (err, res) => {
 					console.log(err);
 					console.log(res);
@@ -254,7 +240,7 @@ setInterval(function() {
 	
 				//alert over socket
 				nextVal = thisVal + 1
-				if (nextVal == auth1.purchases[0].globalPurchaseNumber) io.sockets.emit('broadcast',{ description: true});
+				if (nextVal == auth1.purchases[0].globalPurchaseNumber) //io.sockets.emit('broadcast',{ description: true});
 				thisVal = auth1.purchases[0].globalPurchaseNumber;
 			}
 		})		
