@@ -5,6 +5,7 @@ const socket = io();
 
 socket.on('connect', function(data) {
 	socket.emit('join', 'Hello World from client');
+
 });
 
 socket.on('broadcast', function(data) {
@@ -13,6 +14,7 @@ socket.on('broadcast', function(data) {
 });
 
 socket.on('cache', function(data) {
+	allOrders = data.db;
 	for(var i = 0; i < (data.db).length; i++) {
 		sessionStorage.setItem(data.db[i].order_id, JSON.stringify(data.db[i]))
 	}
