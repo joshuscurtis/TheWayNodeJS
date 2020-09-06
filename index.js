@@ -171,23 +171,24 @@ setInterval(function(){
 	})
 }, 15000)
 
-
+var latest;
 function isResNew(newRes) {
-	var latest;
 	thisQuery = "SELECT MAX(order_id) FROM devorders;"
 	pool.query(thisQuery, (err, res) => {
-			var latest = res.rows[0].max
-			console.log(err);
-			console.log(res.rows);
-		})
-	console.log(latest)
-	console.log(newRes.purchases[0].globalPurchaseNumber)
-	if (latest == newRes.purchases[0].globalPurchaseNumber){
-		return true		
-	}
-	else {
-		return false
-	}	
+			
+		var latest = res.rows[0].max
+		console.log(err);
+		console.log(res.rows);
+		console.log(latest)
+		console.log(newRes.purchases[0].globalPurchaseNumber)
+		
+		if (latest > newRes.purchases[0].globalPurchaseNumber){
+			return true		
+		}
+		else {
+			return false
+		}	
+	})		
 }
 
 //every 5seconds
