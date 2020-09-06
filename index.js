@@ -182,7 +182,7 @@ function isResNew(newRes) {
 		console.log(latest)
 		console.log(newRes.purchases[0].globalPurchaseNumber)
 		
-		if (latest > newRes.purchases[0].globalPurchaseNumber){
+		if (latest < newRes.purchases[0].globalPurchaseNumber){
 			console.log("new order")
 			return true		
 		}
