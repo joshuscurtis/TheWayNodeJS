@@ -197,7 +197,7 @@ setInterval(function(){
 			io.sockets.emit('cache',{ db: res.rows
 		});
 	})
-}, 15000)
+}, 5000)
 
 
 //every 5seconds
