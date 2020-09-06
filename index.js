@@ -53,6 +53,23 @@ app.use(function(req, res, next) {
 	res.setHeader('Access-Control-Allow-Credentials', true);
 	next();
 });
+var dbPrev;
+function somethingHappened() {
+	var dbNow;
+	var change = false;
+	pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
+		dbNow = res.rows;
+	
+	if(dbNow != dbPrev) change = true
+	dbPrev = dbNow
+	return change
+})
+}
+
+
+
+
+
 
 
 var auth;
@@ -158,6 +175,7 @@ function pingDb() {
 		io.sockets.emit('db',{ db: res.rows});
 	})
 	theTime = Date.now();
+	console.log("change? "+somethingHappened())
 	setTimeout(pingDb, 500);
 }
 setTimeout(pingDb, 500)
