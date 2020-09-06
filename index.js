@@ -360,8 +360,20 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 	
-	app.get('/orders/table/true', (req,res) => {
-		var thisId = req.params.id;
+	app.get('/orders/table/', (req,res) => {
+		var thisId = true;
+		
+		var thisQuery = "SELECT * FROM devorders WHERE istable = "+thisId+";";
+		console.log(thisQuery)
+		pool.query(thisQuery, (err, result) => {
+			res.send(result.rows);
+		})
+		
+	})
+	
+	
+	app.get('/orders/takeaway/', (req,res) => {
+		var thisId = false;
 		
 		var thisQuery = "SELECT * FROM devorders WHERE istable = "+thisId+";";
 		console.log(thisQuery)
