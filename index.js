@@ -173,23 +173,7 @@ setInterval(function(){
 
 
 async function isResNew(newRes) {
-	var latest;
-	thisQuery = "SELECT MAX(order_id) FROM devorders;"
-	await pool.query(thisQuery, (err, res) => {
-		latest = res.rows[0].max
-
-		console.log("DB: "+latest)
-		console.log("Api :"+newRes.purchases[0].globalPurchaseNumber)
-		
-		if (latest < newRes.purchases[0].globalPurchaseNumber){
-			console.log("new order detected...")
-			return (true);
-		}
-		else {
-			return false
-		}
-		
-	})
+	
 }
 
 //every 5seconds
@@ -222,7 +206,25 @@ setInterval(function() {
 		//send to pg
 		var thisQuery = "INSERT INTO public.devorders (order_id, products, istable, isnew, isclosed, isprocessing, time, tablenum) VALUES ("+auth1.purchases[0].globalPurchaseNumber+", '" +JSON.stringify(auth1.purchases[0].products)+"',"+doesOrderContainTable(auth1.purchases[0].products)+", "+true+", "+false+", "+false+", "+theTime+",'"+getTableNum(auth1.purchases[0].products)+"');"
 		console.log("debug: "+isResNew(auth1));
-		if(isResNew(auth1) == true) {
+		
+		
+		var latest;
+		var newOrder;
+		maxQ = "SELECT MAX(order_id) FROM devorders;"
+		pool.query(maxQ, (err, res) => {
+			latest = res.rows[0].max
+			console.log("DB: "+latest)
+			console.log("Api :"+auth1.purchases[0].globalPurchaseNumber)
+			
+			if (latest < auth1.purchases[0].globalPurchaseNumber){
+				console.log("new order detected...")
+				newOrder = true
+			}
+			else {
+				newOrder = false
+			}	
+		
+		if(newOrder == true) {
 			console.log('adding new order to db...')
 			pool.query(thisQuery, (err, res) => {
 				console.log(err);
@@ -233,10 +235,10 @@ setInterval(function() {
 			nextVal = thisVal + 1
 			if (nextVal == auth1.purchases[0].globalPurchaseNumber) io.sockets.emit('broadcast',{ description: true});
 			thisVal = auth1.purchases[0].globalPurchaseNumber
-		}			
+		}
+	})		
 	});
 });
-
 }, 5000)
 max = 0;
 basicAuth({
