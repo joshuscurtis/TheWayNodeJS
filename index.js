@@ -177,7 +177,7 @@ function pingDb() {
 		dbNow = res.rows;
 		if(JSON.stringify(dbNow) != JSON.stringify(dbPrev)) changed = true;
 		dbPrev = dbNow;
-		io.sockets.emit('db',{ db: res.rows});
+		if(changed) io.sockets.emit('db',{ db: res.rows});
 		console.log("change? "+changed)
 	})
 	
