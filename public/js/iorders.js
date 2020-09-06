@@ -487,6 +487,7 @@ setTimeout(refresh2, 5000);
 function getAllOrders() {
 	socket.on('db', function(data) {
 		allOrders = data.db;
+		console.log("a change occured...")
 	});
 }
 
