@@ -15,6 +15,19 @@ const server = require('http').createServer(app);
 const request = require('request');
 const bodyParser = require('body-parser');
 const io = require('socket.io')(server, options3);
+const Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: '1067652',
+  key: '784d76b0ef7a1e67fbd6',
+  secret: 'c5f06f7a2fd59071a614',
+  cluster: 'eu',
+  encrypted: true
+});
+
+pusher.trigger('my-channel', 'my-event', {
+  'message': 'hello world'
+});
 
 
 //error page for auth
@@ -169,6 +182,8 @@ setInterval(function(){
     pool.query('SELECT * FROM public.devorders', (err, res) => {
 		io.sockets.emit('cache',{ db: res.rows});
 	})
+	pusher.trigger('my-channel', 'my-event', {'message': 'hello world'});
+
 }, 15000)
 
 //every 5seconds

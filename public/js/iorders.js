@@ -18,6 +18,22 @@ socket.on('cache', function(data) {
 	}
 });
 
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('784d76b0ef7a1e67fbd6', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+  });
+
+
+
+
 //global orders var
 var allOrders;
 
