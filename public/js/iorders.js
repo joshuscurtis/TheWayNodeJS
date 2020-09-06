@@ -8,11 +8,12 @@ socket.on('connect', function(data) {
 });
 
 socket.on('broadcast', function(data) {
-	console.log(data.description);
+	console.log("new order...");
 	if(data.description == true) audio.play();
 });
 
 socket.on('cache', function(data) {
+	console.log("refreshing cache...");
 	allOrders = data.db;
 	for(var i = 0; i < (data.db).length; i++) {
 		sessionStorage.setItem(data.db[i].order_id, JSON.stringify(data.db[i]))
@@ -25,6 +26,11 @@ var allOrders = [{"order_id":6663,"isnew":true,"products":[{"quantity":"1","prod
 
 socket.on('load', function(data) {
 	allOrders = data.db;
+});
+
+socket.on('db', function(data) {
+	allOrders = data.db;
+	console.log("a change occured...")
 });
 
 //check if new user orders alert
@@ -490,10 +496,6 @@ setTimeout(refresh2, 5000);
 
 //use io to get data from db
 function getAllOrders() {
-	socket.on('db', function(data) {
-		allOrders = data.db;
-		console.log("a change occured...")
-	});
 }
 
 

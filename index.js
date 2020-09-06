@@ -169,20 +169,15 @@ var theTime = 0
 
 
 function pingDb() {
-	
 	var dbNow;
 	var changed = false;
-	
     pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
 		dbNow = res.rows;
 		if(JSON.stringify(dbNow) != JSON.stringify(dbPrev)) changed = true;
 		dbPrev = dbNow;
 		if(changed) io.sockets.emit('db',{ db: res.rows});
-		console.log("change? "+changed)
 	})
-	
 	theTime = Date.now();
-
 	setTimeout(pingDb, 500);
 }
 setTimeout(pingDb, 500)
@@ -191,7 +186,7 @@ setTimeout(pingDb, 500)
 pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
 			io.sockets.emit('load',{ db: res.rows
 		});
-	})
+})
 
 
 //update cache every 15seconds
