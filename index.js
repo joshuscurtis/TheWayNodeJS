@@ -175,7 +175,7 @@ function pingDb() {
 	
     pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
 		dbNow = res.rows;
-		if(dbNow != dbPrev) changed = true;
+		if(JSON.stringify(dbNow) != JSON.stringify(dbPrev)) changed = true;
 		dbPrev = dbNow;
 		io.sockets.emit('db',{ db: res.rows});
 		console.log("change? "+changed)
