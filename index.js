@@ -184,8 +184,10 @@ setTimeout(pingDb, 500)
 
 
 pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
-			io.sockets.emit('load',{ db: res.rows
-		});
+			console.log("sending init data...");
+			io.sockets.emit('load',{ db: res.rows});
+			console.log("sent!")
+		
 })
 
 
