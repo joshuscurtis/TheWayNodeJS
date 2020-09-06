@@ -12,7 +12,7 @@ socket.on('broadcast', function(data) {
 	if(data.description == true) audio.play();
 });
 
-socket.on('cache', function(data) {
+socket.on('cache1', function(data) {
 	console.log("refreshing cache...");
 	allOrders = data.db;
 	for(var i = 0; i < (data.db).length; i++) {
@@ -33,6 +33,7 @@ socket.on('load', function(data) {
 socket.on('db', function(data) {
 	allOrders = data.db;
 	console.log("a change occured...")
+	console.log(allOrders)
 });
 
 //check if new user orders alert
