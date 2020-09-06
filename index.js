@@ -172,7 +172,7 @@ setInterval(function(){
 }, 15000)
 
 
-function async isResNew(newRes) {
+async function isResNew(newRes) {
 	var latest;
 	thisQuery = "SELECT MAX(order_id) FROM devorders;"
 	await pool.query(thisQuery, (err, res) => {
