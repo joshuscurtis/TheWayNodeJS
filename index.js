@@ -56,14 +56,13 @@ app.use(function(req, res, next) {
 var dbPrev;
 function somethingHappened() {
 	var dbNow;
-	var change = false;
+	var changed = false;
 	pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
 		dbNow = res.rows;
-	
-	if(dbNow != dbPrev) change = true
-	dbPrev = dbNow
-	return change
-})
+		if(dbNow != dbPrev) changed = true;
+		dbPrev = dbNow;
+		return changed;
+	})
 }
 
 
