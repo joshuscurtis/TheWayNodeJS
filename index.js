@@ -172,10 +172,10 @@ setInterval(function(){
 }, 15000)
 
 
-function isResNew(newRes) {
+function async isResNew(newRes) {
 	var latest;
 	thisQuery = "SELECT MAX(order_id) FROM devorders;"
-	pool.query(thisQuery, (err, res) => {
+	await pool.query(thisQuery, (err, res) => {
 		latest = res.rows[0].max
 
 		console.log("DB: "+latest)
@@ -189,7 +189,7 @@ function isResNew(newRes) {
 			return false
 		}
 		
-	})		
+	})
 }
 
 //every 5seconds
