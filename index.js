@@ -182,9 +182,9 @@ function isResNew(newRes) {
 		console.log(latest)
 		console.log(newRes.purchases[0].globalPurchaseNumber)
 		
-		if (latest < newRes.purchases[0].globalPurchaseNumber){
-			console.log("new order")
-			return true		
+		if (latest <  newRes.purchases[0].globalPurchaseNumber){
+			console.log("new order detected...")
+			return true
 		}
 		else {
 			return false
@@ -222,7 +222,8 @@ setInterval(function() {
 		//send to pg
 		var thisQuery = "INSERT INTO public.devorders (order_id, products, istable, isnew, isclosed, isprocessing, time, tablenum) VALUES ("+auth1.purchases[0].globalPurchaseNumber+", '" +JSON.stringify(auth1.purchases[0].products)+"',"+doesOrderContainTable(auth1.purchases[0].products)+", "+true+", "+false+", "+false+", "+theTime+",'"+getTableNum(auth1.purchases[0].products)+"');"
 		
-		if(isResNew(auth1)) {
+		if(isResNew(auth1) == true) {
+			console.log('adding new order to db...')
 			pool.query(thisQuery, (err, res) => {
 				console.log(err);
 				console.log(res);
