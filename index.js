@@ -29,7 +29,11 @@ io.on('connection', function(client) {
     console.log('Client connected...');
     
     client.on('join', function(data) {
-    	console.log(data);
+		pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
+			console.log("sending init data...");
+			io.sockets.emit('load',{ db: res.rows});
+			console.log("sent!")
+		});
     });
 });
 
@@ -183,12 +187,7 @@ function pingDb() {
 setTimeout(pingDb, 500)
 
 
-pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
-			console.log("sending init data...");
-			io.sockets.emit('load',{ db: res.rows});
-			console.log("sent!")
-		
-})
+
 
 
 //update cache every 15seconds
