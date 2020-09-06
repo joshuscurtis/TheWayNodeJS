@@ -39,8 +39,8 @@ function CardApp(props) {
 				<OrderItems order={props.order} />
 			</CardContent>
 			<CardActions>
-        		<Button  variant="contained" color={kitCol} size="small">Kitchen</Button>
-				<Button variant="contained" color={barCol} size="small">Bar</Button>
+        		<Button  variant="contained" color={kitCol} size="large">Kitchen</Button>
+				<Button variant="contained" color={barCol} size="large">Bar</Button>
 			</CardActions>
 		</Card>
     </div>
