@@ -154,7 +154,7 @@ var theTime = 0
 
 
 function pingDb() {
-    pool.query('SELECT * FROM public.devorders', (err, res) => {
+    pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
 		io.sockets.emit('db',{ db: res.rows});
 	})
 	theTime = Date.now();
@@ -208,10 +208,8 @@ setInterval(function() {
 		maxQ = "SELECT MAX(order_id) FROM devorders;"
 		pool.query(maxQ, (err, res) => {
 			latest = res.rows[0].max
-			console.log("DB: "+latest)
-			console.log("Api :"+auth1.purchases[0].globalPurchaseNumber)
 			
-			if (latest < auth1.purchases[0].globalPurchaseNumber){
+			if (latest < auth1.purchases[0].globalPurchaseNumber) {
 				console.log("new order detected...")
 				newOrder = true
 			}
@@ -220,16 +218,16 @@ setInterval(function() {
 			}	
 		
 			if(newOrder == true) {
-			console.log('adding new order to db...')
-			pool.query(thisQuery, (err, res) => {
-				console.log(err);
-				console.log(res);
-			})
-
-			//alert over socket
-			nextVal = thisVal + 1
-			if (nextVal == auth1.purchases[0].globalPurchaseNumber) io.sockets.emit('broadcast',{ description: true});
-			thisVal = auth1.purchases[0].globalPurchaseNumber
+				console.log('adding new order to db...')
+				pool.query(thisQuery, (err, res) => {
+					console.log(err);
+					console.log(res);
+				})
+	
+				//alert over socket
+				nextVal = thisVal + 1
+				if (nextVal == auth1.purchases[0].globalPurchaseNumber) io.sockets.emit('broadcast',{ description: true});
+				thisVal = auth1.purchases[0].globalPurchaseNumber;
 			}
 		})		
 	});
