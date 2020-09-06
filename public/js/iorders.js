@@ -12,7 +12,7 @@ socket.on('broadcast', function(data) {
 	if(data.description == true) audio.play();
 });
 
-socket.on('cache1', function(data) {
+socket.on('cache', function(data) {
 	console.log("refreshing cache...");
 	allOrders = data.db;
 	for(var i = 0; i < (data.db).length; i++) {
@@ -82,12 +82,13 @@ function getCachedOrder(id) {
 	try {
 		order = sessionStorage.getItem(id);
 		order = JSON.parse(order);
-		if(order.isclosed == null) return dummy;
+		if(order.isclosed === null) return dummy;
 		//console.log(order);
 		return order;
 	}
 	catch (error) {
 		console.log(error);
+		sessionStorage.setItem(id, JSON.stringify(dummy))
 		return dummy;
 	}
 }
