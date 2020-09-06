@@ -349,7 +349,7 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 	
-	app.get('/getOrder/:id', (req,res) => {
+	app.get('/orders/:id', (req,res) => {
 		var thisId = req.params.id;
 		
 		var thisQuery = "SELECT * FROM devorders WHERE order_id = "+thisId+";";
@@ -360,7 +360,16 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 	
-
+	app.get('/orders/table/true', (req,res) => {
+		var thisId = req.params.id;
+		
+		var thisQuery = "SELECT * FROM devorders WHERE istable = "+thisId+";";
+		console.log(thisQuery)
+		pool.query(thisQuery, (err, result) => {
+			res.send(result.rows);
+		})
+		
+	})
 	
 	app.get('/react', (req,res) => {
 		res.render('pages/react');
