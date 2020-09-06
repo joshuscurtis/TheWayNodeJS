@@ -349,7 +349,7 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 	
-	app.get('/orders/:id', (req,res) => {
+	app.get('/orders/byId/:id', (req,res) => {
 		var thisId = req.params.id;
 		
 		var thisQuery = "SELECT * FROM devorders WHERE order_id = "+thisId+";";
