@@ -61,7 +61,6 @@ function somethingHappened() {
 		dbNow = res.rows;
 		if(dbNow != dbPrev) changed = true;
 		dbPrev = dbNow;
-		return changed;
 	})
 }
 
@@ -170,11 +169,20 @@ var theTime = 0
 
 
 function pingDb() {
+	
+	var dbNow;
+	var changed = false;
+	
     pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
+		dbNow = res.rows;
+		if(dbNow != dbPrev) changed = true;
+		dbPrev = dbNow;
 		io.sockets.emit('db',{ db: res.rows});
+		console.log("change? "+changed)
 	})
+	
 	theTime = Date.now();
-	console.log("change? "+somethingHappened())
+
 	setTimeout(pingDb, 500);
 }
 setTimeout(pingDb, 500)
