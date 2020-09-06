@@ -19,34 +19,8 @@ socket.on('cache', function(data) {
 });
 
 
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('784d76b0ef7a1e67fbd6', {
-      cluster: 'eu'
-    });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
-  });
-
-
-
-
 //global orders var
 var allOrders;
-
-
-// //check for interaction
-// var interaction = false; 
-// function interacting() {
-// 	interaction = true
-// }
-
-// function checkInteraction() {
-// 	$(document).bind("click mousemove touchstart", interacting);
-// }
 
 //check if new user orders alert
 function checkNew() {
@@ -54,6 +28,7 @@ function checkNew() {
 		window.newUserModal();
 	}
 }
+
 setTimeout(function() {
 	checkNew();
 }, 1000)

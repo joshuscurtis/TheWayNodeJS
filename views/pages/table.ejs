@@ -115,6 +115,31 @@ initial-scale=1">
 	        </div>
 	    </div>
 	</div>
+	
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAaGItIshmvYbJK_HiOcQib2Da32cxN1PU",
+    authDomain: "waycoffee-e0447.firebaseapp.com",
+    databaseURL: "https://waycoffee-e0447.firebaseio.com",
+    projectId: "waycoffee-e0447",
+    storageBucket: "waycoffee-e0447.appspot.com",
+    messagingSenderId: "393735122907",
+    appId: "1:393735122907:web:b40ac88ac7ecb5287f41fe",
+    measurementId: "G-FDK6K9HNQ9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
 </body>
 
 <style type="text/css">
