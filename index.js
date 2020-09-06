@@ -180,7 +180,8 @@ function isResNew(newRes) {
 			console.log(err);
 			console.log(res.rows);
 		})
-
+	console.log(latest)
+	console.log(newRes.purchases[0].globalPurchaseNumber)
 	if (latest == newRes.purchases[0].globalPurchaseNumber){
 		return true		
 	}
