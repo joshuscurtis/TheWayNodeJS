@@ -418,6 +418,9 @@ app.post('/updateAvg', (req,res) => {
 	app.get('/react', (req,res) => {
 		res.render('pages/react');
 	})
+	app.get('/dev', (req,res) => {
+		res.render('pages/react__stats');
+	})
 	
 //START SERVER
 server.listen(PORT);
