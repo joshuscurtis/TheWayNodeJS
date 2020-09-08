@@ -309,16 +309,7 @@ function OrderItem(props) {
 var comment = "";
  if(props.comment != null) comment = "Comment: " +props.comment
 
- const [strikeClass, setStrikeClass] = useState("");
- 
- // useEffect(() => {
-	
-// 	});
-	
-// 	return () => {
-// 	}
-// }, []);
-
+const [strikeClass, setStrikeClass] = useState("");
 
 const handleClick = e => {
 	if(strikeClass != "crossed-line") setStrikeClass("crossed-line");

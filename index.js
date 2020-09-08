@@ -160,7 +160,7 @@ var theTime = 0
 function pingDb() {
 	var dbNow;
 	var changed = false;
-    pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
+    pool.query('select * from devorders where order_id in (SELECT order_id FROM devorders order BY order_id DESC LIMIT 20) ORDER BY order_id asc;', (err, res) => {
 		dbNow = res.rows;
 		if(JSON.stringify(dbNow) != JSON.stringify(dbPrev)) changed = true;
 		dbPrev = dbNow;
