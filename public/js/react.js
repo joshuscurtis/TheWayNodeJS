@@ -21,6 +21,7 @@ const {
   KitchenIcon,
   Dialog,
   DialogTitle,
+  DialogContent,
   DialogContentText,
   DialogActions,
 } = MaterialUI;
