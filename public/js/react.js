@@ -19,6 +19,10 @@ const {
   CardHeader,
   ButtonBase,
   KitchenIcon,
+  Dialog,
+  DialogTitle,
+  DialogContentText,
+  DialogActions,
 } = MaterialUI;
 
 const {
@@ -27,7 +31,60 @@ const {
 } = React
 
 
+
+
+function AlertDialog() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Open alert dialog
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Google help apps determine location. This means sending anonymous location data to
+            Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
 function CardApp(props) {
+	const [closedModal, setClosedModal] = useState(false);
 	if(props.isclosed === true){
 		return (null);
 	}
@@ -63,6 +120,7 @@ function CardApp(props) {
 				console.log("close order...");
 				updatePG(id, 'isclosed', true);
 				console.log("closed");
+				setClosedModal(true);
 			}
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		}
@@ -70,6 +128,7 @@ function CardApp(props) {
   return (
 
       <div>
+	  <AlertDialog close={closedModal}/>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
