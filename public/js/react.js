@@ -286,6 +286,17 @@ const [orderData, setOrderData] = useState(0);
 
 useEffect(() => {
 	console.log('start socket')
+	
+	socket.on('connect', function(data) {
+		socket.emit('join', 'Hello World from react client');
+	});
+	
+	socket.on('load', function(data) {
+		console.log("loading data...");
+		setOrderData(data.db);
+	});
+	
+	
 	socket.on('db', function(data) {
 		console.log("getting data for react...");
 		setOrderData(data.db)
