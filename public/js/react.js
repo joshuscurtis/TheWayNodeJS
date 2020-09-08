@@ -308,11 +308,9 @@ function TableStream(props) {
 function OrderItem(props) {
 var comment = "";
  if(props.comment != null) comment = "Comment: " +props.comment
-return (
+
  const [strikeClass, setStrikeClass] = useState(0);
-
-
-// useEffect(() => {
+ // useEffect(() => {
 	
 // 	});
 	
@@ -324,7 +322,8 @@ return (
 const handleClick = e => {
 	setStrikeClass("crossed-line");
 }
-
+ 
+ return (
 <div className={strikeClass}
 	 onClick={this.handleClick} 
 >
