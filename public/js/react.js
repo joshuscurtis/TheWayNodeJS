@@ -100,7 +100,6 @@ useEffect(() => {
 }, []);
 
 	function sayHello() {
-    	alert(id);
 		updatePG(id, 'assignee2', false)
 	}
 	
@@ -117,15 +116,32 @@ useEffect(() => {
 }
 
 function KitchenButton(props){
+const [id, setId] = useState(0);
+//console.log(props.orderId)
+
+useEffect(() => {
+	setId(props.orderId);
+	console.log('setId: ' + id)
+	return () => {
+		console.log('return block')
+
+	}
+}, []);
+
+	function sayHello() {
+		updatePG(id, 'assignee', false)
+	}
+	
 	return (
-	 	<Button  
+	 	<Button 
+			onClick={sayHello}
 			variant="contained" 
 			color={props.colour}
 			size="large"
 		>
 		Kitchen
 		</Button>
-	);
+		);
 }
 
 
