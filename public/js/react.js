@@ -60,6 +60,7 @@ function CardApp(props) {
 	}, []);
 	
 		function sayHello() {
+			console.log(id+" : "+props.isprocessing)
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 			if(props.isprocessing == false) updatePG(id, 'isclosed', true);
 		}
@@ -68,7 +69,7 @@ function CardApp(props) {
 	
   return (
 
-      <div class="OrderCard__Main" style={{margin: 5,}}>
+      <div className="OrderCard__Main" style={{margin: 5,}}>
 		<Card onClick={sayHello} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
