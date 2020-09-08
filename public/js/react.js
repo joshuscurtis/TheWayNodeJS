@@ -74,8 +74,8 @@ const handleCloseOrder = e => {
           <Button onClick={handleClose} color="primary">
 			Cancel
           </Button>
-          <Button onClick={handleCloseOrder} color="primary" autoFocus>
-            Closed Order
+          <Button className="OrderCard__closeButton" onClick={handleCloseOrder} color="primary" size="large" autoFocus>
+            Close Order
           </Button>
         </DialogActions>
       </Dialog>
