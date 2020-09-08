@@ -56,7 +56,7 @@ const handleCloseOrder = e => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-		Closed order
+		Close order
       </Button>
       <Dialog
         open={open}
