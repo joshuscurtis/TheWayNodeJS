@@ -67,12 +67,12 @@ function CardApp(props) {
 		}
 	
 	 	const handleClick = e => {
-    		e.stopPropagation();  //  <------ Here is the magic
-			console.log(id+" : "+props.isprocessing)
+    		e.stopPropagation();
+			console.log(id);
 			if(props.isprocessing === true) {
-				console.log("close order...")
+				console.log("close order...");
 				updatePG(id, 'isclosed', true);
-				console.log("closed")
+				console.log("closed");
 			}
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		}
@@ -134,9 +134,14 @@ useEffect(() => {
 		updatePG(id, 'assignee2', false)
 	}
 	
+ 	const handleClick = e => {
+		e.stopPropagation();
+		updatePG(id, 'assignee2', false)
+ 	}
+	
 	return (
 	 	<Button 
-			onClick={sayHello}
+			onClick={handleClick}
 			variant="contained" 
 			color={props.colour}
 			size="large"
@@ -162,9 +167,14 @@ useEffect(() => {
 		updatePG(id, 'assignee', false)
 	}
 	
+	const handleClick = e => {
+		e.stopPropagation();
+		updatePG(id, 'assignee2', false)
+ 	}
+	
 	return (
 	 	<Button 
-			onClick={sayHello}
+			onClick={handleClick}
 			variant="contained" 
 			color={props.colour}
 			size="large"
