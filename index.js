@@ -415,6 +415,16 @@ app.post('/updateAvg', (req,res) => {
 		
 	})
 	
+	app.get('/orders/20/', (req,res) => {
+		var thisId = false;
+		
+		var thisQuery = "SELECT * FROM devorders order BY order_id DESC LIMIT 20;";
+		console.log(thisQuery)
+		pool.query(thisQuery, (err, result) => {
+			res.send(result.rows);
+		})
+	})
+	
 	app.get('/react', (req,res) => {
 		res.render('pages/react');
 	})
