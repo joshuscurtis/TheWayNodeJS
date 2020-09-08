@@ -19,6 +19,7 @@ const {
   CardHeader,
   ButtonBase,
   KitchenIcon,
+  Icon,
 } = MaterialUI;
 
 const {
@@ -164,7 +165,7 @@ useEffect(() => {
 	
 	return (
 		<IconButton 
-			aria-label="kitchn"
+			aria-label="kitchen"
 			onClick={sayHello}
 			variant="contained" 
 			color={props.colour}
