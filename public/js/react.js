@@ -88,9 +88,9 @@ function AlertDialog(props) {
 function CardApp(props) {
 	const [close, setClose] = useState(false);
 	
-	// if(props.isclosed === true){
-	// 	return (null);
-	// }
+	if(props.isclosed === true){
+		return (null);
+	}
 	
 	var cardTitle = "Order: " + props.orderid;
 	if (props.tablenum != null) {
