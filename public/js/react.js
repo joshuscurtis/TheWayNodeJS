@@ -309,15 +309,23 @@ function OrderItem(props) {
 var comment = "";
  if(props.comment != null) comment = "Comment: " +props.comment
 return (
-   
+ const [strikeClass, setStrikeClass] = useState("");
+
+
+// useEffect(() => {
+	
+// 	});
+	
+// 	return () => {
+// 	}
+// }, []);
+
 
 const handleClick = e => {
-	  this.setState({
-      	bgColor: 'blue'
-  })
+	setStrikeClass(crossed-line);
 }
 
-<div style={{backgroundColor:this.state.bgColor}}
+<div class={strikeClass}
 	 onClick={this.handleClick} 
 >
 <Box m={1} borderBottom={1}>
