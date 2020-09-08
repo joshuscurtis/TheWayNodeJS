@@ -286,13 +286,13 @@ const [orderData, setOrderData] = useState(0);
 
 useEffect(() => {
 	console.log('start socket')
-	socket.on('reactdata', function(data) {
+	socket.on('db', function(data) {
 		console.log("getting data for react...");
 		setOrderData(data.db)
 	});
 	return () => {
 		console.log('stop socket')
-		socket.off('reactdata');
+		socket.off('db');
 	}
 }, []);
 
