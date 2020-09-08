@@ -56,7 +56,7 @@ function CardApp(props) {
 	}, []);
 	
 		function cardAction(e) {
-
+			e.stopPropagation();
 			console.log(id+" : "+props.isprocessing)
 			if(props.isprocessing === true) {
 				console.log("close order...")
@@ -66,7 +66,7 @@ function CardApp(props) {
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		}
 	
-	 	function handleClick = e => {
+	 	const handleClick = e => {
     		e.stopPropagation();  //  <------ Here is the magic
  		    this.props.onClick();
 			
