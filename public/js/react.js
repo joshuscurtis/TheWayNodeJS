@@ -26,7 +26,7 @@ const {
 
 
 function CardApp(props) {
-	if(prop.isclosed === true){
+	if(props.isclosed === true){
 		return (null);
 	}
 	
