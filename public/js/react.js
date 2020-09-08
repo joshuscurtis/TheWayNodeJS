@@ -61,10 +61,32 @@ function CardApp(props) {
   );
 }
 
+
+function updatePG(id, column, value) {
+	var settings = {
+		"url": "/update",
+		"method": "POST",
+		"timeout": 0,
+		"headers": {
+			"Content-Type": "application/x-www-form-urlencoded"
+		},
+		"data": {
+			"value": value,
+			"id": id,
+			"column": column
+		}
+	};
+	$.ajax(settings).done(function(response) {}).fail(function(data) {
+		console.log("fail ")
+	});
+}
+
+
 function BarButton(props){
 	
 	function sayHello() {
-    alert('Hello!');
+    	alert('Hello!');
+		updatePG(props.orderId, 'assignee2', false)
 }
 	
 	return (
@@ -74,7 +96,7 @@ function BarButton(props){
 			color={props.colour}
 			size="large"
 		>
-		Kitchen
+		Bar
 		</Button>
 	);
 }
