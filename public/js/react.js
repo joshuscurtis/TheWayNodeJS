@@ -36,8 +36,13 @@ const {
 
 function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
+	useEffect(() => {
+	  	setOpen(props.closedModal)
+		return () => {
+			console.log('return block')
+		}
+	}, []);
 
-  setOpen(props.closedModal)
   
 
   const handleClose = () => {
