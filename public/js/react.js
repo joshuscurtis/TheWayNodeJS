@@ -88,7 +88,6 @@ setId(props.orderId);
 
 	function sayHello() {
     	alert(id);
-		updatePG(id, 'assignee2', false);
 	}
 	
 	return (
