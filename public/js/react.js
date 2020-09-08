@@ -88,6 +88,7 @@ const [id, setId] = useState(0);
 
 useEffect(() => {
 	setId(props.orderid);
+	console.log('setId: ' + id)
 	return () => {
 		console.log('setId')
 	}
