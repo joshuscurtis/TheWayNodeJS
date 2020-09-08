@@ -321,7 +321,8 @@ var comment = "";
 
 
 const handleClick = e => {
-	setStrikeClass("crossed-line");
+	if(strikeClass != "crossed-line") setStrikeClass("crossed-line");
+	if(strikeClass == "crossed-line") setStrikeClass("");
 }
  
  return (
