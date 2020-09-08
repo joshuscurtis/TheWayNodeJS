@@ -322,7 +322,7 @@ return (
 
 
 const handleClick = e => {
-	setStrikeClass(crossed-line);
+	setStrikeClass("crossed-line");
 }
 
 <div class={strikeClass}
