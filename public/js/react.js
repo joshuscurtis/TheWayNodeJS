@@ -84,14 +84,14 @@ function updatePG(id, column, value) {
 
 function BarButton(props){
 const [id, setId] = useState(0);
-console.log(props.orderid)
+console.log(props.orderId)
 
 useEffect(() => {
-	setId(props.orderid);
+	setId(props.orderId);
 	console.log('setId: ' + id)
 	return () => {
 		console.log('return block')
-		setId(props.orderid);
+		setId(props.orderId);
 	}
 }, []);
 
