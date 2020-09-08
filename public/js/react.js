@@ -278,14 +278,13 @@ function OrderItems(props) {
 
 
 function App() {
-	
+
 const socket = io();	
-	
 const [orderData, setOrderData] = useState(0);
 
 
 useEffect(() => {
-	console.log('start socket')
+	console.log('starting socketio...')
 	
 	socket.on('connect', function(data) {
 		socket.emit('join', 'Hello World from react client');
@@ -296,14 +295,15 @@ useEffect(() => {
 		setOrderData(data.db);
 	});
 	
-	
 	socket.on('db', function(data) {
 		console.log("getting data for react...");
 		setOrderData(data.db)
 	});
+	
 	return () => {
 		console.log('stop socket')
 		socket.off('db');
+		socket.off('load');
 	}
 }, []);
 
