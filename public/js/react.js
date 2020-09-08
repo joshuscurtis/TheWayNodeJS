@@ -310,7 +310,11 @@ var comment = "";
  if(props.comment != null) comment = "Comment: " +props.comment
 return (
    
-<div>
+
+
+<div className={this.state.active && 'crossed-line'}
+	onClick={ () => this.setState({active: !this.state.active})}
+>
 <Box m={1} borderBottom={1}>
     <Typography variant="h5" align="center">
 		{props.itemName}
