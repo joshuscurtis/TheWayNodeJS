@@ -48,9 +48,9 @@ function CardApp(props) {
 	
   return (
 
-      <div class="OrderCard" style={{margin: 5,}}>
-	    <ButtonBase>
-		<Card style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
+      <div class="OrderCard__container" style={{margin: 5,}}>
+	    <ButtonBase class"OrderCard__Ripple">
+		<Card class="OrderCard__main" style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
