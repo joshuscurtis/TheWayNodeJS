@@ -37,13 +37,19 @@ const {
 function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
   
+const handleCloseOrder = e => {
+	e.stopPropagation();
+    setOpen(false);
+	updatePG(props.id, 'isclosed', true);
+};
 
-
-  const handleClickOpen = () => {
+  const handleClickOpen = e => {
+	e.stopPropagation();
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = e => {
+	e.stopPropagation();
     setOpen(false);
   };
 
@@ -66,7 +72,7 @@ function AlertDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleCloseOrder} color="primary">
             Disagree
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
@@ -122,7 +128,7 @@ function CardApp(props) {
 			console.log(id);
 			if(props.isprocessing === true) {
 				console.log("close order...");
-				updatePG(id, 'isclosed', true);
+
 				console.log("closed");
 			}
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
