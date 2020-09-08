@@ -145,7 +145,8 @@ const [orderData, setOrderData] = useState(0);
       url:'/orders/20',
       method:'GET',
       success: function(data){
-        this.setOrderData({orderData: data});
+		console.log(data);
+        this.setOrderData(data);
 		console.log(orderData);
       }.bind(this),
       error: function(xhr, status, err){
