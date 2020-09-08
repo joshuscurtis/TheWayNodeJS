@@ -93,8 +93,6 @@ useEffect(() => {
 	}
 }, []);
 
-setId(props.orderId);
-
 	function sayHello() {
     	alert(id);
 	}
