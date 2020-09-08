@@ -143,10 +143,8 @@ const socket = io();
 const [orderData, setOrderData] = useState(0);
 
 socket.on('cache', function(data) {
-	console.log("refreshing cache...");
-	console.log(data.db)
+	//console.log("refreshing cache...");
 	setOrderData(data.db)
-	console.log(orderData)
 });
 
   //   $.ajax({
