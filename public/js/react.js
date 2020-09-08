@@ -46,10 +46,29 @@ function CardApp(props) {
 	if(props.assignee == "false") kitCol = "primary"
 	if(props.assignee2 == "false") barCol = "primary"
 	
+	
+	const [id, setId] = useState(0);
+	//console.log(props.orderId)
+
+	useEffect(() => {
+		setId(props.orderId);
+		console.log('setId: ' + id)
+		return () => {
+			console.log('return block')
+	
+		}
+	}, []);
+	
+		function sayHello() {
+			updatePG(id, 'isprocessing', true);
+		}
+	
+	
+	
   return (
 
       <div class="OrderCard__Main" style={{margin: 5,}}>
-		<Card style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
+		<Card onClick={sayHello} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
