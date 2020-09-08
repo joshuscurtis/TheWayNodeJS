@@ -311,9 +311,14 @@ var comment = "";
 return (
    
 
+const handleClick = e => {
+	  this.setState({
+      	bgColor: 'blue'
+  })
+}
 
-<div className={this.state.active && 'crossed-line'}
-	onClick={ () => this.setState({active: !this.state.active})}
+<div style={{backgroundColor:this.state.bgColor}}
+	 onClick={this.handleClick} 
 >
 <Box m={1} borderBottom={1}>
     <Typography variant="h5" align="center">
