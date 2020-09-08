@@ -19,6 +19,11 @@ const {
   CardHeader,
 } = MaterialUI;
 
+const {
+	useState,
+} = React
+
+
 function CardApp(props) {
 	var cardTitle = "Order: " + props.orderid;
 	if (props.tablenum != null) {
@@ -126,12 +131,8 @@ function OrderItems(props) {
 	</div>
   );
 }
-constructor(props){
-    super(props);
-    this.state = {
-      foo: 'bar',
-      orderData: {}
-    };
+
+const [orderData, setOrderData] = useState(0);
 
 }
 function getOrderData(){
@@ -139,7 +140,7 @@ function getOrderData(){
       url:'/orders/20',
       method:'GET',
       success: function(data){
-        this.setState({orderData: data});
+        this.setOrderData({orderData: data});
       }.bind(this),
       error: function(xhr, status, err){
         console.log(err);
