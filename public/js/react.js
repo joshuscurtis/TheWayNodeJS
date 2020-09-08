@@ -62,13 +62,14 @@ function CardApp(props) {
 }
 
 function BarButton(props){
-	handleClick: function (text) {
-      alert(text)
-  },
+	
+	function sayHello() {
+    alert('Hello!');
+}
 	
 	return (
 	 	<Button 
-			onClick = {this.handleClick.bind(null, "Hello World")}
+			onClick={sayHello}
 			variant="contained" 
 			color={props.colour}
 			size="large"
