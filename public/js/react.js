@@ -34,12 +34,11 @@ const {
 
 
 
-function AlertDialog() {
+function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  setOpen(props.closedModal)
+  
 
   const handleClose = () => {
     setOpen(false);
@@ -47,9 +46,6 @@ function AlertDialog() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open alert dialog
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
