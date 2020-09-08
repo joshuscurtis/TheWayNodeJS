@@ -183,6 +183,7 @@ useEffect(() => {
 	});
 }, []);
 
+socket.off('cache');
 
 
   //   $.ajax({
@@ -213,7 +214,7 @@ useEffect(() => {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Takeaway Orders
 			  		</Typography>
-					<Takeaway Stream orders={orderData}/>
+					<TakeawayStream orders={orderData}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
