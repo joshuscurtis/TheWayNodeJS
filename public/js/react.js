@@ -87,7 +87,7 @@ const [id, setId] = useState(0);
 
 
 useEffect(() => {
-	setId = props.orderid;
+	setId(props.orderid);
 	return () => {
 		console.log('setId')
 	}
