@@ -182,13 +182,18 @@ const [orderData, setOrderData] = useState(0);
 
 
 useEffect(() => {
+	console.log('start socket')
 	socket.on('cache', function(data) {
 		console.log("refreshing cache...");
 		setOrderData(data.db)
 	});
+	return () => {
+		console.log('stop socket')
+		socket.off('cache');
+	}
 }, []);
 
-socket.off('cache');
+
 
 
   //   $.ajax({
