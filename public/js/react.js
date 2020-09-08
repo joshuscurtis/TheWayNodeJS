@@ -17,7 +17,8 @@ const {
   CardContent,
   CardActions,
   CardHeader,
-  TouchRipple,
+  ButtonBase,
+  
 } = MaterialUI;
 
 const {
@@ -46,7 +47,7 @@ function CardApp(props) {
 	if(props.assignee2 == "false") barCol = "primary"
 	
   return (
-  	<TouchRipple>
+  	<ButtonBase>
       <div style={{margin: 5,}}>
 		<Card style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
@@ -60,7 +61,7 @@ function CardApp(props) {
 			</CardActions>
 		</Card>
     </div>
-	</TouchRipple>	
+	</ButtonBase>	
   );
 }
 
