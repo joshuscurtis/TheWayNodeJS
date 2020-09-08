@@ -61,7 +61,11 @@ function CardApp(props) {
 	
 		function sayHello() {
 			console.log(id+" : "+props.isprocessing)
-			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
+			if(props.isprocessing === true) {
+				console.log("close order...")
+				updatePG(id, 'isprocessing', true);
+				console.log("closed")
+			}
 			if(props.isprocessing == false) updatePG(id, 'isclosed', true);
 		}
 	
