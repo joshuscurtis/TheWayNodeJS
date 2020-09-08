@@ -6,10 +6,11 @@
 */
 }
 
-/*.OrderCard__Ripple {
+.OrderCard__Ripple {
 	display: inline;
 	width: 100%;
-}*/
+	border 0;
+}
 
 
 .OrderCard__main {
