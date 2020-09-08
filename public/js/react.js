@@ -35,7 +35,7 @@ function CardApp(props) {
 	if (props.tablenum != null) {
 		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
 	}
-	if (orders[i].tablenum.substring(0,5) != "Table") {
+	if (props.tablenum.substring(0,5) != "Table") {
 		cardTitle = "Order: " + props.orderid;
 	}
 	var kitCol = "secondary"
