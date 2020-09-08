@@ -32,8 +32,8 @@ function CardApp(props) {
 	var kitCol = "secondary"
 	var barCol = "secondary"
 	
-	if(props.assignee == false) kitCol = "primary"
-	if(props.assignee2 == false) barCol = "primary"
+	if(props.assignee == "false") kitCol = "primary"
+	if(props.assignee2 == "false") barCol = "primary"
 	
   return (
       <div style={{margin: 5,}}>
