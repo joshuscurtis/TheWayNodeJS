@@ -36,16 +36,12 @@ const {
 
 function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
-	useEffect(() => {
-		console.log(open)
-	  	setOpen(props.closedModal)
-		console.log(open)
-		return () => {
-			console.log('return block')
-		}
-	}, []);
-
   
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -53,6 +49,9 @@ function AlertDialog(props) {
 
   return (
     <div>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Open alert dialog
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -86,15 +85,8 @@ function AlertDialog(props) {
 
 
 
-
 function CardApp(props) {
-	const [closedModal, setClosedModal] = useState(false);
-		useEffect(() => {
-	  	setClosedModal(false)
-		return () => {
-			console.log('return block')
-		}
-	}, []);
+	const [close, setClose] = useState(false);
 	
 	if(props.isclosed === true){
 		return (null);
@@ -115,6 +107,7 @@ function CardApp(props) {
 	
 	const [id, setId] = useState(0);
 	useEffect(() => {
+		setClose(false)
 		setId(props.orderid);
 		console.log('setId: ' + id)
 		return () => {
@@ -131,7 +124,6 @@ function CardApp(props) {
 				console.log("close order...");
 				updatePG(id, 'isclosed', true);
 				console.log("closed");
-				setClosedModal(true);
 			}
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		}
@@ -139,7 +131,7 @@ function CardApp(props) {
   return (
 
       <div>
-	  <AlertDialog close={closedModal}/>
+
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
@@ -149,6 +141,7 @@ function CardApp(props) {
 			<CardActions>
         		<KitchenButton orderId={props.orderid} colour={kitCol}/>
 				<BarButton orderId={props.orderid} colour={barCol}/>
+				<AlertDialog close={close} id ={id}/>
 			</CardActions>
 		</Card>
     </div>
