@@ -63,10 +63,10 @@ function CardApp(props) {
 			console.log(id+" : "+props.isprocessing)
 			if(props.isprocessing === true) {
 				console.log("close order...")
-				updatePG(id, 'isprocessing', true);
+				updatePG(id, 'isclosed', true);
 				console.log("closed")
 			}
-			if(props.isprocessing == false) updatePG(id, 'isclosed', true);
+			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		}
 	
 	
