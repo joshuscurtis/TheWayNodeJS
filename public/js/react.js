@@ -138,7 +138,7 @@ function OrderItems(props) {
 
 function App() {
 	
-	
+const socket = io();	
 	
 const [orderData, setOrderData] = useState(0);
 
