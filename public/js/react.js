@@ -21,6 +21,7 @@ const {
 
 const {
 	useState,
+	useEffect,
 } = React
 
 
@@ -174,10 +175,15 @@ const socket = io();
 	
 const [orderData, setOrderData] = useState(0);
 
-socket.on('cache', function(data) {
-	//console.log("refreshing cache...");
-	setOrderData(data.db)
-});
+
+useEffect(() => {
+	socket.on('cache', function(data) {
+		console.log("refreshing cache...");
+		setOrderData(data.db)
+	});
+}, []);
+
+
 
   //   $.ajax({
   //     url:'/orders/20',
@@ -207,7 +213,7 @@ socket.on('cache', function(data) {
 		        	<Typography variant="h4" component="h1" gutterBottom>
 		          		Takeaway Orders
 			  		</Typography>
-					<TakeawayStream orders={orderData}/>
+					<Takeaway Stream orders={orderData}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
