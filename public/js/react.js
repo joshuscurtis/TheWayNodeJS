@@ -90,7 +90,8 @@ useEffect(() => {
 	setId(props.orderid);
 	console.log('setId: ' + id)
 	return () => {
-		console.log('setId')
+		console.log('return block')
+		setId(props.orderid);
 	}
 }, []);
 
