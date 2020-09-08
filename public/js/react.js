@@ -56,6 +56,7 @@ function CardApp(props) {
 	}, []);
 	
 		function cardAction() {
+			stopPropagation();
 			console.log(id+" : "+props.isprocessing)
 			if(props.isprocessing === true) {
 				console.log("close order...")
