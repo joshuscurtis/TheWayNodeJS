@@ -83,8 +83,17 @@ function updatePG(id, column, value) {
 
 
 function BarButton(props){
-// const [id, setId] = useState(0);
-// setId(props.orderId);
+const [id, setId] = useState(0);
+
+
+useEffect(() => {
+	setId = props.orderid;
+	return () => {
+		console.log('setId')
+	}
+}, []);
+
+setId(props.orderId);
 
 	function sayHello() {
     	alert(id);
