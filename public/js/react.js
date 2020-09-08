@@ -53,7 +53,7 @@ function CardApp(props) {
 				<OrderItems order={props.order} />
 			</CardContent>
 			<CardActions>
-        		<KitchenButton orderId="props.orderid"colour={kitCol}/>
+        		<KitchenButton orderId={props.orderid} colour={kitCol}/>
 				<BarButton orderId={props.orderid} colour={barCol}/>
 			</CardActions>
 		</Card>
@@ -83,8 +83,8 @@ function updatePG(id, column, value) {
 
 
 function BarButton(props){
-const [id, setId] = useState(0);
-setId(props.orderId);
+// const [id, setId] = useState(0);
+// setId(props.orderId);
 
 	function sayHello() {
     	alert(id);
