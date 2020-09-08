@@ -390,10 +390,10 @@ useEffect(() => {
 
   return (
       <div style={{ margin: 0, }}>
+	  	<ButtonAppBar/>
 		<Container maxWidth="lg">
 			<Grid container spacing={3}>
 		        <Grid item xs={12}>
-					<ButtonAppBar/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
