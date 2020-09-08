@@ -1,3 +1,8 @@
 .crossed-line {
     text-decoration: line-through;
 }
+
+.OrderCard {
+	width:100%;
+	display: inline;
+}
