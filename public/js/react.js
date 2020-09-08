@@ -53,13 +53,28 @@ function CardApp(props) {
 				<OrderItems order={props.order} />
 			</CardContent>
 			<CardActions>
-        		<Button  variant="contained" color={kitCol} size="large">Kitchen</Button>
+        		<KitchenButton orderId="props.orderid"colour={kitCol}/>
 				<Button variant="contained" color={barCol} size="large">Bar</Button>
+
 			</CardActions>
 		</Card>
     </div>
   );
 }
+
+function KitchenButton(props){
+	
+	return (
+	 	<Button  
+			variant="contained" 
+			color={props.colour}
+			size="large"
+		>
+		Kitchen
+		</Button>
+	);
+}
+
 
 function ButtonAppBar() {
 
@@ -193,25 +208,6 @@ useEffect(() => {
 	}
 }, []);
 
-
-
-
-  //   $.ajax({
-  //     url:'/orders/20',
-  //     method:'GET',
-  //     success: function(data){
-	// 	console.log(data);
-  //       setOrderData(data);
-	// 	console.log(orderData);
-  //     }.bind(this),
-  //     error: function(xhr, status, err){
-  //       console.log(err);
-  //       alert(err);
-  //     }
-  // });
-	
-	
-  
 
   return (
       <div style={{ margin: 0, }}>
