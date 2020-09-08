@@ -47,8 +47,9 @@ function CardApp(props) {
 	if(props.assignee2 == "false") barCol = "primary"
 	
   return (
-  	<ButtonBase>
+
       <div style={{margin: 5,}}>
+	    <ButtonBase>
 		<Card style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
@@ -60,8 +61,9 @@ function CardApp(props) {
 				<BarButton orderId={props.orderid} colour={barCol}/>
 			</CardActions>
 		</Card>
+		</ButtonBase>	
     </div>
-	</ButtonBase>	
+
   );
 }
 
