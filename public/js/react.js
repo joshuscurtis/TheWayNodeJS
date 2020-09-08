@@ -54,16 +54,26 @@ function CardApp(props) {
 			</CardContent>
 			<CardActions>
         		<KitchenButton orderId="props.orderid"colour={kitCol}/>
-				<Button variant="contained" color={barCol} size="large">Bar</Button>
-
+				<BarButton orderId="props.orderid"colour={barCol}/>
 			</CardActions>
 		</Card>
     </div>
   );
 }
 
+function BarButton(props){
+	return (
+	 	<Button  
+			variant="contained" 
+			color={props.colour}
+			size="large"
+		>
+		Kitchen
+		</Button>
+	);
+}
+
 function KitchenButton(props){
-	
 	return (
 	 	<Button  
 			variant="contained" 
