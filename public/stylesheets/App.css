@@ -1,3 +1,7 @@
+* {
+	margin: 0px;
+}
+
 .crossed-line {
     text-decoration: line-through;
 }
