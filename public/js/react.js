@@ -242,7 +242,7 @@ function ButtonAppBar() {
     <div>
       <AppBar position="static">
         <Toolbar>
-			<Typography align="center" variant="h4" component="h1" gutterBottom>
+			<Typography className="App_Title" align="center" variant="h4" component="h1" gutterBottom>
 		    	iOrders
 			</Typography>
         </Toolbar>
