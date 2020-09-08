@@ -26,6 +26,11 @@ const {
 
 
 function CardApp(props) {
+	if(prop.isclosed === true){
+		return (null);
+	}
+	
+	
 	var cardTitle = "Order: " + props.orderid;
 	if (props.tablenum != null) {
 		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
