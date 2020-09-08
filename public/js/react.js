@@ -51,7 +51,7 @@ function CardApp(props) {
 	//console.log(props.orderId)
 
 	useEffect(() => {
-		setId(props.orderId);
+		setId(props.orderid);
 		console.log('setId: ' + id)
 		return () => {
 			console.log('return block')
