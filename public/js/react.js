@@ -18,7 +18,7 @@ const {
   CardActions,
   CardHeader,
   ButtonBase,
-  
+  KitchenIcon,
 } = MaterialUI;
 
 const {
@@ -129,6 +129,11 @@ useEffect(() => {
 	}
 	
 	return (
+	
+	
+	
+	
+	
 	 	<Button 
 			onClick={sayHello}
 			variant="contained" 
@@ -158,14 +163,26 @@ useEffect(() => {
 	}
 	
 	return (
-	 	<Button 
+		<IconButton 
+			aria-label="kitchn"
 			onClick={sayHello}
 			variant="contained" 
 			color={props.colour}
 			size="large"
 		>
-		Kitchen
-		</Button>
+        	<KitchenIcon />
+			Kitchen
+		</IconButton>
+		
+	
+	 	// <Button 
+		// 	onClick={sayHello}
+		// 	variant="contained" 
+		// 	color={props.colour}
+		// 	size="large"
+		// >
+		// Kitchen
+		// </Button>
 		);
 }
 
