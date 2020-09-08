@@ -60,8 +60,8 @@ function CardApp(props) {
 	}, []);
 	
 		function sayHello() {
-			if(props.isproccessing == false) updatePG(id, 'isprocessing', true);
-			if(props.isproccessing == false) updatePG(id, 'isclosed', true);
+			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
+			if(props.isprocessing == false) updatePG(id, 'isclosed', true);
 		}
 	
 	
