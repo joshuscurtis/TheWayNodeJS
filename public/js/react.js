@@ -64,19 +64,18 @@ const handleCloseOrder = e => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Are you sure you want to close this order?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+		  	Once the order has been served, close the order.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Disagree
+			Cancel
           </Button>
           <Button onClick={handleCloseOrder} color="primary" autoFocus>
-            Agree
+            Closed Order
           </Button>
         </DialogActions>
       </Dialog>
