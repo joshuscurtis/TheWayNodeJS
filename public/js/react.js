@@ -68,8 +68,6 @@ function CardApp(props) {
 	
 	 	const handleClick = e => {
     		e.stopPropagation();  //  <------ Here is the magic
- 		    this.props.onClick();
-			
 			console.log(id+" : "+props.isprocessing)
 			if(props.isprocessing === true) {
 				console.log("close order...")
@@ -82,7 +80,7 @@ function CardApp(props) {
   return (
 
       <div className="OrderCard__Main" style={{margin: 5,}}>
-		<Card onClick={this.handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
+		<Card onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
