@@ -54,7 +54,7 @@ function CardApp(props) {
 			</CardContent>
 			<CardActions>
         		<KitchenButton orderId="props.orderid"colour={kitCol}/>
-				<BarButton orderId="props.orderid"colour={barCol}/>
+				<BarButton orderId={props.orderid} colour={barCol}/>
 			</CardActions>
 		</Card>
     </div>
