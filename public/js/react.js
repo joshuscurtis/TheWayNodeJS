@@ -83,11 +83,11 @@ function updatePG(id, column, value) {
 
 
 function BarButton(props){
-	
+	id = props.orderId;
 	function sayHello() {
-    	alert(props.orderId);
-		updatePG(props.orderId, 'assignee2', false)
-}
+    	alert(id);
+		updatePG(id, 'assignee2', false);
+	}
 	
 	return (
 	 	<Button 
