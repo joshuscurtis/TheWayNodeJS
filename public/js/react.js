@@ -29,6 +29,9 @@ function CardApp(props) {
 	if (props.tablenum != null) {
 		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
 	}
+	if (props.tablenum === null) {
+		cardTitle = "Order: " + props.orderid;
+	}
 	var kitCol = "secondary"
 	var barCol = "secondary"
 	
@@ -64,6 +67,33 @@ function ButtonAppBar() {
         </Toolbar>
       </AppBar>
     </div>
+  );
+}
+
+
+function TakeawayStream(props) {
+	var rows = [];
+	var orders = props.orders;
+//	console.log(orders);
+	for (var i = 0; i < orders.length; i++) {
+		if(orders[i].tablenum  === null){
+    		rows.push(<CardApp 
+						orderid={orders[i].order_id}
+						order={orders[i]} 
+						time={orders[i].closetime}
+						isprocessing={orders[i].isprocessing}
+						istable={orders[i].istable}
+						isnew={orders[i].isnew}
+						isclosed={orders[i].isclosed}
+						//tablenum={orders[i].tablenum}
+						assignee={orders[i].assignee}
+						assignee2={orders[i].assignee2}/>);
+		}
+	}
+  return (
+    <div>
+		{rows}
+	</div>
   );
 }
 
@@ -175,13 +205,13 @@ socket.on('cache', function(data) {
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
-		          		Left
+		          		Takeaway Orders
 			  		</Typography>
-					<TableStream orders={orderData}/>
+					<TakeawayStream orders={orderData}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
 		        	<Typography variant="h4" component="h1" gutterBottom>
-		          		Right
+		          		Table Orders
 			  		</Typography>
 					<TableStream orders={orderData}/>
 		        </Grid>
