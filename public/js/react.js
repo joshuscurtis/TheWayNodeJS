@@ -263,7 +263,8 @@ function OrderItems(props) {
 	var rows = [];
 	for (var i = 0; i < order.products.length; i++) {
 		if (order.products[i].name.substring(0,5) != "Table") {
-    		rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} comment={order.products[i].comment}/>);
+    		rows.push(<OrderItem variantName={order.products[i].variantName} itemName={order.products[i].name} qty={order.products[i].quantity} comment={order.products[i].comment}
+				key={i} />);
 		}
 	}
   return (
