@@ -310,6 +310,7 @@ var comment = "";
  if(props.comment != null) comment = "Comment: " +props.comment
 
  const [strikeClass, setStrikeClass] = useState("");
+ 
  // useEffect(() => {
 	
 // 	});
@@ -324,9 +325,7 @@ const handleClick = e => {
 }
  
  return (
-<div className={strikeClass}
-	 onClick={this.handleClick} 
->
+<div className={strikeClass} onClick={handleClick}>
 <Box m={1} borderBottom={1}>
     <Typography variant="h5" align="center">
 		{props.itemName}
