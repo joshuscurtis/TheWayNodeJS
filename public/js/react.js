@@ -56,7 +56,7 @@ function CardApp(props) {
 	}, []);
 	
 		function cardAction(e) {
-			e.stopPropagation();
+
 			console.log(id+" : "+props.isprocessing)
 			if(props.isprocessing === true) {
 				console.log("close order...")
@@ -66,12 +66,22 @@ function CardApp(props) {
 			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		}
 	
-	
+	 	 handleClick = e => {
+    		e.stopPropagation();  //  <------ Here is the magic
+ 		    this.props.onClick();
+			console.log(id+" : "+props.isprocessing)
+			if(props.isprocessing === true) {
+				console.log("close order...")
+				updatePG(id, 'isclosed', true);
+				console.log("closed")
+			}
+			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
+		}
 	
   return (
 
       <div className="OrderCard__Main" style={{margin: 5,}}>
-		<Card onClick={cardAction} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
+		<Card onClick={this.handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={props.time}>
 			</CardHeader>
 			<CardContent>
