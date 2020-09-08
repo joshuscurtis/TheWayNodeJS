@@ -309,7 +309,7 @@ function OrderItem(props) {
 var comment = "";
  if(props.comment != null) comment = "Comment: " +props.comment
 
- const [strikeClass, setStrikeClass] = useState(0);
+ const [strikeClass, setStrikeClass] = useState("");
  // useEffect(() => {
 	
 // 	});
