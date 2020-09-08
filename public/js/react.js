@@ -55,16 +55,6 @@ function CardApp(props) {
 		}
 	}, []);
 	
-		function cardAction(e) {
-			e.stopPropagation();
-			console.log(id+" : "+props.isprocessing)
-			if(props.isprocessing === true) {
-				console.log("close order...")
-				updatePG(id, 'isclosed', true);
-				console.log("closed")
-			}
-			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
-		}
 	
 	 	const handleClick = e => {
     		e.stopPropagation();
@@ -130,9 +120,6 @@ useEffect(() => {
 	}
 }, []);
 
-	function sayHello() {
-		updatePG(id, 'assignee2', false)
-	}
 	
  	const handleClick = e => {
 		e.stopPropagation();
@@ -163,13 +150,9 @@ useEffect(() => {
 	}
 }, []);
 
-	function sayHello() {
-		updatePG(id, 'assignee', false)
-	}
-	
 	const handleClick = e => {
 		e.stopPropagation();
-		updatePG(id, 'assignee2', false)
+		updatePG(id, 'assignee', false)
  	}
 	
 	return (
