@@ -87,6 +87,13 @@ function AlertDialog(props) {
 
 function CardApp(props) {
 	const [closedModal, setClosedModal] = useState(false);
+		useEffect(() => {
+	  	setClosedModal(false)
+		return () => {
+			console.log('return block')
+		}
+	}, []);
+	
 	if(props.isclosed === true){
 		return (null);
 	}
