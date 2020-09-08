@@ -29,7 +29,7 @@ io.on('connection', function(client) {
     console.log('Client connected...');
     
     client.on('join', function(data) {
-		pool.query('SELECT * FROM devorders order BY order_id DESC LIMIT 20;', (err, res) => {
+		pool.query('select * from devorders where order_id in (SELECT order_id FROM devorders order BY order_id DESC LIMIT 20) ORDER BY order_id asc;', (err, res) => {
 			console.log("sending init data...");
 			io.sockets.emit('load',{ db: res.rows});
 			console.log("sent!")
