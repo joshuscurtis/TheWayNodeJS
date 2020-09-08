@@ -6,16 +6,12 @@
 
 }
 
-.OrderCard__Ripple {
+/*.OrderCard__Ripple {
 	display: inline;
 	width: 100%;
-}
+}*/
 
-
-.OrderCard__Ripple:hover {
-	
-}
 
 .OrderCard__main {
-	box-shadow: 0px 3px 5px #333;
+/*	box-shadow: 0px 3px 5px #333;*/
 }

@@ -97,7 +97,6 @@ useEffect(() => {
 	console.log('setId: ' + id)
 	return () => {
 		console.log('return block')
-
 	}
 }, []);
 
