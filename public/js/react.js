@@ -325,7 +325,7 @@ const handleClick = e => {
 	setStrikeClass("crossed-line");
 }
 
-<div class={strikeClass}
+<div className={strikeClass}
 	 onClick={this.handleClick} 
 >
 <Box m={1} borderBottom={1}>
