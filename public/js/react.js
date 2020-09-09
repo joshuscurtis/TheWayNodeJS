@@ -156,12 +156,8 @@ function CardApp(props) {
 			</CardContent>
 
 			<CardActions>
-				<div className="Card__KitButton">
 	        		<KitchenButton orderId={props.orderid} colour={kitCol}/>
-				</div>	
-				<div className="Card__BarButton">
-					<BarButton orderId={props.orderid} colour={barCol}/>
-				</div>
+					<BarButton  orderId={props.orderid} colour={barCol}/>
 			</CardActions>
 		</Card>
     </div>
@@ -190,6 +186,7 @@ useEffect(() => {
 	
 	return (
 	 	<Button 
+			className="Card__BarButton"
 			onClick={handleClick}
 			variant="contained" 
 			color={props.colour}
@@ -219,6 +216,7 @@ useEffect(() => {
 	
 	return (
 	 	<Button 
+			className="Card__KitButton"
 			onClick={handleClick}
 			variant="contained" 
 			color={props.colour}
