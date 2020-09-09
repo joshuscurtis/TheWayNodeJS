@@ -229,7 +229,7 @@ function ButtonAppBar() {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
 			<Typography className="App_Title" align="center" variant="h4" component="h1" gutterBottom>
 		    	iOrders
@@ -262,7 +262,7 @@ function TakeawayStream(props) {
 	}
   return (
     <div className="Takeaway__Stream">
-		<Typography className="Stream__title" align="center" variant="h4">
+		<Typography className="Stream__title" align="center" variant="h5">
 		    	Takeaway Orders
 		</Typography>
 		{rows}
@@ -292,7 +292,9 @@ function TableStream(props) {
 	}
   return (
     <div className="Table__Stream">
-		<h2 className="Stream__title">Table Orders</h2>
+		<Typography className="Stream__title" align="center" variant="h5">
+		    	Table Orders
+				</Typography>
 		{rows}
 	</div>
   );
