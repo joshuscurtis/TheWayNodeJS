@@ -120,12 +120,12 @@ function CardApp(props) {
 	if(props.assignee2 == "false") barCol = "primary"
 	
 	//create card title
-	var cardTitle = "Order: " + props.orderid;
+	var cardTitle = "Order: " + (props.orderid%99+1);
 	if (props.tablenum != null) {
-		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
+		cardTitle = props.tablenum + " (Order: "+(props.orderid%99+1)+")";
 	}
 	if (props.tablenum.substring(0,5) != "Table") {
-		cardTitle = "Order: " + props.orderid;
+		cardTitle = "Order: " + (props.orderid%99+1);
 	}
 
 	//set order id	
