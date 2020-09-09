@@ -92,6 +92,17 @@ function CardApp(props) {
 	}
 	
 	const [close, setClose] = useState(false);
+	const [timer, setTimer] = useState(0);
+	
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setTimer(timer = timer+1);
+		}, 1000);
+		return () => clearInterval(interval)
+	},[]);
+	
+	
+	
 	
 	var cardTitle = "Order: " + props.orderid;
 	if (props.tablenum != null) {
@@ -131,7 +142,7 @@ function CardApp(props) {
 
       <div>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
-			<CardHeader	title={cardTitle} subheader={orderTime}>
+			<CardHeader	title={cardTitle} subheader={timer}>
 			</CardHeader>
 			<CardContent>
 				<OrderItems order={props.order} />
