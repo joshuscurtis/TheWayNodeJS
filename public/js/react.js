@@ -94,9 +94,13 @@ function CardApp(props) {
 	const [close, setClose] = useState(false);
 	const [timer, setTimer] = useState(0);
 	
+		//calc time
+
+		var orderTime = cardTimer(props.time)
+	
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setTimer(timer+1);
+			setTimer(cardTimer(props.time));
 		}, 1000);
 		return () => clearInterval(interval)
 	},[]);
@@ -127,9 +131,7 @@ function CardApp(props) {
 		}
 	}, []);
 	
-	//calc time
-
-	var orderTime = cardTimer(props.time)
+	
 	
  	const handleClick = e => {
 		e.stopPropagation();
