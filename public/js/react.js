@@ -97,7 +97,7 @@ function CardApp(props) {
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setTimer(cardTimer(this.props.time));
+			setTimer(cardTimer(props.time));
 		}, 1000);
 		return () => {
 			clearInterval(interval);
