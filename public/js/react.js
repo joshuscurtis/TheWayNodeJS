@@ -149,6 +149,8 @@ function CardApp(props) {
       <div>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={timer}>
+			Test
+				<AlertDialog close={close} id ={id}/>
 			</CardHeader>
 			<AlertDialog close={close} id ={id}/>
 			<CardContent>
