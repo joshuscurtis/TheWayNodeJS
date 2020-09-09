@@ -229,7 +229,7 @@ function ButtonAppBar() {
 
   return (
     <div>
-      <AppBar position="sticky">
+      <AppBar position="fixed">
         <Toolbar>
 			<Typography className="App_Title" align="center" variant="h4" component="h1" gutterBottom>
 		    	iOrders
