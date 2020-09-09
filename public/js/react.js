@@ -91,6 +91,16 @@ function timeCalc(createdTime) {
 	return (timeOpenStr);
 }
 
+function checkAlert(createdTime, alertAfter) {
+	var timeNow = Date.now();
+	var timeOpen = timeNow - createdTime;
+	timeOpen = new Date(timeOpen);
+	timeOpen = timeOpen/1000
+	if(timeOpen > alertAfter) return true
+	else return false
+}
+
+
 function CardApp(props) {
 	//do not create closed orders
 	if(props.isclosed === true){
@@ -99,11 +109,13 @@ function CardApp(props) {
 	//set states
 	const [close, setClose] = useState(false);
 	const [timer, setTimer] = useState(timeCalc(props.time));
+	const [alert, setAlert] = useState("");
 	
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTimer(timeCalc(props.time));
+			if(checkAlert(props.time, 60) setAlert("flash");
 		}, 1000);
 		return () => {
 			setTimer(timeCalc(props.time));
@@ -111,6 +123,9 @@ function CardApp(props) {
 			console.log("unmount")
 		}
 	},[]);
+	
+	
+	
 	
 	//default button colours
 	var kitCol = "secondary"
@@ -144,8 +159,10 @@ function CardApp(props) {
 		e.stopPropagation();
 	}
 	
+	
+	
   return (
-      <div>
+      <div className={alert}>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	
 				title={cardTitle}
