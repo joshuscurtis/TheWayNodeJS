@@ -85,19 +85,19 @@ const handleCloseOrder = e => {
 }
 
 function timeCalc(createdTime) {
-		var timeNow = Date.now();
-		var timeOpen = timeNow - createdTime;
-		timeOpen = new Date(timeOpen);
-		console.log(timeOpen);
-		var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
+	var timeNow = Date.now();
+	var timeOpen = timeNow - createdTime;
+	timeOpen = new Date(timeOpen);
+	var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
 	return (timeOpenStr);
 }
 
 function CardApp(props) {
+	//do not create closed orders
 	if(props.isclosed === true){
 		return (null);
 	}
-	
+	//set states
 	const [close, setClose] = useState(false);
 	const [timer, setTimer] = useState(timeCalc(props.time));
 	
@@ -116,7 +116,6 @@ function CardApp(props) {
 	//default button colours
 	var kitCol = "secondary"
 	var barCol = "secondary"
-	
 	if(props.assignee == "false") kitCol = "primary"
 	if(props.assignee2 == "false") barCol = "primary"
 	
@@ -129,7 +128,7 @@ function CardApp(props) {
 		cardTitle = "Order: " + props.orderid;
 	}
 
-	
+	//set order id	
 	const [id, setId] = useState(0);
 	useEffect(() => {
 		setClose(false)
@@ -140,16 +139,13 @@ function CardApp(props) {
 		}
 	}, []);
 	
-	
+	//onClick action
  	const handleClick = e => {
-		console.log(id);
-		console.log(props.isprocessing);
 		if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		e.stopPropagation();
 	}
 	
   return (
-
       <div>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={timer}>
@@ -265,7 +261,8 @@ function TakeawayStream(props) {
 		}
 	}
   return (
-    <div>
+    <div className="Table__Stream">
+		<h2 className="Stream__title">Table Orders</h2>
 		{rows}
 	</div>
   );
@@ -292,7 +289,8 @@ function TableStream(props) {
 		}
 	}
   return (
-    <div>
+    <div className="Takeaway__Stream">
+		<h2 className="Stream__title">Takeaway Orders</h2>
 		{rows}
 	</div>
   );
@@ -414,7 +412,6 @@ useEffect(() => {
 		<Container maxWidth="lg">
 			<Grid container spacing={3}>
 		        <Grid item xs={6} spacing={3}>
-		          	<h2 className="Stream__title">Takeaway Orders</h2>
 					<TakeawayStream orders={orderData}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
