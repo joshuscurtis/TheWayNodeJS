@@ -413,7 +413,7 @@ useEffect(() => {
   return (
   <div style={{ margin: 0, }}>
   	 <ButtonAppBar/>
-		<Container maxWidth="lg">
+		<Container className="App_Contents" maxWidth="lg">
 			<Grid container spacing={3}>
 		        <Grid item xs={6} spacing={3}>
 					<TakeawayStream orders={orderData}/>
