@@ -281,7 +281,7 @@ function TableStream(props) {
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
 						order={orders[i]} 
-						time={orders[i].closetime}
+						time={orders[i].time}
 						isprocessing={orders[i].isprocessing}
 						istable={orders[i].istable}
 						isnew={orders[i].isnew}
