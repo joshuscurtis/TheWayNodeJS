@@ -97,9 +97,10 @@ function CardApp(props) {
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setTimer(cardTimer(props.time));
+			setTimer(cardTimer(this.props.time));
 		}, 1000);
 		return () => {
+			clearInterval(interval);
 			console.log("unmount")
 		}
 	},[]);
