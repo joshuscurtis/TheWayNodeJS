@@ -32,7 +32,7 @@ const {
 } = React
 
 
-function" AlertDialog(props) {
+function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
   
 const handleCloseOrder = e => {
