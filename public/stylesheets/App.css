@@ -29,3 +29,11 @@
 .App_Contents {
 	margin-top: 8vh;
 }
+
+
+.Card__BarButton {
+	flex: 0.5;
+}
+.Card__KitButton {
+	flex: 0.5;
+}
