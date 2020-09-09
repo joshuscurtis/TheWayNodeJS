@@ -32,9 +32,7 @@ const {
 } = React
 
 
-
-
-function AlertDialog(props) {
+function" AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
   
 const handleCloseOrder = e => {
@@ -85,11 +83,6 @@ const handleCloseOrder = e => {
 
 
 
-
-
-
-
-
 function CardApp(props) {
 	if(props.isclosed === true){
 		return (null);
@@ -117,28 +110,25 @@ function CardApp(props) {
 		console.log('setId: ' + id)
 		return () => {
 			console.log('return block')
-	
 		}
 	}, []);
 	
-	
-	 	const handleClick = e => {
-    		e.stopPropagation();
-			console.log(id);
-			if(props.isprocessing === true) {
-				console.log("close order...");
+	//calc time
 
-				console.log("closed");
-			}
-			if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
-		}
+	var orderTime = cardTimer(props.time)
+	
+ 	const handleClick = e => {
+		e.stopPropagation();
+		console.log(id);
+		if(props.isprocessing === true)
+		if(props.isprocessing === false) updatePG(id, 'isprocessing', true);
+	}
 	
   return (
 
       <div>
-
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
-			<CardHeader	title={cardTitle} subheader={props.time}>
+			<CardHeader	title={cardTitle} subheader={orderTime}>
 			</CardHeader>
 			<CardContent>
 				<OrderItems order={props.order} />
@@ -150,28 +140,7 @@ function CardApp(props) {
 			</CardActions>
 		</Card>
     </div>
-
   );
-}
-
-
-function updatePG(id, column, value) {
-	var settings = {
-		"url": "/update",
-		"method": "POST",
-		"timeout": 0,
-		"headers": {
-			"Content-Type": "application/x-www-form-urlencoded"
-		},
-		"data": {
-			"value": value,
-			"id": id,
-			"column": column
-		}
-	};
-	$.ajax(settings).done(function(response) {}).fail(function(data) {
-		console.log("fail ")
-	});
 }
 
 
@@ -261,7 +230,7 @@ function TakeawayStream(props) {
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
 						order={orders[i]} 
-						time={orders[i].closetime}
+						time={orders[i].time}
 						isprocessing={orders[i].isprocessing}
 						istable={orders[i].istable}
 						isnew={orders[i].isnew}
@@ -353,7 +322,35 @@ function OrderItems(props) {
   );
 }
 
+function cardTimer(createdTime) {
+	var timeNow = Date.now()
+	var timeOpen = timeNow - createdTime
+	console.log("Time:")
+	console.log("Now: "+ timeOpen
 
+	return (timeOpen)
+}
+
+
+
+function updatePG(id, column, value) {
+	var settings = {
+		"url": "/update",
+		"method": "POST",
+		"timeout": 0,
+		"headers": {
+			"Content-Type": "application/x-www-form-urlencoded"
+		},
+		"data": {
+			"value": value,
+			"id": id,
+			"column": column
+		}
+	};
+	$.ajax(settings).done(function(response) {}).fail(function(data) {
+		console.log("fail ")
+	});
+}
 
 
 
@@ -365,7 +362,6 @@ const [orderData, setOrderData] = useState(0);
 
 useEffect(() => {
 	console.log('starting socketio...')
-	
 	socket.on('connect', function(data) {
 		socket.emit('join', 'Hello World from react client');
 	});
@@ -389,29 +385,23 @@ useEffect(() => {
 
 
   return (
-      <div style={{ margin: 0, }}>
-	  	<ButtonAppBar/>
+  <div style={{ margin: 0, }}>
+  	 <ButtonAppBar/>
 		<Container maxWidth="lg">
 			<Grid container spacing={3}>
-		        <Grid item xs={12}>
-		        </Grid>
 		        <Grid item xs={6} spacing={3}>
-		        	<Typography variant="h4" component="h1" gutterBottom>
-		          		Takeaway Orders
-			  		</Typography>
+		          	<h2 className="Stream__title">Takeaway Orders</h2>
 					<TakeawayStream orders={orderData}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
-		        	<Typography variant="h4" component="h1" gutterBottom>
-		          		Table Orders
-			  		</Typography>
+		          	<h2 className="Stream__title">Table Orders</h2>
 					<TableStream orders={orderData}/>
 		        </Grid>
 				<Grid item xs={12}>
 			  	</Grid>
 			</Grid>
-  </Container>
-</div>
+  		</Container>
+	</div>
   );}
 
 ReactDOM.render(<App />, document.querySelector('#root'));
