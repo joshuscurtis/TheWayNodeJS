@@ -98,7 +98,7 @@ function CardApp(props) {
 		var timeNow = Date.now();
 		var timeOpen = timeNow - createdTime;
 		timeOpen = new Date(timeOpen);
-		
+		console.log(timeOpen);
 		var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
 	return (timeOpenStr);
 	}
