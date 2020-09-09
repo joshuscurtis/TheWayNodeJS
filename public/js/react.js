@@ -53,7 +53,7 @@ const handleCloseOrder = e => {
 
   return (
     <div>
-      <Button variant="contained"  color="secondary" onClick={handleClickOpen}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
 		Close
       </Button>
       <Dialog
@@ -72,7 +72,10 @@ const handleCloseOrder = e => {
           <Button onClick={handleClose} color="primary">
 			Cancel
           </Button>
-          <Button className="OrderCard__closeButton" onClick={handleCloseOrder} color="primary" size="large" autoFocus>
+          <Button className="OrderCard__closeButton" onClick={handleCloseOrder}
+		 	  color="primary"
+			  size="large"
+			  autoFocus>
             Close Order
           </Button>
         </DialogActions>
@@ -323,12 +326,12 @@ function OrderItems(props) {
 }
 
 function cardTimer(createdTime) {
-	var timeNow = Date.now()
-	var timeOpen = timeNow - createdTime
-	console.log("Time:")
-	console.log("Now: "+ timeOpen
+	var timeNow = Date.now();
+	var timeOpen = timeNow - createdTime;
+	console.log("Time:");
+	console.log("Now: "+ timeOpen);
 
-	return (timeOpen)
+	return (timeOpen);
 }
 
 
