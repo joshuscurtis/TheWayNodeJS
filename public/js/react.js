@@ -124,7 +124,7 @@ function CardApp(props) {
 		e.stopPropagation();
 		console.log(id);
 		if(props.isprocessing === true)
-		if(props.isprocessing === false) updatePG(id, 'isprocessing', true);
+		if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 	}
 	
   return (
