@@ -151,10 +151,8 @@ function CardApp(props) {
 			<CardHeader	
 				title={cardTitle}
 				subheader={timer}
-				action={<AlertDialog close={close} id ={id}/>}
-			>
+				action={<AlertDialog close={close} id ={id}/>}>
 			</CardHeader>
-			<AlertDialog close={close} id ={id}/>
 			<CardContent>
 				<OrderItems order={props.order} />
 			</CardContent>
