@@ -84,7 +84,14 @@ const handleCloseOrder = e => {
   );
 }
 
-
+function timeCalc(createdTime) {
+		var timeNow = Date.now();
+		var timeOpen = timeNow - createdTime;
+		timeOpen = new Date(timeOpen);
+		console.log(timeOpen);
+		var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
+	return (timeOpenStr);
+}
 
 function CardApp(props) {
 	if(props.isclosed === true){
@@ -93,21 +100,15 @@ function CardApp(props) {
 	
 	const [close, setClose] = useState(false);
 	const [timer, setTimer] = useState(0);
+	setTimer(timeCalc(props.time));
 	
-	function timeCalc(createdTime) {
-		var timeNow = Date.now();
-		var timeOpen = timeNow - createdTime;
-		timeOpen = new Date(timeOpen);
-		console.log(timeOpen);
-		var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
-	return (timeOpenStr);
-	}
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTimer(timeCalc(props.time));
 		}, 1000);
 		return () => {
+			setTimer(timeCalc(props.time));
 			clearInterval(interval);
 			console.log("unmount")
 		}
