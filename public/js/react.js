@@ -53,7 +53,7 @@ const handleCloseOrder = e => {
 
   return (
     <div>
-      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
+      <Button size="large" variant="contained" color="secondary" onClick={handleClickOpen}>
 		Close
       </Button>
       <Dialog
@@ -74,7 +74,6 @@ const handleCloseOrder = e => {
           </Button>
           <Button className="OrderCard__closeButton" onClick={handleCloseOrder}
 		 	  color="primary"
-			  size="large"
 			  autoFocus>
             Close Order
           </Button>
@@ -251,7 +250,7 @@ function TakeawayStream(props) {
 	var orders = props.orders;
 //	console.log(orders);
 	for (var i = 0; i < orders.length; i++) {
-		if(orders[i].tablenum.substring(0,5) != "Table"){
+		if(orders[i].tablenum.substring(0,5) != "Table" && order[i].isclosed != true){
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
 						order={orders[i]} 
@@ -281,7 +280,7 @@ function TableStream(props) {
 	var orders = props.orders;
 //	console.log(orders);
 	for (var i = 0; i < orders.length; i++) {
-		if(orders[i].tablenum.substring(0,5) == "Table"){
+		if(orders[i].tablenum.substring(0,5) == "Table" && order[i].isclosed != true) {
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
 						order={orders[i]} 
