@@ -261,8 +261,8 @@ function TakeawayStream(props) {
 		}
 	}
   return (
-    <div className="Table__Stream">
-		<h2 className="Stream__title">Table Orders</h2>
+    <div className="Takeaway__Stream">
+		<h2 className="Stream__title">Takeaway Orders</h2>
 		{rows}
 	</div>
   );
@@ -289,8 +289,8 @@ function TableStream(props) {
 		}
 	}
   return (
-    <div className="Takeaway__Stream">
-		<h2 className="Stream__title">Takeaway Orders</h2>
+    <div className="Table__Stream">
+		<h2 className="Stream__title">Table Orders</h2>
 		{rows}
 	</div>
   );
@@ -415,7 +415,6 @@ useEffect(() => {
 					<TakeawayStream orders={orderData}/>
 		        </Grid>
 		        <Grid item xs={6} spacing={3}>
-		          	<h2 className="Stream__title">Table Orders</h2>
 					<TableStream orders={orderData}/>
 		        </Grid>
 				<Grid item xs={12}>
