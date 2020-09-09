@@ -154,9 +154,14 @@ function CardApp(props) {
 			<CardContent>
 				<OrderItems order={props.order} />
 			</CardContent>
+
 			<CardActions>
-        		<KitchenButton className="Card__KitButton" orderId={props.orderid} colour={kitCol}/>
-				<BarButton className="Card__BarButton" orderId={props.orderid} colour={barCol}/>
+				<div className="Card__KitButton">
+	        		<KitchenButton orderId={props.orderid} colour={kitCol}/>
+				</div>	
+				<div className="Card__BarButton">
+					<BarButton orderId={props.orderid} colour={barCol}/>
+				</div>
 			</CardActions>
 		</Card>
     </div>
