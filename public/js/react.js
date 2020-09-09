@@ -144,7 +144,6 @@ function CardApp(props) {
 	
  	const handleClick = e => {
 		console.log(id);
-		if(props.isprocessing === true)
 		if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		e.stopPropagation();
 	}
