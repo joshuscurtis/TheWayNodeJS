@@ -94,14 +94,14 @@ function CardApp(props) {
 	const [close, setClose] = useState(false);
 	const [timer, setTimer] = useState(0);
 	
-	function timeCalc(createdTime)
+	function timeCalc(createdTime) {
 		var timeNow = Date.now();
 		var timeOpen = timeNow - createdTime;
 		timeOpen = new Date(timeOpen);
 		
 		var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
 	return (timeOpenStr);
-	
+	}
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
