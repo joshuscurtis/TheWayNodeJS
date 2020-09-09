@@ -96,7 +96,7 @@ function CardApp(props) {
 	
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setTimer(timer = timer+1);
+			setTimer(timer+1);
 		}, 1000);
 		return () => clearInterval(interval)
 	},[]);
