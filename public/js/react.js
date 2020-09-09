@@ -84,6 +84,14 @@ const handleCloseOrder = e => {
   );
 }
 
+function timeCalc(createdTime) {
+		var timeNow = Date.now();
+		var timeOpen = timeNow - createdTime;
+		timeOpen = new Date(timeOpen);
+		console.log(timeOpen);
+		var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
+	return (timeOpenStr);
+}
 
 function CardApp(props) {
 	if(props.isclosed === true){
@@ -135,6 +143,7 @@ function CardApp(props) {
 	
  	const handleClick = e => {
 		console.log(id);
+		if(props.isprocessing === true)
 		if(props.isprocessing == false) updatePG(id, 'isprocessing', true);
 		e.stopPropagation();
 	}
