@@ -262,7 +262,9 @@ function TakeawayStream(props) {
 	}
   return (
     <div className="Takeaway__Stream">
-		<h2 className="Stream__title">Takeaway Orders</h2>
+		<Typography className="Stream__title" align="center" variant="h4">
+		    	Takeaway Orders
+		</Typography>
 		{rows}
 	</div>
   );
