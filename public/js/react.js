@@ -328,10 +328,12 @@ function OrderItems(props) {
 function cardTimer(createdTime) {
 	var timeNow = Date.now();
 	var timeOpen = timeNow - createdTime;
-	console.log("Time:");
+	timeOpen = new Date(timeOpen);
 	console.log("Now: "+ timeOpen);
-
-	return (timeOpen);
+	
+	var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
+	console.log(timeOpenStr);	
+	return (timeOpenStr);
 }
 
 
