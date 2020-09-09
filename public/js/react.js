@@ -149,15 +149,14 @@ function CardApp(props) {
       <div>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
 			<CardHeader	title={cardTitle} subheader={timer}>
-			<AlertDialog close={close} id ={id}/>
 			</CardHeader>
+			<AlertDialog close={close} id ={id}/>
 			<CardContent>
 				<OrderItems order={props.order} />
 			</CardContent>
 			<CardActions>
         		<KitchenButton className="Card__KitButton" orderId={props.orderid} colour={kitCol}/>
 				<BarButton className="Card__BarButton" orderId={props.orderid} colour={barCol}/>
-
 			</CardActions>
 		</Card>
     </div>
