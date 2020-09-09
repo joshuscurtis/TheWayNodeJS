@@ -94,20 +94,24 @@ function CardApp(props) {
 	const [close, setClose] = useState(false);
 	const [timer, setTimer] = useState(0);
 	
-		//calc time
-
-		var orderTime = cardTimer(props.time)
-	
+	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTimer(cardTimer(props.time));
 		}, 1000);
-		return () => clearInterval(interval)
+		return () => {
+			console.log("unmount")
+		}
 	},[]);
 	
+	//default button colours
+	var kitCol = "secondary"
+	var barCol = "secondary"
 	
+	if(props.assignee == "false") kitCol = "primary"
+	if(props.assignee2 == "false") barCol = "primary"
 	
-	
+	//create card title
 	var cardTitle = "Order: " + props.orderid;
 	if (props.tablenum != null) {
 		cardTitle = props.tablenum + " (Order: "+props.orderid+")";
@@ -115,11 +119,7 @@ function CardApp(props) {
 	if (props.tablenum.substring(0,5) != "Table") {
 		cardTitle = "Order: " + props.orderid;
 	}
-	var kitCol = "secondary"
-	var barCol = "secondary"
-	
-	if(props.assignee == "false") kitCol = "primary"
-	if(props.assignee2 == "false") barCol = "primary"
+
 	
 	const [id, setId] = useState(0);
 	useEffect(() => {
@@ -132,8 +132,8 @@ function CardApp(props) {
 	}, []);
 	
 	
-	
  	const handleClick = e => {
+		console.log(id);
 		e.stopPropagation();
 		console.log(id);
 		if(props.isprocessing === true)
@@ -342,10 +342,8 @@ function cardTimer(createdTime) {
 	var timeNow = Date.now();
 	var timeOpen = timeNow - createdTime;
 	timeOpen = new Date(timeOpen);
-	console.log("Now: "+ timeOpen);
 	
 	var timeOpenStr = timeOpen.getMinutes() + "m " + timeOpen.getSeconds()+"s"
-	console.log(timeOpenStr);	
 	return (timeOpenStr);
 }
 
