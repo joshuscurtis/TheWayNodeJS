@@ -25,7 +25,6 @@ const {
   DialogContentText,
   DialogActions,
   MuiThemeProvider,
-  ThemeProvider,
   createMuiTheme,
   red,
   green,
