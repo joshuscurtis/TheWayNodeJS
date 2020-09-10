@@ -36,7 +36,13 @@ const {
 } = React
 
 
-const redTheme = createMuiTheme({ palette: { primary: green } })
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+    secondary: green,
+    error: green,
+  },
+  });
 
 function AlertDialog(props) {
 	const [open, setOpen] = React.useState(false);
@@ -208,13 +214,11 @@ useEffect(() => {
 	
 	
 	return (
-
-	<MuiThemeProvider theme={redTheme}>
+	<MuiThemeProvider theme={theme}>
 	 	<Button 
 			className="Card__BarButton"
 			onClick={handleClick}
-			variant="contained" 
-			color={props.colour}
+			variant="contained"
 			size="large"
 		>
 		Bar
