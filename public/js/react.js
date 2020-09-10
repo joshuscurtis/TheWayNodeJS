@@ -36,7 +36,7 @@ const {
 } = React
 
 
-const blueTheme = createMuiTheme({ palette: { primary: green } })
+const redTheme = createMuiTheme({ palette: { primary: green } })
 
 function AlertDialog(props) {
 	const [open, setOpen] = React.useState(false);
