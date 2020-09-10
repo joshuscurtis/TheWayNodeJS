@@ -215,7 +215,7 @@ useEffect(() => {
 			onClick={handleClick}
 			variant="contained" 
 			size="large"
-			style={{backgroundColor: props.colour ? '#f0ad4e' : '#5cb85c',}}
+			style={{backgroundColor: props.colour ? '#5cb85c' : '#f50057',}}
 		>
 		Bar
 		</Button>
