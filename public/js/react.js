@@ -25,6 +25,7 @@ const {
   DialogContentText,
   DialogActions,
   MuiThemeProvider,
+  ThemeProvider,
   createMuiTheme,
   red,
   green,
@@ -214,7 +215,7 @@ useEffect(() => {
 	
 	
 	return (
-	<MuiThemeProvider theme={theme}>
+	<ThemeProvider theme={theme}>
 	 	<Button 
 			className="Card__BarButton"
 			onClick={handleClick}
@@ -224,7 +225,7 @@ useEffect(() => {
 		>
 		Bar
 		</Button>
-	</MuiThemeProvider>
+	</ThemeProvider>
 	);
 }
 
