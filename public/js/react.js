@@ -137,9 +137,9 @@ function CardApp(props) {
 	
 	//default button colours
 	var kitCol = "secondary"
-	var barCol = "secondary"
+	var barCol = false
 	if(props.assignee == "false") kitCol = "primary"
-	if(props.assignee2 == "false") barCol = "primary"
+	if(props.assignee2 == "false") barCol = true
 	
 	//create card title
 	var cardTitle = "Order: " + (props.orderid%99+1);
@@ -167,8 +167,6 @@ function CardApp(props) {
 		e.stopPropagation();
 	}
 	
-	
-	
   return (
       <div className={alert}>
 		<Card className="OrderCard__Main" onClick={handleClick} style={{backgroundColor: props.isprocessing ? '#f0ad4e' : '#5cb85c',}} variant="outlined">
@@ -190,7 +188,6 @@ function CardApp(props) {
   );
 }
 
-
 function BarButton(props){
 const [id, setId] = useState(0);
 //console.log(props.orderId)
@@ -204,12 +201,10 @@ useEffect(() => {
 	}
 }, []);
 
-	
  	const handleClick = e => {
 		e.stopPropagation();
 		updatePG(id, 'assignee2', false)
  	}
-	
 	
 	
 	
@@ -219,8 +214,8 @@ useEffect(() => {
 			className="Card__BarButton"
 			onClick={handleClick}
 			variant="contained" 
-			color={props.colour}
 			size="large"
+			style={{backgroundColor: props.colour ? '#f0ad4e' : '#5cb85c',}}
 		>
 		Bar
 		</Button>
@@ -258,7 +253,6 @@ useEffect(() => {
 		);
 }
 
-
 function ButtonAppBar() {
 
   return (
@@ -273,7 +267,6 @@ function ButtonAppBar() {
     </div>
   );
 }
-
 
 function TakeawayStream(props) {
 	var rows = [];
