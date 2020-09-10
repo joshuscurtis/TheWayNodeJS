@@ -111,6 +111,9 @@ function CardApp(props) {
 	const [timer, setTimer] = useState(timeCalc(props.time));
 	const [alert, setAlert] = useState("");
 	
+	
+	
+	
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -265,9 +268,10 @@ function ButtonAppBar() {
 function TakeawayStream(props) {
 	var rows = [];
 	var orders = props.orders;
+	
 //	console.log(orders);
 	for (var i = 0; i < orders.length; i++) {
-		if(orders[i].tablenum.substring(0,5) != "Table" && orders[i].isclosed != true){
+		if(orders[i].tablenum.substring(0,5) != "Table"){
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
 						order={orders[i]} 
@@ -297,7 +301,7 @@ function TableStream(props) {
 	var orders = props.orders;
 //	console.log(orders);
 	for (var i = 0; i < orders.length; i++) {
-		if(orders[i].tablenum.substring(0,5) == "Table" && orders[i].isclosed != true) {
+		if(orders[i].tablenum.substring(0,5) == "Table") {
     		rows.push(<CardApp 
 						orderid={orders[i].order_id}
 						order={orders[i]} 
