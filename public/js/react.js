@@ -24,6 +24,8 @@ const {
   DialogContent,
   DialogContentText,
   DialogActions,
+  makeStyles,
+  withStyles,
 } = MaterialUI;
 
 const {
@@ -32,26 +34,48 @@ const {
 } = React
 
 
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(purple[500]),
+    backgroundColor: purple[500],
+    '&:hover': {
+      backgroundColor: purple[700],
+    },
+  },
+}))(Button);
+
+const useStyles = makeStyles((theme) => ({
+  }));
+
+
+
+
+
+
+
+
+
+
+
+
 function AlertDialog(props) {
-  const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(false);
   
-const handleCloseOrder = e => {
-	e.stopPropagation();
-    setOpen(false);
-	updatePG(props.id, 'isclosed', true);
-};
-
-  const handleClickOpen = e => {
-	e.stopPropagation();
-    setOpen(true);
-  };
-
-  const handleClose = e => {
-	e.stopPropagation();
-    setOpen(false);
-  };
-
-  return (
+	const handleCloseOrder = e => {
+		e.stopPropagation();
+	    setOpen(false);
+		updatePG(props.id, 'isclosed', true);
+	};
+	const handleClickOpen = e => {
+		e.stopPropagation();
+	    setOpen(true);
+	};
+	const handleClose = e => {
+		e.stopPropagation();
+	    setOpen(false);
+	};
+	
+return (
     <div>
       <Button size="large" variant="contained" color="secondary" onClick={handleClickOpen}>
 		Close
@@ -181,6 +205,8 @@ function CardApp(props) {
 }
 
 
+
+
 function BarButton(props){
 const [id, setId] = useState(0);
 //console.log(props.orderId)
@@ -200,16 +226,17 @@ useEffect(() => {
 		updatePG(id, 'assignee2', false)
  	}
 	
+	
+	
+	
 	return (
-	 	<Button 
+	 	<ColorButton 
 			className="Card__BarButton"
 			onClick={handleClick}
-			variant="contained" 
-			color={props.colour}
 			size="large"
 		>
 		Bar
-		</Button>
+		</ColorButton>
 	);
 }
 
