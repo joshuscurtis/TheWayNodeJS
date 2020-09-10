@@ -26,6 +26,8 @@ const {
   DialogActions,
   makeStyles,
   withStyles,
+  purple,
+  green,
 } = MaterialUI;
 
 const {
