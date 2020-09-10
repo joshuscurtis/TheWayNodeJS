@@ -423,6 +423,7 @@ useEffect(() => {
 	
 	return () => {
 		console.log('stop socket')
+		socket.removeAllListeners();
 		socket.off('db');
 		socket.off('load');
 	}
