@@ -218,7 +218,8 @@ useEffect(() => {
 	 	<Button 
 			className="Card__BarButton"
 			onClick={handleClick}
-			variant="contained"
+			variant="contained" 
+			color={colour}
 			size="large"
 		>
 		Bar
