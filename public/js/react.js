@@ -402,10 +402,8 @@ function updatePG(id, column, value) {
 
 
 function App() {
-
 const socket = io();	
 const [orderData, setOrderData] = useState(0);
-
 
 useEffect(() => {
 	console.log('starting socketio...')
@@ -429,9 +427,7 @@ useEffect(() => {
 		socket.off('load');
 	}
 }, []);
-
-
-  return (
+return (
   <div style={{ margin: 0, }}>
   	 <ButtonAppBar/>
 		<Container className="App_Contents" maxWidth="lg">

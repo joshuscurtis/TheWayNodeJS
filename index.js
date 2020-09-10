@@ -1,7 +1,7 @@
 //env vars from heroku
 const PORT = process.env.PORT || 5000	
 const APIKEY = process.env.API
-const DBKEY = process.env.DB
+const DBKEY = process.env.DB 
 const connectionString = process.env.DATABASE_URL;
 const options3 = { /* ... */ };
 
@@ -164,7 +164,10 @@ function pingDb() {
 		dbNow = res.rows;
 		if(JSON.stringify(dbNow) != JSON.stringify(dbPrev)) changed = true;
 		dbPrev = dbNow;
-		if(changed) io.sockets.emit('db',{ db: res.rows});
+		if(changed) {
+			console.log("change detected pushing data...")
+			io.sockets.emit('db',{ db: res.rows});
+		}
 	})
 	theTime = Date.now();
 	setTimeout(pingDb, 500);
