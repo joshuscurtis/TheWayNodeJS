@@ -12,6 +12,12 @@
 	margin: 20px;
 }
 
+
+.OrderCard__Main:hover {
+	box-shadow: 0px 3px 10px #335;
+	margin: 20px;
+}
+
 .OrderCard__closeButton{
 	
 	
