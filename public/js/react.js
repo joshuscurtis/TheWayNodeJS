@@ -111,14 +111,11 @@ function CardApp(props) {
 	const [timer, setTimer] = useState(timeCalc(props.time));
 	const [alert, setAlert] = useState("");
 	
-	
-	
-	
 	//calc time
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTimer(timeCalc(props.time));
-			if(checkAlert(props.time, 60)) setAlert("flash");
+			if(checkAlert(props.time, 600)) setAlert("flash");
 		}, 1000);
 		return () => {
 			setTimer(timeCalc(props.time));
@@ -126,8 +123,6 @@ function CardApp(props) {
 			console.log("unmount")
 		}
 	},[]);
-	
-	
 	
 	
 	//default button colours
