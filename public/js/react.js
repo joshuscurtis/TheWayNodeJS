@@ -136,9 +136,9 @@ function CardApp(props) {
 	
 	
 	//default button colours
-	var kitCol = "secondary"
+	var kitCol = false
 	var barCol = false
-	if(props.assignee == "false") kitCol = "primary"
+	if(props.assignee == "false") kitCol = true
 	if(props.assignee2 == "false") barCol = true
 	
 	//create card title
@@ -245,7 +245,7 @@ useEffect(() => {
 			className="Card__KitButton"
 			onClick={handleClick}
 			variant="contained" 
-			color={props.colour}
+			style={{backgroundColor: props.colour ? '#5cb85c' : '#f50057',}}
 			size="large"
 		>
 		Kitchen
