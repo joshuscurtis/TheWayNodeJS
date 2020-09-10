@@ -24,38 +24,12 @@ const {
   DialogContent,
   DialogContentText,
   DialogActions,
-  makeStyles,
-  withStyles,
-  purple,
-  green,
 } = MaterialUI;
 
 const {
 	useState,
 	useEffect,
 } = React
-
-
-const ColorButton = withStyles((theme) => ({
-  root: {
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    '&:hover': {
-      backgroundColor: purple[700],
-    },
-  },
-}))(Button);
-
-const useStyles = makeStyles((theme) => ({
-  }));
-
-
-
-
-
-
-
-
 
 
 
@@ -207,8 +181,6 @@ function CardApp(props) {
 }
 
 
-
-
 function BarButton(props){
 const [id, setId] = useState(0);
 //console.log(props.orderId)
@@ -232,13 +204,15 @@ useEffect(() => {
 	
 	
 	return (
-	 	<ColorButton 
+	 	<Button 
 			className="Card__BarButton"
 			onClick={handleClick}
+			variant="contained" 
+			color={props.colour}
 			size="large"
 		>
 		Bar
-		</ColorButton>
+		</Button>
 	);
 }
 
