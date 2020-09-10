@@ -215,7 +215,7 @@ useEffect(() => {
 			onClick={handleClick}
 			variant="contained" 
 			size="large"
-			style={{backgroundColor: props.colour ? '#5cb85c' : '#f50057',}}
+			style={{backgroundColor: props.colour ? '#5cb85c' : '#f50057', colour:'white',}}
 		>
 		Bar
 		</Button>
@@ -245,7 +245,7 @@ useEffect(() => {
 			className="Card__KitButton"
 			onClick={handleClick}
 			variant="contained" 
-			style={{backgroundColor: props.colour ? '#5cb85c' : '#f50057',}}
+			style={{backgroundColor: props.colour ? '#5cb85c' : '#f50057', colour:'white',}}
 			size="large"
 		>
 		Kitchen
