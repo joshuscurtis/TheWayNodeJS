@@ -24,6 +24,10 @@ const {
   DialogContent,
   DialogContentText,
   DialogActions,
+  MuiThemeProvider,
+  createMuiTheme,
+  red,
+  green,
 } = MaterialUI;
 
 const {
@@ -32,7 +36,7 @@ const {
 } = React
 
 
-
+const blueTheme = createMuiTheme({ palette: { primary: green } })
 
 function AlertDialog(props) {
 	const [open, setOpen] = React.useState(false);
@@ -204,6 +208,8 @@ useEffect(() => {
 	
 	
 	return (
+
+	<MuiThemeProvider theme={redTheme}>
 	 	<Button 
 			className="Card__BarButton"
 			onClick={handleClick}
@@ -213,6 +219,7 @@ useEffect(() => {
 		>
 		Bar
 		</Button>
+	</MuiThemeProvider>
 	);
 }
 
