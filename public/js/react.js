@@ -61,16 +61,17 @@ return (
       <Button 
 	  	size="large" 
 		variant="contained" 
-	 	onClick={handleClickOpen}
-	>
+	 	onClick={handleClickOpen}>
 		Settings
       </Button>
+	  
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
       <DialogTitle id="alert-dialog-title">{"General Settings"}</DialogTitle>
+	  
       <DialogContent>
      		<DialogContentText id="alert-dialog-description">
 				Time before alert:
@@ -89,6 +90,7 @@ return (
 			    autoFocus>Close
             </Button>
         </DialogActions>
+		
       </Dialog>
     </div>
   );
