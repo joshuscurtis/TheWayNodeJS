@@ -55,7 +55,11 @@ const theme = createMuiTheme({
 		e.stopPropagation();
 	    setOpen(false);
 	};
-	
+
+	function valuetext(value) {
+  		return `${value}°C`;
+	}
+		
 return (
     <div>
       <Button 
@@ -76,6 +80,17 @@ return (
      		<DialogContentText id="alert-dialog-description">
 				Time before alert:
             </DialogContentText>
+			 <Slider
+		        defaultValue={10}
+		        getAriaValueText={valuetext}
+		        aria-labelledby="discrete-slider"
+		        valueLabelDisplay="auto"
+		        step={1}
+		        marks
+		        min={1}
+		        max={30}
+				/>
+			
 		    <DialogContentText id="alert-dialog-description">
 		    </DialogContentText>
 		    <DialogContentText id="alert-dialog-description">
