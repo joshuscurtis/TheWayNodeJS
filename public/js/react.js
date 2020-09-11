@@ -309,7 +309,7 @@ const [open, setOpen] = React.useState(false);
 			<Typography className="App__Title" align="center" variant="h4" component="h1">
 		    	iOrders
 			</Typography>
-			<Button className="App__settings" onClick={handleClick}color="inherit">Settings</Button>
+			<Button className="App__settings" onClick={handleClickOpen}color="inherit">Settings</Button>
 			<SettingsDialog open={open}/>
         </Toolbar>
       </AppBar>
