@@ -31,6 +31,19 @@
 	margin-top: 5px;
 }
 
+.App__Title {
+	margin-left: 43vw;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	display: flex;
+}
+
+.App__settings{
+ 	margin-left: auto;
+ 	order: 2;
+}
+
+
 .Stream__title {
 	text-align: center;
 }

@@ -259,15 +259,13 @@ function ButtonAppBar() {
 
   return (
     <div>
-      <AppBar position="fixed">
+      <AppBar className="AppBar__main" position="fixed">
         <Toolbar>
 			<img className="AppBar__logo" src="iorder.png" />
 			<Typography className="App__Title" align="center" variant="h4" component="h1">
 		    	iOrders
 			</Typography>
-			<Typography variant="h6" className="AppBar__settings">
-            Settings
-			</Typography>
+			<Button className="App__settings" color="inherit">Settings</Button>
         </Toolbar>
       </AppBar>
     </div>
