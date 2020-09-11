@@ -80,6 +80,9 @@ return (
           <DialogContentText id="alert-dialog-description">
 			Content
           </DialogContentText>
+		  <Typography className="App__Title" align="center" variant="h4" component="h1">
+		    	iOrders
+		</Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
