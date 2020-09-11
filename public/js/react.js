@@ -69,11 +69,10 @@ return (
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"iOrders Settings"}</DialogTitle>
-        <DialogContent>
-        	<DialogContentText id="alert-dialog-description">
+        aria-describedby="alert-dialog-description">
+      <DialogTitle id="alert-dialog-title">{"General Settings"}</DialogTitle>
+      <DialogContent>
+     		<DialogContentText id="alert-dialog-description">
 				Time before alert:
             </DialogContentText>
 		    <DialogContentText id="alert-dialog-description">
