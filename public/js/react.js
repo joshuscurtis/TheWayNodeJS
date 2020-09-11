@@ -44,47 +44,57 @@ const theme = createMuiTheme({
   },
   });
 
- function SettingsDialog(props){
-	 const [open, setOpen] = React.useState(false);
-	 useEffect(() => {
-		setOpen(props.open)
-		return () => {
-			console.log('return block')
-	
-		}
-	}, []);
-
-	 
-	 const handleClose = e => {
+ function SettingsDialog(props) {
+	const [open, setOpen] = React.useState(false);
+  
+	const handleCloseOrder = e => {
 		e.stopPropagation();
 	    setOpen(false);
 	};
-	 
-return(
+	const handleClickOpen = e => {
+		e.stopPropagation();
+	    setOpen(true);
+	};
+	const handleClose = e => {
+		e.stopPropagation();
+	    setOpen(false);
+	};
+	
+return (
+    <div>
+      <Button 
+	  	size="large" 
+		variant="contained" 
+	 	onClick={handleClickOpen}
+	>
+		Close
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Are you sure you want to close this order?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"iOrders Settings"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-		  	Once the order has been served, close the order.
+			Content
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
 			Cancel
           </Button>
-          <Button className="OrderCard__closeButton" onClick={handleClose}
+          <Button className="OrderCard__closeButton" onClick={handleCloseOrder}
 		 	  color="primary"
 			  autoFocus>
             Close Order
           </Button>
         </DialogActions>
-		</Dialog> 
-  )}
+      </Dialog>
+    </div>
+  );
+}
   
   
   
@@ -314,7 +324,7 @@ const [open, setOpen] = React.useState(false);
 		    	iOrders
 			</Typography>
 			<Button className="App__settings" onClick={handleClickOpen}color="inherit">Settings</Button>
-			<AlertDialog close={open}/>
+			<SettingsDialog close={open}/>
         </Toolbar>
       </AppBar>
     </div>
