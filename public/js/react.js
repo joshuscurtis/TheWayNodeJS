@@ -90,7 +90,7 @@ return (
 				Time before alert:
             </DialogContentText>
 			 <Slider
-		        defaultValue={value}
+		        defaultValue={alertValue}
 		        getAriaValueText={valuetext}
 		        aria-labelledby="discrete-slider"
 		        valueLabelDisplay="auto"
@@ -98,7 +98,7 @@ return (
 		        min={1}
 		        max={30}
 				onChange={handleChange}
-				value={value}
+				value={alertValue}
 				/>
 		    <DialogContentText id="alert-dialog-description">
 		    </DialogContentText>
