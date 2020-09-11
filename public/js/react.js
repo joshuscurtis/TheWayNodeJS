@@ -80,9 +80,9 @@ return (
           <DialogContentText id="alert-dialog-description">
 			Content
           </DialogContentText>
-		  <Typography className="App__Title" align="center" variant="h4" component="h1">
-		    	iOrders
-		</Typography>
+		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting one</Typography>
+		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting two</Typography>
+		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting three</Typography>
         </DialogContent>
         <DialogActions>
           <Button 
@@ -90,7 +90,7 @@ return (
 			  onClick={handleCloseOrder}
 		 	  color="primary"
 			  autoFocus>
-            Settings
+            Close
           </Button>
         </DialogActions>
       </Dialog>
