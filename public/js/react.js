@@ -74,13 +74,11 @@ return (
         <DialogTitle id="alert-dialog-title">{"iOrders Settings"}</DialogTitle>
         <DialogContent>
         	<DialogContentText id="alert-dialog-description">
-				Setting one
+				Time before alert:
             </DialogContentText>
 		    <DialogContentText id="alert-dialog-description">
-				Setting two
 		    </DialogContentText>
 		    <DialogContentText id="alert-dialog-description">
-				Setting three
 		    </DialogContentText>
         </DialogContent>
 		
