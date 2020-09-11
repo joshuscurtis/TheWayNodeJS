@@ -26,6 +26,7 @@ const {
   DialogActions,
   MuiThemeProvider,
   createMuiTheme,
+  Slider,
   red,
   green,
 } = MaterialUI;
