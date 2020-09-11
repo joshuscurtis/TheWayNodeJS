@@ -44,6 +44,44 @@ const theme = createMuiTheme({
   },
   });
 
+ function SettingsDialog(props){
+	 const [open, setOpen] = React.useState(false);
+ 
+	 setOpen(props.open)
+	 
+	 const handleClose = e => {
+		e.stopPropagation();
+	    setOpen(false);
+	};
+	 
+returns (
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Are you sure you want to close this order?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+		  	Once the order has been served, close the order.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+			Cancel
+          </Button>
+          <Button className="OrderCard__closeButton" onClick={handleClose}
+		 	  color="primary"
+			  autoFocus>
+            Close Order
+          </Button>
+        </DialogActions>
+		</Dialog> 
+  )}
+  
+  
+  
 function AlertDialog(props) {
 	const [open, setOpen] = React.useState(false);
   
@@ -256,7 +294,13 @@ useEffect(() => {
 }
 
 function ButtonAppBar() {
-
+const [open, setOpen] = React.useState(false);
+	const handleClickOpen = e => {
+		e.stopPropagation();
+	    setOpen(true);
+	};
+	
+	
   return (
     <div>
       <AppBar position="fixed">
@@ -265,7 +309,8 @@ function ButtonAppBar() {
 			<Typography className="App__Title" align="center" variant="h4" component="h1">
 		    	iOrders
 			</Typography>
-			<Button className="App__settings" color="inherit">Settings</Button>
+			<Button className="App__settings" onClick={handleClick}color="inherit">Settings</Button>
+			<SettingsDialog open={open}/>
         </Toolbar>
       </AppBar>
     </div>
