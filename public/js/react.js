@@ -46,8 +46,15 @@ const theme = createMuiTheme({
 
  function SettingsDialog(props){
 	 const [open, setOpen] = React.useState(false);
- 
-	 setOpen(props.open)
+	 
+	 useEffect(() => {
+		setOpen(props.open)
+		return () => {
+			console.log('return block')
+	
+		}
+	}, []);
+
 	 
 	 const handleClose = e => {
 		e.stopPropagation();
@@ -298,9 +305,7 @@ const [open, setOpen] = React.useState(false);
 	const handleClickOpen = e => {
 		e.stopPropagation();
 	    setOpen(true);
-	};
-	
-	
+	};	
   return (
     <div>
       <AppBar position="fixed">
