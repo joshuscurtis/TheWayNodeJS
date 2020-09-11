@@ -51,7 +51,14 @@ const theme = createMuiTheme({
 		e.stopPropagation();
 	    setOpen(false);
 	};
-	 
+	 useEffect(() => {
+		 setOpen(props.opened)
+		return () => {
+			console.log("unmount")
+		}
+		},[]);
+
+	
 return(
       <Dialog
         open={open}
