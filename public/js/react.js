@@ -47,7 +47,9 @@ const theme = createMuiTheme({
 
  function SettingsDialog(props) {
 	const [open, setOpen] = React.useState(false);
-  
+	const [alertValue, setAlertValue] = React.useState(10);
+
+	
 	const handleClickOpen = e => {
 		e.stopPropagation();
 	    setOpen(true);
@@ -60,7 +62,13 @@ const theme = createMuiTheme({
 	function valuetext(value) {
   		return `${value}°C`;
 	}
-		
+	
+	const handleChange = (event, newValue) => {
+	    setAlertValue(newValue);
+		console.log(alertValue);
+	};
+
+	
 return (
     <div>
       <Button 
@@ -82,16 +90,16 @@ return (
 				Time before alert:
             </DialogContentText>
 			 <Slider
-		        defaultValue={10}
+		        defaultValue={value}
 		        getAriaValueText={valuetext}
 		        aria-labelledby="discrete-slider"
 		        valueLabelDisplay="auto"
 		        step={1}
-		        marks
 		        min={1}
 		        max={30}
+				onChange={handleChange}
+				value={value}
 				/>
-			
 		    <DialogContentText id="alert-dialog-description">
 		    </DialogContentText>
 		    <DialogContentText id="alert-dialog-description">
@@ -130,6 +138,8 @@ function AlertDialog(props) {
 		e.stopPropagation();
 	    setOpen(false);
 	};
+	
+
 	
 return (
     <div>
