@@ -45,20 +45,21 @@ const theme = createMuiTheme({
   });
 
  function SettingsDialog(props){
-	 const [open, setOpen] = React.useState(props.opened);
+	 const [open, setOpen] = React.useState(false);
+	 useEffect(() => {
+		setOpen(props.open)
+		return () => {
+			console.log('return block')
+	
+		}
+	}, []);
+
 	 
 	 const handleClose = e => {
 		e.stopPropagation();
 	    setOpen(false);
 	};
-	 useEffect(() => {
-		 setOpen(props.opened)
-		return () => {
-			console.log("unmount")
-		}
-		},[]);
-
-	
+	 
 return(
       <Dialog
         open={open}
@@ -110,7 +111,7 @@ return (
 		Close
       </Button>
       <Dialog
-        open={props.opened}
+        open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
@@ -313,7 +314,7 @@ const [open, setOpen] = React.useState(false);
 		    	iOrders
 			</Typography>
 			<Button className="App__settings" onClick={handleClickOpen}color="inherit">Settings</Button>
-			<SettingsDialog opened={open}/>
+			<SettingsDialog open={open}/>
         </Toolbar>
       </AppBar>
     </div>
