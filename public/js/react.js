@@ -54,7 +54,7 @@ const theme = createMuiTheme({
 	    setOpen(false);
 	};
 	 
-returns (
+return(
       <Dialog
         open={open}
         onClose={handleClose}
