@@ -88,7 +88,7 @@ return (
           <Button className="OrderCard__closeButton" onClick={handleCloseOrder}
 		 	  color="primary"
 			  autoFocus>
-            Close Order
+            Close
           </Button>
         </DialogActions>
       </Dialog>
@@ -310,11 +310,7 @@ useEffect(() => {
 }
 
 function ButtonAppBar() {
-const [open, setOpen] = React.useState(false);
-	const handleClickOpen = e => {
-		e.stopPropagation();
-	    setOpen(true);
-	};	
+
   return (
     <div>
       <AppBar position="fixed">
@@ -323,8 +319,7 @@ const [open, setOpen] = React.useState(false);
 			<Typography className="App__Title" align="center" variant="h4" component="h1">
 		    	iOrders
 			</Typography>
-			<Button className="App__settings" onClick={handleClickOpen}color="inherit">Settings</Button>
-			<SettingsDialog close={open}/>
+			<SettingsDialog/>
         </Toolbar>
       </AppBar>
     </div>
