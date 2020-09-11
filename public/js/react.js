@@ -47,10 +47,6 @@ const theme = createMuiTheme({
  function SettingsDialog(props) {
 	const [open, setOpen] = React.useState(false);
   
-	const handleCloseOrder = e => {
-		e.stopPropagation();
-	    setOpen(false);
-	};
 	const handleClickOpen = e => {
 		e.stopPropagation();
 	    setOpen(true);
@@ -77,19 +73,20 @@ return (
       >
         <DialogTitle id="alert-dialog-title">{"iOrders Settings"}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-			Setting one
-			Setting two
-			Setting three
-          </DialogContentText>
-		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting one</Typography>
-		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting two</Typography>
-		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting three</Typography>
+        	<DialogContentText id="alert-dialog-description">
+				Setting one
+            </DialogContentText>
+		    <DialogContentText id="alert-dialog-description">
+				Setting two
+		    </DialogContentText>
+		    <DialogContentText id="alert-dialog-description">
+				Setting three
+		    </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button 
 		  	  className="OrderCard__closeButton" 
-			  onClick={handleCloseOrder}
+			  onClick={handleClose}
 		 	  color="primary"
 			  autoFocus>
             Close
