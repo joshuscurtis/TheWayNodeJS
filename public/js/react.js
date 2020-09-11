@@ -262,8 +262,11 @@ function ButtonAppBar() {
       <AppBar position="fixed">
         <Toolbar>
 			<img className="AppBar__logo" src="iorder.png" />
-			<Typography className="App__Title" align="center" variant="h4" component="h1" gutterBottom>
+			<Typography className="App__Title" align="center" variant="h4" component="h1">
 		    	iOrders
+			</Typography>
+			<Typography variant="h6" className="AppBar__settings">
+            Settings
 			</Typography>
         </Toolbar>
       </AppBar>
