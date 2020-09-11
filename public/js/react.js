@@ -67,7 +67,7 @@ return (
 		variant="contained" 
 	 	onClick={handleClickOpen}
 	>
-		Close
+		Settings
       </Button>
       <Dialog
         open={open}
