@@ -45,17 +45,15 @@ const theme = createMuiTheme({
   });
 
  function SettingsDialog(props){
-	 const [open, setOpen] = React.useState(false);
+	 const [open, setOpen] = React.useState(props.opened);
 	 
 	 useEffect(() => {
-		setOpen(props.open)
+		setOpen(props.opened)
 		return () => {
 			console.log('return block')
-	
 		}
 	}, []);
 
-	 
 	 const handleClose = e => {
 		e.stopPropagation();
 	    setOpen(false);
@@ -315,7 +313,7 @@ const [open, setOpen] = React.useState(false);
 		    	iOrders
 			</Typography>
 			<Button className="App__settings" onClick={handleClickOpen}color="inherit">Settings</Button>
-			<SettingsDialog open={open}/>
+			<SettingsDialog opened={open}/>
         </Toolbar>
       </AppBar>
     </div>
