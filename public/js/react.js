@@ -83,14 +83,14 @@ return (
 				Setting three
 		    </DialogContentText>
         </DialogContent>
+		
         <DialogActions>
-          <Button 
-		  	  className="OrderCard__closeButton" 
-			  onClick={handleClose}
-		 	  color="primary"
-			  autoFocus>
-            Close
-          </Button>
+        	<Button 
+		  		className="OrderCard__closeButton" 
+			    onClick={handleClose}
+		 	    color="primary"
+			    autoFocus>Close
+            </Button>
         </DialogActions>
       </Dialog>
     </div>
