@@ -47,13 +47,6 @@ const theme = createMuiTheme({
  function SettingsDialog(props){
 	 const [open, setOpen] = React.useState(props.opened);
 	 
-	 useEffect(() => {
-		setOpen(props.opened)
-		return () => {
-			console.log('return block')
-		}
-	}, []);
-
 	 const handleClose = e => {
 		e.stopPropagation();
 	    setOpen(false);
