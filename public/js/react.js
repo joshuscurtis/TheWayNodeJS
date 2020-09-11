@@ -78,7 +78,9 @@ return (
         <DialogTitle id="alert-dialog-title">{"iOrders Settings"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-			Content
+			Setting one
+			Setting two
+			Setting three
           </DialogContentText>
 		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting one</Typography>
 		  <Typography className="Settings__line" align="center" variant="p" component="p">Setting two</Typography>
