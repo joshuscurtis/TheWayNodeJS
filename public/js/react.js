@@ -88,7 +88,7 @@ return (
           <Button className="OrderCard__closeButton" onClick={handleCloseOrder}
 		 	  color="primary"
 			  autoFocus>
-            Close
+            Settings
           </Button>
         </DialogActions>
       </Dialog>
