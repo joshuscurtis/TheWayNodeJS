@@ -85,10 +85,9 @@ return (
 		</Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-			Cancel
-          </Button>
-          <Button className="OrderCard__closeButton" onClick={handleCloseOrder}
+          <Button 
+		  	  className="OrderCard__closeButton" 
+			  onClick={handleCloseOrder}
 		 	  color="primary"
 			  autoFocus>
             Settings
