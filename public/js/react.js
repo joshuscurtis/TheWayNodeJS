@@ -314,7 +314,7 @@ const [open, setOpen] = React.useState(false);
 		    	iOrders
 			</Typography>
 			<Button className="App__settings" onClick={handleClickOpen}color="inherit">Settings</Button>
-			<SettingsDialog open={open}/>
+			<AlertDialog close={open}/>
         </Toolbar>
       </AppBar>
     </div>
