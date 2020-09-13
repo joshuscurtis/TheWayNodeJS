@@ -37,6 +37,7 @@ const {
 } = React
 
 
+
 const theme = createMuiTheme({
   palette: {
     primary: green,
@@ -104,6 +105,12 @@ return (
 		    </DialogContentText>
 		    <DialogContentText id="alert-dialog-description">
 		    </DialogContentText>
+			<Button 
+			  	size="large" 
+				variant="contained" 
+			 	>
+				Dashboard
+			</Button>
         </DialogContent>
 		
         <DialogActions>
@@ -119,7 +126,17 @@ return (
     </div>
   );
 }
-  
+
+
+function checkAlert(createdTime, alertAfter) {
+	var timeNow = Date.now();
+	var timeOpen = timeNow - createdTime;
+	timeOpen = new Date(timeOpen);
+	timeOpen = timeOpen/1000
+	if(timeOpen > alertAfter) return true
+	else return false
+}
+
   
   
 function AlertDialog(props) {
@@ -181,14 +198,6 @@ function timeCalc(createdTime) {
 	return (timeOpenStr);
 }
 
-function checkAlert(createdTime, alertAfter) {
-	var timeNow = Date.now();
-	var timeOpen = timeNow - createdTime;
-	timeOpen = new Date(timeOpen);
-	timeOpen = timeOpen/1000
-	if(timeOpen > alertAfter) return true
-	else return false
-}
 
 
 function CardApp(props) {
